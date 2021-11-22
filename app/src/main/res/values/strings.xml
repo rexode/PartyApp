@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PartyApp</string>
+
+    <string name="sign_up"><u><i>Sign up</i></u></string>
 </resources>
