@@ -2,12 +2,8 @@
 
 <!--********************************************************************************************************
 
-This screen displays all already created partys
-clicking on the button will pop up the enter_partyinfo_fragment.xml
-letting the user create a new party
-
-you can also click on a party (which is a button element)
--> you will then be forwared to the party_layout.xml
+This works just like the party.xml
+for adding participants
 
 ********************************************************************************************************-->
 
@@ -15,16 +11,20 @@ you can also click on a party (which is a button element)
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="40dp"
+    android:paddingStart="4dp"
+    android:paddingEnd="4dp">
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview"
+    <TextView
+        android:id="@+id/textView_participant1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:text="participant1"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
