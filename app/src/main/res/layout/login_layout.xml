@@ -13,71 +13,97 @@ if no account -> click on signup
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/m_light_grey">
+    >
 
 
-    <TextView
-        android:id="@+id/textView_login"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_marginTop="-270dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="80dp"
-        android:text="Login:"
-        android:textSize="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <EditText
-        android:id="@+id/textview_name"
-        android:layout_width="match_parent"
-        android:layout_height="62dp"
-        android:layout_margin="20dp"
-        android:layout_marginTop="100dp"
-        android:background="@drawable/edittext_background"
-        android:drawableStart="@drawable/ic_person"
-        android:elevation="6dp"
-        android:hint="Name"
-        android:inputType="text"
-        android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_login" />
-
-    <EditText
-        android:id="@+id/textview_password"
-        android:layout_width="match_parent"
-        android:layout_height="62dp"
-        android:layout_margin="20dp"
-        android:layout_marginTop="72dp"
-        android:background="@drawable/edittext_background"
-        android:drawableStart="@drawable/ic_key"
-        android:elevation="6dp"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:padding="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_name" />
-
-    <Button
-        android:id="@+id/button_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
-        android:layout_marginEnd="40dp"
-        android:text="Login"
-        android:textColor="@color/blueSoft"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_password"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/party" />
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:background="@color/white"
+        android:elevation="16dp"
+        android:layout_width="350dp"
+        android:layout_height="390dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="10dp">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.733">
+
+        <TextView
+            android:letterSpacing="0.2"
+            android:textStyle="bold"
+            android:id="@+id/textView_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:text="LOGIN:"
+            android:textSize="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <EditText
+            android:id="@+id/textview_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/edittext_background"
+            android:drawableStart="@drawable/ic_person"
+            android:elevation="6dp"
+            android:hint="Name"
+            android:inputType="text" />
+
+
+        <EditText
+            android:id="@+id/textview_password"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:drawablePadding="4dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edittext_background"
+            android:drawableStart="@drawable/ic_key"
+            android:elevation="6dp"
+            android:hint="Password"
+            android:inputType="textPassword" />
+
+
+        <Button
+
+            android:id="@+id/button_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="85dp"
+            android:text="Login"
+            android:background="@drawable/edittext_background"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:letterSpacing="0.3"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
 
         <TextView
@@ -86,20 +112,20 @@ if no account -> click on signup
             android:layout_height="wrap_content"
             android:text="Don't have an account?"
             android:textColor="@color/blueSecond"
-            android:textSize="15dp"
-            />
+            android:textSize="15dp" />
 
         <Button
-            android:layout_marginLeft="-18dp"
             android:id="@+id/button_signup"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="-18dp"
             android:text="@string/sign_up"
             android:textAllCaps="false"
             android:textColor="@color/blueSecond"
-            android:textSize="15dp"
-            />
+            android:textSize="15dp" />
     </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
