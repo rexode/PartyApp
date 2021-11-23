@@ -26,6 +26,7 @@ clicking on signup button forwards you to the all_partys_layout.xml
         app:layout_constraintTop_toTopOf="parent"/>
 
     <EditText
+        android:inputType="text"
         android:id="@+id/textview_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,6 +38,7 @@ clicking on signup button forwards you to the all_partys_layout.xml
         app:layout_constraintTop_toBottomOf="@+id/textView_signup" />
 
     <EditText
+        android:inputType="textEmailAddress"
         android:id="@+id/textview_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,6 +50,7 @@ clicking on signup button forwards you to the all_partys_layout.xml
         app:layout_constraintTop_toBottomOf="@+id/textview_password" />
 
     <EditText
+        android:inputType="textPassword"
         android:id="@+id/textview_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

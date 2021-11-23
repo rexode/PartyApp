@@ -13,4 +13,23 @@
     <color name="blueSoft">#EAEFF9</color>
     <color name="silver">#9F9F9F</color>
 
+
+
+    <!-- colors to match google maps -->
+
+    <color name="m_light_grey">#e9eaee</color>
+    <color name="m_dark_grey">#8a8c90</color>
+    <color name="m_babyblue">#a0bff7</color>
+    <color name="m_blue">#1a74e9</color>
+    <color name="m_light_green">#b4dfc2</color>
+    <color name="m_green">#1a8419</color>
+    <color name="m_dark_green">#0d4d0d</color>
+    <color name="m_brown">#c58a44</color>
+    <color name="m_orange">#f7be03</color>
+    <color name="m_red">#e94134</color>
+
+
+
+
+
 </resources>
