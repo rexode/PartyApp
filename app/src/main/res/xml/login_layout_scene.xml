@@ -4,16 +4,12 @@
     xmlns:motion="http://schemas.android.com/apk/res-auto">
 
     <Transition
-        motion:constraintSetEnd="@+id/end"
-        motion:constraintSetStart="@id/start"
-        motion:duration="1000">
-       <KeyFrameSet>
-       </KeyFrameSet>
+        motion:constraintSetEnd="@layout/login_after_layout"
+        motion:constraintSetStart="@layout/login_before_layout">
+        <OnClick
+            motion:targetId="@+id/button_createAcc"
+            motion:clickAction="transitionToEnd"/>
+        />
     </Transition>
 
-    <ConstraintSet android:id="@+id/start">
-    </ConstraintSet>
-
-    <ConstraintSet android:id="@+id/end">
-    </ConstraintSet>
 </MotionScene>
