@@ -17,25 +17,33 @@ Fragment lets you enter party info, to create a new party
         android:layout_width="350dp"
         android:layout_height="440dp"
         android:layout_marginTop="52dp"
-        android:background="@color/blueSoft"
+        android:background="@drawable/flags_background"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="20dp"
+         >
 
 
         <EditText
+
+            android:fontFamily="@font/msemibold"
+            android:textColorHint="@color/m_dark_blue"
             android:id="@+id/textedit_party_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter party name"
+            android:hint="Party-name"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="40dp"
             android:layout_marginBottom="50dp"/>
 
         <EditText
+
+            android:fontFamily="@font/msemibold"
+            android:textColorHint="@color/m_dark_blue"
             android:id="@+id/textedit_party_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,6 +53,8 @@ Fragment lets you enter party info, to create a new party
             android:hint="Time" />
 
         <EditText
+            android:textColorHint="@color/m_dark_blue"
+            android:fontFamily="@font/msemibold"
             android:id="@+id/textedit_party_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,6 +63,8 @@ Fragment lets you enter party info, to create a new party
             android:hint="Location" />
 
         <EditText
+            android:textColorHint="@color/m_dark_blue"
+            android:fontFamily="@font/msemibold"
             android:id="@+id/textedit_party_additionalInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -62,11 +74,14 @@ Fragment lets you enter party info, to create a new party
             android:hint="Additional info" />
 
         <Button
+            android:background="@drawable/edittext_background"
             android:id="@+id/button_done"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Done"
-            android:textColor="@color/blueSoft"
+            android:fontFamily="@font/mmedium"
+            android:letterSpacing="0.2"
+            android:textColor="@color/white"
             android:layout_marginTop="60dp"
             android:layout_marginStart="240dp"/>
 
