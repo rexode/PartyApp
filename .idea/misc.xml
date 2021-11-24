@@ -19,6 +19,8 @@
         <entry key="app/src/main/res/layout/enter_name_fragment.xml" value="0.3645833333333333" />
         <entry key="app/src/main/res/layout/enter_partyinfo_fragment.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.1469387755102041" />
+        <entry key="app/src/main/res/layout/login_after_layout.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/login_before_layout.xml" value="0.12537993920972645" />
         <entry key="app/src/main/res/layout/login_layout.xml" value="0.25" />
         <entry key="app/src/main/res/layout/participant_textview.xml" value="0.3645833333333333" />
         <entry key="app/src/main/res/layout/party.xml" value="0.22780797101449277" />
