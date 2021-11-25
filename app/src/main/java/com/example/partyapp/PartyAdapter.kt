@@ -18,7 +18,7 @@ class PartyAdapter(val context : Context, val Parties :ArrayList<Party>) :Recycl
     override fun onBindViewHolder(holder: PartyViewHolder, position: Int) {
         val Party = Parties[position]
 
-        holder.textName.text=Party.title
+        //holder.textName.text=Party.title
     }
 
     override fun getItemCount(): Int {
