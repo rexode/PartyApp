@@ -8,11 +8,13 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.database.ktx.database
+import kotlinx.android.synthetic.main.all_partys_layout.*
 import kotlinx.android.synthetic.main.login_layout.*
 import java.util.*
 
@@ -21,10 +23,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.login_layout)
+        setContentView(R.layout.all_partys_layout)
 
 
         /**
+         * test
         val LogInbutton=findViewById<Button>(R.id.button_login)
         val SignUpButton=findViewById<Button>(R.id.button_createAcc)
         var editTextEmail = findViewById<EditText>(R.id.textview_email)
