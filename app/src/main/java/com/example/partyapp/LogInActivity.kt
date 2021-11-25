@@ -41,7 +41,8 @@ class LogInActivity : AppCompatActivity() {
                 login(email, password)
             }
         }
-        button_createAcc.setOnClickListener{
+
+        button_createNewAcc.setOnClickListener{
             var intent= Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }

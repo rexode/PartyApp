@@ -20,29 +20,25 @@ class SignUp : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signup_layout)
-        val SignUpButton=findViewById<Button>(R.id.button_createAcc)
-        var editTextPassword = findViewById<EditText>(R.id.textview_password)
-        var editSecondPassword = findViewById<EditText>(R.id.textview_confirm_password)
 
-        var editTextEmail= findViewById<EditText>(R.id.textview_email)
 
-        SignUpButton.setOnClickListener {
+        button_createAcc.setOnClickListener {
             when{
-                TextUtils.isEmpty(editTextEmail.text.toString().trim{it<=' '})->{
+                TextUtils.isEmpty(textview_email.text.toString().trim{it<=' '})->{
                     Toast.makeText(
                         this,
                         "Please enter email",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-                TextUtils.isEmpty(editTextPassword.text.toString().trim{it<=' '})->{
+                TextUtils.isEmpty(textview_password.text.toString().trim{it<=' '})->{
                     Toast.makeText(
                         this,
                         "Please enter Password",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-                !editTextPassword.text.toString().equals(editSecondPassword.text.toString())->{
+                !textview_password.text.toString().equals(textview_confirm_password.text.toString())->{
                     Toast.makeText(
                         this,
                         "Confirm Password in incorrect",
@@ -50,8 +46,8 @@ class SignUp : AppCompatActivity() {
                     ).show()
                 }
                 else->{
-                    val email=editTextEmail.text.toString().trim{it<= ' '}
-                    val password=editTextPassword.text.toString().trim{it<= ' '}
+                    val email=textview_email.text.toString().trim{it<= ' '}
+                    val password=textview_password.text.toString().trim{it<= ' '}
 
                     FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,password)
                         .addOnCompleteListener { task ->

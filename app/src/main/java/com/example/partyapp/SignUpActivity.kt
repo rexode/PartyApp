@@ -3,10 +3,7 @@ package com.example.partyapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
-import kotlinx.android.synthetic.main.signup_layout_animated.*
+import kotlinx.android.synthetic.main.login_layout.*
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -19,7 +16,7 @@ class SignUpActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.signup_layout_animated)
+        setContentView(R.layout.signup_layout)
 
         /**
         edtPassword=findViewById(R.id.textview_email)
@@ -27,7 +24,7 @@ class SignUpActivity : AppCompatActivity() {
         SignUpButton=findViewById(R.id.button_createAcc)
         */
 
-        button_createAcc.setOnClickListener{
+        button_createNewAcc.setOnClickListener{
             var intent= Intent(this,MainActivity :: class.java)
             startActivity(intent)
             SignUp(textview_password.text.toString(),textview_email.text.toString())
