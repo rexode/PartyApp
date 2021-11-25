@@ -19,26 +19,26 @@
 
 
         <TextView
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="10dp"
+            android:id="@+id/prueba"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Please enter your Name"
-            android:textSize="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/msemibold"
+            android:text="Please enter your Name"
             android:textColor="@color/blueSecond"
-            />
+            android:textSize="20dp" />
 
         <EditText
-            android:fontFamily="@font/msemibold"
-            android:textColorHint="@color/m_dark_blue"
+            android:id="@+id/name_editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"
-            android:hint="Name Surename"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
-            />
+            android:fontFamily="@font/msemibold"
+            android:hint="Name Surename"
+            android:textColorHint="@color/m_dark_blue" />
 
         <Button
             android:id="@+id/button_done"

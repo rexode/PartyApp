@@ -1,8 +1,11 @@
 package com.example.partyapp
 
-data class Party(
-    val title: String,
-    val time :String,
-    val location : String,
-    val AdditionalInfo : String
-    )
+class Party(var name :String?=null,var location:String?=null) {
+    var uid: String? = null // Unique note's key from database
+
+    fun toMap(): Map<String, Any?> {
+        return mapOf(
+            "name" to name,
+            "location" to location
+        )
+}}
