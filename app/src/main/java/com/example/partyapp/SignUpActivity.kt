@@ -6,31 +6,35 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import kotlinx.android.synthetic.main.signup_layout_animated.*
 
 class SignUpActivity : AppCompatActivity() {
 
-    lateinit var edtName : EditText
+    /**
+    lateinit var edtName :
     lateinit var edtPassword: EditText
     lateinit var edtEmail : EditText
     lateinit var SignUpButton : Button
+    */
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.signup_layout)
+        setContentView(R.layout.signup_layout_animated)
 
-        edtName=findViewById(R.id.textview_name)
+        /**
         edtPassword=findViewById(R.id.textview_email)
         edtEmail=findViewById(R.id.textview_password)
-        SignUpButton=findViewById(R.id.button_signup)
+        SignUpButton=findViewById(R.id.button_createAcc)
+        */
 
-        SignUpButton.setOnClickListener{
+        button_createAcc.setOnClickListener{
             var intent= Intent(this,MainActivity :: class.java)
             startActivity(intent)
-            SignUp(edtName.text.toString(),edtPassword.text.toString(),edtEmail.text.toString())
+            SignUp(textview_password.text.toString(),textview_email.text.toString())
         }
     }
 
-    private fun SignUp(name:String,email:String,password:String){
+    private fun SignUp(email:String,password:String){
 
     }
 
