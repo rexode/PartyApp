@@ -2,6 +2,7 @@ package com.example.partyapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.enter_name_fragment.*
 import kotlinx.android.synthetic.main.enter_name_fragment.button_done

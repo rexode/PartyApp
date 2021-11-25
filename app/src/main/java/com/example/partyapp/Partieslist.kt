@@ -9,5 +9,13 @@ class Partieslist : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.all_partys_layout)
 
+        button_add_party.setOnClickListener {
+            var dialog = PartyInfoDialogFragment()
+            dialog.show(supportFragmentManager, "customDialog")
+        }
+
+
+
     }
+
 }
