@@ -23,11 +23,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_layout)
 
-        // val LogInbutton=findViewById<Button>(R.id.button_login)
-        // val SignUpButton=findViewById<Button>(R.id.button_createAcc)
-        // var editTextEmail = findViewById<EditText>(R.id.textview_email)
-        // var editTextPassword = findViewById<EditText>(R.id.textview_password)
-        // val intent = Intent(this, SignUp::class.java)
+         val LogInbutton=findViewById<Button>(R.id.button_login)
+         val SignUpButton=findViewById<Button>(R.id.button_createAcc)
+         var editTextEmail = findViewById<EditText>(R.id.textview_email)
+         var editTextPassword = findViewById<EditText>(R.id.textview_password)
+         val intent = Intent(this, SignUp::class.java)
 
 
 
