@@ -1,5 +1,5 @@
 package com.example.partyapp
 
-data class User(val name: String?=null,val password: String?=null,val email: String?=null) {
+data class User(val id: String?=null,val name:String?=null) {
 
 }

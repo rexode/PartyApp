@@ -20,9 +20,10 @@ class SignUp : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signup_layout)
-        val SignUpButton=findViewById<Button>(R.id.button_signup)
-        var editTextName = findViewById<EditText>(R.id.textview_name)
+        val SignUpButton=findViewById<Button>(R.id.button_createAcc)
         var editTextPassword = findViewById<EditText>(R.id.textview_password)
+        var editSecondPassword = findViewById<EditText>(R.id.textview_confirm_password)
+
         var editTextEmail= findViewById<EditText>(R.id.textview_email)
 
         SignUpButton.setOnClickListener {
@@ -41,6 +42,13 @@ class SignUp : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+                !editTextPassword.text.toString().equals(editSecondPassword.text.toString())->{
+                    Toast.makeText(
+                        this,
+                        "Confirm Password in incorrect",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
                 else->{
                     val email=editTextEmail.text.toString().trim{it<= ' '}
                     val password=editTextPassword.text.toString().trim{it<= ' '}
@@ -56,7 +64,8 @@ class SignUp : AppCompatActivity() {
                                     Toast.LENGTH_SHORT
                                 ).show()
 
-                                val intent = Intent(this, MainActivity::class.java)
+                                val intent = Intent(this, NameCreating::class.java)
+                                intent.putExtra("userId",firebaseUser.uid)
                                 startActivity(intent)
                                 finish()
                             }else{

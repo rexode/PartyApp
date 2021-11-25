@@ -16,19 +16,15 @@ import com.google.firebase.database.ktx.database
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
-    lateinit var reference: DatabaseReference
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_layout)
-        reference = Firebase
-            .database("https://partyapp-4386a-default-rtdb.europe-west1.firebasedatabase.app/")
-            .getReference("parties")
 
         val LogInbutton=findViewById<Button>(R.id.button_login)
-        val SignUpButton=findViewById<Button>(R.id.button_signup)
-        var editTextEmail = findViewById<EditText>(R.id.textview_name)
+        val SignUpButton=findViewById<Button>(R.id.button_createAcc)
+        var editTextEmail = findViewById<EditText>(R.id.textview_email)
         var editTextPassword = findViewById<EditText>(R.id.textview_password)
         val intent = Intent(this, SignUp::class.java)
 
