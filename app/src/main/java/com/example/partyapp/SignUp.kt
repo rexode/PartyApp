@@ -4,39 +4,25 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.*
-import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.signup_layout.*
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
-import kotlinx.android.synthetic.main.login_layout.*
-import java.util.*
+import com.google.firebase.ktx.Firebase
 
-class MainActivity : AppCompatActivity() {
-
-
+class SignUp : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.login_layout)
-
-        // val LogInbutton=findViewById<Button>(R.id.button_login)
-        // val SignUpButton=findViewById<Button>(R.id.button_createAcc)
-        // var editTextEmail = findViewById<EditText>(R.id.textview_email)
-        // var editTextPassword = findViewById<EditText>(R.id.textview_password)
-        // val intent = Intent(this, SignUp::class.java)
+        setContentView(R.layout.signup_layout)
 
 
-
-        button_createNewAcc.setOnClickListener {
-            val intent = Intent(this, SignUp::class.java)
-            startActivity(intent)
-        }
-
-        button_login.setOnClickListener{
+        button_createAcc.setOnClickListener {
             when{
                 TextUtils.isEmpty(textview_email.text.toString().trim{it<=' '})->{
                     Toast.makeText(
@@ -52,22 +38,30 @@ class MainActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+                !textview_password.text.toString().equals(textview_confirm_password.text.toString())->{
+                    Toast.makeText(
+                        this,
+                        "Confirm Password in incorrect",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
                 else->{
                     val email=textview_email.text.toString().trim{it<= ' '}
                     val password=textview_password.text.toString().trim{it<= ' '}
 
-                    FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password)
+                    FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,password)
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful) {
                                 val firebaseUser: FirebaseUser = task.result!!.user!!
 
                                 Toast.makeText(
                                     this,
-                                    "Logged sucessfully",
+                                    "Sucessfully registered",
                                     Toast.LENGTH_SHORT
                                 ).show()
 
-                                val intent = Intent(this, PartyAdding::class.java)
+                                val intent = Intent(this, NameCreating::class.java)
+                                intent.putExtra("userId",firebaseUser.uid)
                                 startActivity(intent)
                                 finish()
                             }else{
@@ -80,9 +74,9 @@ class MainActivity : AppCompatActivity() {
                         }
                 }
             }
+
+
         }
     }
-
-
 
 }
