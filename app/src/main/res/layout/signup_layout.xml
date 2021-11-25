@@ -2,8 +2,7 @@
 
 <!--********************************************************************************************************
 
-Sign up screen. Create a new account
-clicking on signup button forwards you to the all_partys_layout.xml
+DONT USE THIS CODE
 
 ********************************************************************************************************-->
 
@@ -47,7 +46,7 @@ clicking on signup button forwards you to the all_partys_layout.xml
         app:layout_constraintVertical_bias="0.66">
 
         <TextView
-            android:id="@+id/textView_login"
+            android:id="@+id/textView_signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
