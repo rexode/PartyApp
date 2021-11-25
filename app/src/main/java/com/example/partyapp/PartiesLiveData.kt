@@ -15,9 +15,11 @@ class PartiesLiveData: MutableLiveData<MutableList<Party>>() {
     init {
         // Initialize LiveData with empty list
         // Connect to database and create a reference to "notes" node
-        reference = Firebase
+        val database = Firebase
             .database("https://partyapp-4386a-default-rtdb.europe-west1.firebasedatabase.app/")
-            .getReference("Parties")
+        database.setPersistenceEnabled(true)
+        reference = database.getReference("Parties")
+
 
     }
     fun addNote(party:Party) {

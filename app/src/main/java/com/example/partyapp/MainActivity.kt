@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         var editTextEmail = findViewById<EditText>(R.id.textview_email)
         var editTextPassword = findViewById<EditText>(R.id.textview_password)
         val intent = Intent(this, SignUp::class.java)
-
+            
 
 
         SignUpButton.setOnClickListener {
@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                                     Toast.LENGTH_SHORT
                                 ).show()
 
-                                val intent = Intent(this, MainActivity::class.java)
+                                val intent = Intent(this, PartyAdding::class.java)
                                 startActivity(intent)
                                 finish()
                             }else{
