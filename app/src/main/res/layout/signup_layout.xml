@@ -24,14 +24,6 @@ DONT USE THIS CODE
         app:srcCompat="@drawable/party4" />
 
 
-    <Button
-        android:id="@+id/buttn_gobacktoLogin"
-        android:layout_width="50dp"
-        android:layout_height="42dp"
-        android:background="@drawable/arrow"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <LinearLayout
 
         android:layout_width="350dp"

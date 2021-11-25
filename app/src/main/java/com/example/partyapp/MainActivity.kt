@@ -23,12 +23,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_layout)
 
-        // val LogInbutton=findViewById<Button>(R.id.button_login)
-        // val SignUpButton=findViewById<Button>(R.id.button_createAcc)
-        // var editTextEmail = findViewById<EditText>(R.id.textview_email)
-        // var editTextPassword = findViewById<EditText>(R.id.textview_password)
-        // val intent = Intent(this, SignUp::class.java)
+        /**
+        val LogInbutton=findViewById<Button>(R.id.button_login)
+        val SignUpButton=findViewById<Button>(R.id.button_createAcc)
+        var editTextEmail = findViewById<EditText>(R.id.textview_email)
+        var editTextPassword = findViewById<EditText>(R.id.textview_password)
+        val intent = Intent(this, SignUp::class.java)
 
+        */
 
 
         button_createNewAcc.setOnClickListener {
@@ -66,8 +68,7 @@ class MainActivity : AppCompatActivity() {
                                     "Logged sucessfully",
                                     Toast.LENGTH_SHORT
                                 ).show()
-
-                                val intent = Intent(this, PartyAdding::class.java)
+                                val intent = Intent(this, Partieslist::class.java)
                                 startActivity(intent)
                                 finish()
                             }else{
@@ -78,6 +79,7 @@ class MainActivity : AppCompatActivity() {
                                 ).show()
                             }
                         }
+
                 }
             }
         }
