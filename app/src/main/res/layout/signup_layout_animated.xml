@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+
 <!--********************************************************************************************************
 
-Login screen
-if no account -> click on signup
--> forwards you to the activity signup.xml
+Sign up screen. Create a new account
+clicking on signup button forwards you to the all_partys_layout.xml
 
 ********************************************************************************************************-->
 
@@ -43,7 +43,6 @@ if no account -> click on signup
         app:layout_constraintVertical_bias="0.696" />
 
     <LinearLayout
-
         android:id="@+id/linearLayout2"
         android:layout_width="350dp"
         android:layout_height="390dp"
@@ -74,7 +73,7 @@ if no account -> click on signup
 
 
         <EditText
-            android:id="@+id/textview_email"
+            android:id="@+id/textview_emailx"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginHorizontal="20dp"
@@ -91,7 +90,7 @@ if no account -> click on signup
 
 
         <EditText
-            android:id="@+id/textview_password"
+            android:id="@+id/textview_passwordx"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginHorizontal="20dp"
@@ -124,6 +123,10 @@ if no account -> click on signup
 
     </LinearLayout>
 
+
+
+    <!-- everything above is hidden due to the animation -->
+
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="350dp"
@@ -139,7 +142,7 @@ if no account -> click on signup
         app:layout_constraintVertical_bias="0.66">
 
         <TextView
-            android:id="@+id/textView_login1"
+            android:id="@+id/textView_signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -157,7 +160,7 @@ if no account -> click on signup
 
 
         <EditText
-            android:id="@+id/textview_email1"
+            android:id="@+id/textview_email"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginHorizontal="20dp"
@@ -174,7 +177,7 @@ if no account -> click on signup
 
 
         <EditText
-            android:id="@+id/textview_password1"
+            android:id="@+id/textview_password"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginHorizontal="20dp"
@@ -207,7 +210,7 @@ if no account -> click on signup
 
 
         <Button
-            android:id="@+id/button_createAcc1"
+            android:id="@+id/button_createAcc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
@@ -233,7 +236,6 @@ if no account -> click on signup
 
 
         <TextView
-            android:id="@+id/textView_signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Don't have an account?"
@@ -241,7 +243,7 @@ if no account -> click on signup
             android:textSize="15dp" />
 
         <Button
-            android:id="@+id/button_createAcc"
+            android:id="@+id/button_createAccx"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

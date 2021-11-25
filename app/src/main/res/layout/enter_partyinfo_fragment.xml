@@ -24,11 +24,9 @@ Fragment lets you enter party info, to create a new party
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:elevation="20dp"
-         >
-
+        >
 
         <EditText
-
             android:fontFamily="@font/msemibold"
             android:textColorHint="@color/m_dark_blue"
             android:id="@+id/textedit_party_name"
@@ -84,7 +82,6 @@ Fragment lets you enter party info, to create a new party
             android:textColor="@color/white"
             android:layout_marginTop="60dp"
             android:layout_marginStart="240dp"/>
-
 
     </LinearLayout>
 
