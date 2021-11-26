@@ -45,7 +45,7 @@ class AllParties : AppCompatActivity() {
             val adapter = PartyAdapter(partyList)
             recyclerviewAllParties.adapter = adapter
             recyclerviewAllParties.layoutManager = LinearLayoutManager(this)
-            //verify
+            //verif
 
 
 
