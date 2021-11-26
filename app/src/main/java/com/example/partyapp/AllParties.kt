@@ -27,7 +27,6 @@ class AllParties : AppCompatActivity() {
         }
         viewModel= ViewModelProvider(this).get(PartyViewModel::class.java)
         //reference = FirebaseDatabase.getInstance().getReference("Users")
-        viewModel.addParty(party)
         val id=intent.getStringExtra("id")
         var name: String? =id
         /*reference.child(id!!).get().addOnSuccessListener {
@@ -62,6 +61,9 @@ class AllParties : AppCompatActivity() {
                 //partyList.add(Party("new", "new", "new", "new"))
                 //adapter.notifyItemInserted(partyList.size - 1)
             }
+        /*button_with_partyname.setOnClickListener{
+            Toast.makeText(this,"cheers",Toast.LENGTH_SHORT)
+        }*/
         }
     }
 

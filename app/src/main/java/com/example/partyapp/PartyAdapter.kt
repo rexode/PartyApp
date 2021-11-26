@@ -18,6 +18,7 @@ class PartyAdapter(val Parties :List<Party>) :RecyclerView.Adapter<PartyAdapter.
     override fun onBindViewHolder(holder: PartyViewHolder, position: Int) {
         //maybe wrong "textname" should be itemview I thinkkk!!
         holder.textName.text = Parties[position].name
+        val partyId=Parties[position].uid
         //holder.itemView.text
 
         //holder.textName.text=Party.title
@@ -29,5 +30,6 @@ class PartyAdapter(val Parties :List<Party>) :RecyclerView.Adapter<PartyAdapter.
 
     class PartyViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
         val textName= itemView.findViewById<TextView>(R.id.button_with_partyname)
+
     }
 }
