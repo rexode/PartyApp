@@ -17,6 +17,7 @@ the buttons all get added to the recyclerview in the all_partys_layout
 
 
     <Button
+        android:elevation="10dp"
         android:textStyle="bold"
         android:fontFamily="@font/msemibold"
         android:letterSpacing="0.2"

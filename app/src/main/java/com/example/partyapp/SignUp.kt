@@ -66,6 +66,7 @@ class SignUp : AppCompatActivity() {
                                     Toast.LENGTH_SHORT
                                 ).show()
 
+
                                 val intent = Intent(this, NameCreating::class.java)
                                 intent.putExtra("id",firebaseUser.uid)
                                 intent.putExtra("email",email)

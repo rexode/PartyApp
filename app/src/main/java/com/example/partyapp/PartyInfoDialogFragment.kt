@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.Window
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import kotlinx.android.synthetic.main.enter_partyinfo_fragment.*
@@ -19,6 +20,7 @@ class PartyInfoDialogFragment: DialogFragment() {
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         var rootView: View = inflater.inflate(R.layout.enter_partyinfo_fragment, container, false)
+
 
 
         rootView.button_done.setOnClickListener {
@@ -53,4 +55,6 @@ class PartyInfoDialogFragment: DialogFragment() {
 
         return rootView
     }
+
+
 }

@@ -13,17 +13,21 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
 class NameCreating : AppCompatActivity() {
+
     private lateinit var database: DatabaseReference
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.enter_name_fragment)
+
         database = FirebaseDatabase.getInstance().getReference("Users")
         val id =intent.getStringExtra("id")
         val email =intent.getStringExtra("email")
 
         //val textview=findViewById<TextView>(R.id.prueba)
         //textview.setText(email)
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, AllParties::class.java)
         var editText=findViewById<EditText>(R.id.name_editText)
         var button=findViewById<Button>(R.id.button_done)
 
