@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity() {
         var editTextEmail = findViewById<EditText>(R.id.textview_email)
         var editTextPassword = findViewById<EditText>(R.id.textview_password)
         val intent = Intent(this, SignUp::class.java)
-            
 
 
         SignUpButton.setOnClickListener {
@@ -65,6 +64,8 @@ class MainActivity : AppCompatActivity() {
                                 ).show()
 
                                 val intent = Intent(this, PartyAdding::class.java)
+                                intent.putExtra("email",editTextEmail.text.toString())
+                                intent.putExtra("id",firebaseUser.uid)
                                 startActivity(intent)
                                 finish()
                             }else{

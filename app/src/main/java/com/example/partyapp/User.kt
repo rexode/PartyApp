@@ -1,5 +1,11 @@
 package com.example.partyapp
 
-data class User(val id: String?=null,val name:String?=null) {
+data class User(var email: String?=null,var name:String?=null) {
+    fun toMap(): Map<String, Any?> {
+        return mapOf(
+            "email" to email,
+            "name" to name
+        )
+    }
 
 }

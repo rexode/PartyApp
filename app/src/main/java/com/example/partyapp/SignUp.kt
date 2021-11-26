@@ -65,7 +65,8 @@ class SignUp : AppCompatActivity() {
                                 ).show()
 
                                 val intent = Intent(this, NameCreating::class.java)
-                                intent.putExtra("userId",firebaseUser.uid)
+                                intent.putExtra("id",firebaseUser.uid)
+                                intent.putExtra("email",email)
                                 startActivity(intent)
                                 finish()
                             }else{
