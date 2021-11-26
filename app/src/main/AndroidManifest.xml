@@ -11,22 +11,22 @@
         android:theme="@style/Theme.PartyApp">
 
         <activity
-            android:name=".EnterPartyInfo"
-            android:exported="false" />
-        <activity
-            android:name=".AllParties"
-            android:exported="false" />
-        <activity
             android:name=".PartyInfo"
             android:exported="false" />
         <activity
             android:name=".PartyAdding"
             android:exported="false" />
         <activity
+            android:name=".Partieslist"
+            android:exported="false" />
+        <activity
             android:name=".NameCreating"
             android:exported="false" />
         <activity
             android:name=".SignUp"
+            android:exported="false" />
+        <activity
+            android:name=".AllParties"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

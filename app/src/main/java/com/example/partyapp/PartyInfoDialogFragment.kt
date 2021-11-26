@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.view.Window
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import kotlinx.android.synthetic.main.enter_partyinfo_fragment.*
@@ -22,7 +21,6 @@ class PartyInfoDialogFragment: DialogFragment() {
         var rootView: View = inflater.inflate(R.layout.enter_partyinfo_fragment, container, false)
 
 
-
         rootView.button_done.setOnClickListener {
 
             //checking for empty field
@@ -33,16 +31,10 @@ class PartyInfoDialogFragment: DialogFragment() {
                     "Please enter a partyname",
                     Toast.LENGTH_SHORT
                 ).show()
-            } else if(textview_party_time.text.isNullOrEmpty()) {
+            } else if(textedit_party_time.text.isNullOrEmpty()){
                 Toast.makeText(
                     activity,
                     "Please enter a timeslot",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }else if(textview_party_date.text.isNullOrEmpty()){
-                Toast.makeText(
-                    activity,
-                    "Please enter a date",
                     Toast.LENGTH_SHORT
                 ).show()
             } else if(textedit_party_location.text.isNullOrEmpty())  {
@@ -61,6 +53,4 @@ class PartyInfoDialogFragment: DialogFragment() {
 
         return rootView
     }
-
-
 }

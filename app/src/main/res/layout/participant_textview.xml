@@ -16,9 +16,6 @@ for adding participants
     android:paddingEnd="4dp">
 
     <TextView
-        android:fontFamily="@font/msemibold"
-        android:textColor="@color/blueSecond"
-        android:paddingLeft="8dp"
         android:id="@+id/textView_participant1"
         android:layout_width="match_parent"
         android:layout_height="40dp"
