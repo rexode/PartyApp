@@ -3,8 +3,7 @@ package com.example.partyapp
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.enter_partyinfo_fragment.*
-import kotlinx.android.synthetic.main.enter_partyinfo_fragment.view.*
+import kotlinx.android.synthetic.main.enter_party_info.*
 
 class EnterPartyInfo: AppCompatActivity() {
 
@@ -13,8 +12,7 @@ class EnterPartyInfo: AppCompatActivity() {
         setContentView(R.layout.enter_party_info)
 
 
-        button_done.setOnClickListener {
-
+   /*     button_done.setOnClickListener {
             //checking for empty field
             if (textedit_party_name.text.isNullOrEmpty()) {
                 Toast.makeText(
@@ -47,6 +45,8 @@ class EnterPartyInfo: AppCompatActivity() {
             }
 
         }
+
+    */
 
     }
 

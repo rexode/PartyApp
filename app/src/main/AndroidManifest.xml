@@ -11,6 +11,9 @@
         android:theme="@style/Theme.PartyApp">
 
         <activity
+            android:name=".EnterPartyInfo"
+            android:exported="false" />
+        <activity
             android:name=".AllParties"
             android:exported="false" />
         <activity

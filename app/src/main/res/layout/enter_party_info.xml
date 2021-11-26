@@ -6,19 +6,11 @@
     android:layout_height="match_parent">
 
 
-    <?xml version="1.0" encoding="utf-8"?>
-
     <!--********************************************************************************************************
 
     new activity lets you enter party info, to create a new party
 
     ********************************************************************************************************-->
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="-16dp"
-        tools:layout_editor_absoluteY="-160dp">
 
 
         <EditText
@@ -106,9 +98,6 @@
             android:text="Done"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textedit_party_additionalInfo" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.example.partyapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -18,6 +19,7 @@ class AllParties : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.all_partys_layout)
+
         viewModel= ViewModelProvider(this).get(PartyViewModel::class.java)
         //reference = FirebaseDatabase.getInstance().getReference("Users")
 
@@ -48,8 +50,11 @@ class AllParties : AppCompatActivity() {
 
 
             button_add_party.setOnClickListener {
-                var dialog = PartyInfoDialogFragment()
-                dialog.show(supportFragmentManager, "customDialog")
+
+                var intent= Intent(this, EnterPartyInfo::class.java)
+                startActivity(intent)
+                //var dialog = PartyInfoDialogFragment()
+                //dialog.show(supportFragmentManager, "customDialog")
 
                 //partyList.add(Party("new", "new", "new", "new"))
                 //adapter.notifyItemInserted(partyList.size - 1)
