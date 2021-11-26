@@ -19,11 +19,10 @@ you can also click on a party (which is a button element)
 
 
     <ImageView
-
         android:id="@+id/imageView2"
         android:layout_width="416dp"
         android:layout_height="146dp"
-        android:background="@color/grey_blueish"
+        android:background="@drawable/ballons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -31,18 +30,26 @@ you can also click on a party (which is a button element)
 
     <TextView
         android:id="@+id/textView"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
+        android:layout_marginStart="36dp"
+
         android:layout_marginTop="32dp"
+        android:background="#AADBE4F8"
+        android:elevation="10dp"
         android:fontFamily="@font/simpsonfont"
         android:text="Hello"
-        android:textColor="@color/blueSecond"
-        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:textSize="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
     <TextView
+        android:textColor="@color/white"
+        android:background="#AADBE4F8"
+        android:elevation="10dp"
+
         android:id="@+id/user_name_greeting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,20 +57,22 @@ you can also click on a party (which is a button element)
         android:fontFamily="@font/simpsonfont"
         android:paddingLeft="10dp"
         android:text="xxxxxx"
-        android:textColor="@color/blueSecond"
-        android:textSize="20dp"
+        android:textSize="30dp"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
     <TextView
+        android:textColor="@color/white"
+        android:background="#AADBE4F8"
+        android:elevation="10dp"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginStart="172dp"
+        android:layout_marginTop="80dp"
         android:fontFamily="@font/simpsonfont"
         android:text="Let's party!!!"
-        android:textColor="@color/blueSecond"
-        android:textSize="20dp"
+        android:textSize="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
@@ -80,8 +89,8 @@ you can also click on a party (which is a button element)
 
     <Button
         android:id="@+id/button_add_party"
-        android:layout_width="72dp"
-        android:layout_height="69dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="56dp"
         android:background="@drawable/edittext_background"

@@ -14,10 +14,12 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
 class NameCreating : AppCompatActivity() {
+
     private lateinit var database: DatabaseReference
     private lateinit var viewModel: PartyViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.enter_name_fragment)
         viewModel=ViewModelProvider(this).get(PartyViewModel::class.java)
