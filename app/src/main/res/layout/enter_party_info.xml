@@ -1,103 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
 
 
-    <!--********************************************************************************************************
+<!--********************************************************************************************************
 
-    new activity lets you enter party info, to create a new party
+new activity lets you enter party info, to create a new party
 
-    ********************************************************************************************************-->
+********************************************************************************************************-->
 
 
-        <EditText
-            android:id="@+id/textedit_party_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="84dp"
-            android:fontFamily="@font/msemibold"
-            android:hint="Party-name"
-            android:textColorHint="@color/m_dark_blue"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <EditText
+        android:id="@+id/textedit_party_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:fontFamily="@font/msemibold"
+        android:hint="Party-name"
+        android:textColorHint="@color/m_dark_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textview_party_time"
-            android:layout_width="173dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="48dp"
-            android:background="@color/grey_blueish"
-            android:elevation="3dp"
-            android:fontFamily="@font/msemibold"
-            android:gravity="center"
-            android:hint="Time"
-            android:inputType="time"
-            android:textColorHint="@color/m_dark_blue"
-            android:textSize="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/textedit_party_location"
-            app:layout_constraintEnd_toStartOf="@+id/textview_party_date"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textedit_party_name"
-            app:layout_constraintVertical_bias="0.505" />
+    <TextView
+        android:id="@+id/textview_party_time"
+        android:layout_width="173dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="48dp"
+        android:background="@color/grey_blueish"
+        android:elevation="3dp"
+        android:fontFamily="@font/msemibold"
+        android:gravity="center"
+        android:hint="Time"
+        android:inputType="time"
+        android:textColorHint="@color/m_dark_blue"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/textedit_party_location"
+        app:layout_constraintEnd_toStartOf="@+id/textview_party_date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textedit_party_name"
+        app:layout_constraintVertical_bias="0.505" />
 
-        <TextView
-            android:id="@+id/textview_party_date"
-            android:layout_width="190dp"
-            android:layout_height="40dp"
-            android:background="@color/grey_blueish"
-            android:elevation="3dp"
-            android:ems="10"
-            android:fontFamily="@font/msemibold"
-            android:gravity="center"
-            android:hint="Date"
-            android:inputType="date"
-            android:textColorHint="@color/m_dark_blue"
-            android:textSize="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/textedit_party_location"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textedit_party_name" />
+    <TextView
+        android:id="@+id/textview_party_date"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
+        android:background="@color/grey_blueish"
+        android:elevation="3dp"
+        android:ems="10"
+        android:fontFamily="@font/msemibold"
+        android:gravity="center"
+        android:hint="Date"
+        android:inputType="date"
+        android:textColorHint="@color/m_dark_blue"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/textedit_party_location"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textedit_party_name" />
 
-        <EditText
-            android:id="@+id/textedit_party_location"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="208dp"
-            android:fontFamily="@font/msemibold"
-            android:hint="Location"
-            android:textColorHint="@color/m_dark_blue"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textedit_party_name" />
+    <EditText
+        android:id="@+id/textedit_party_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="208dp"
+        android:fontFamily="@font/msemibold"
+        android:hint="Location"
+        android:textColorHint="@color/m_dark_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textedit_party_name" />
 
-        <EditText
-            android:id="@+id/textedit_party_additionalInfo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/msemibold"
-            android:hint="Additional info"
-            android:textColorHint="@color/m_dark_blue"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textedit_party_location" />
+    <EditText
+        android:id="@+id/textedit_party_additionalInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/msemibold"
+        android:hint="Additional info"
+        android:textColorHint="@color/m_dark_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textedit_party_location" />
 
-        <Button
-            android:id="@+id/button_done"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginTop="92dp"
-            android:layout_marginEnd="28dp"
-            android:background="@drawable/edittext_background"
-            android:fontFamily="@font/mmedium"
-            android:letterSpacing="0.2"
-            android:text="Done"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textedit_party_additionalInfo" />
+    <Button
+        android:id="@+id/button_done"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/edittext_background"
+        android:fontFamily="@font/mmedium"
+        android:letterSpacing="0.2"
+        android:text="Done"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textedit_party_additionalInfo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
