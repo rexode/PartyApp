@@ -72,7 +72,6 @@ class MainActivity : AppCompatActivity() {
                                 ).show()
 
                                 val intent = Intent(this, AllParties::class.java)
-                                intent.putExtra("email",email)
                                 intent.putExtra("id",firebaseUser.uid)
                                 startActivity(intent)
                                 finish()

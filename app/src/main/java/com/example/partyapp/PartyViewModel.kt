@@ -4,15 +4,22 @@ import androidx.lifecycle.ViewModel
 
 class PartyViewModel: ViewModel()  {
     private val Parties = PartiesLiveData()
-    private val user =UserLiveData()
+    private var user =UserLiveData()
     fun addParty(party: Party) {
         Parties.addNote(party)
     }
-    fun getUser(){
-        //user.getUSer()
+    fun getUser(id:String):UserLiveData{
+      return  user.getUser(id)
+    }
+    fun getParties():PartiesLiveData{
+        return this.Parties
     }
     fun addUser(newUser:User){
         //user.addName(newUser)
+    }
+    fun getUserLiveData():UserLiveData{
+
+        return user
     }
 
 }
