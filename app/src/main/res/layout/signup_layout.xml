@@ -2,8 +2,7 @@
 
 <!--********************************************************************************************************
 
-Sign up screen. Create a new account
-clicking on signup button forwards you to the all_partys_layout.xml
+DONT USE THIS CODE
 
 ********************************************************************************************************-->
 
@@ -25,13 +24,6 @@ clicking on signup button forwards you to the all_partys_layout.xml
         app:srcCompat="@drawable/party4" />
 
 
-    <Button
-        android:layout_width="50dp"
-        android:layout_height="42dp"
-        android:background="@drawable/arrow"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <LinearLayout
 
         android:layout_width="350dp"
@@ -47,7 +39,7 @@ clicking on signup button forwards you to the all_partys_layout.xml
         app:layout_constraintVertical_bias="0.66">
 
         <TextView
-            android:id="@+id/textView_login"
+            android:id="@+id/textView_signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
