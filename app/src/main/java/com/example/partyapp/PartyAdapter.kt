@@ -8,15 +8,17 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
-class PartyAdapter(val context : Context, val Parties :ArrayList<Party>) :RecyclerView.Adapter<PartyAdapter.PartyViewHolder>() {
+class PartyAdapter(val Parties :List<Party>) :RecyclerView.Adapter<PartyAdapter.PartyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PartyViewHolder {
-        val view : View=LayoutInflater.from(context).inflate(R.layout.single_party,parent,false)
+        val view : View=LayoutInflater.from(parent.context).inflate(R.layout.single_party,parent,false)
         return PartyViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: PartyViewHolder, position: Int) {
-        val Party = Parties[position]
+        //maybe wrong "textname" should be itemview I thinkkk!!
+        holder.textName.text = Parties[position].name
+        //holder.itemView.text
 
         //holder.textName.text=Party.title
     }

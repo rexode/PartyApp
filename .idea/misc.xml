@@ -3,6 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/albio/Documents/PartyApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/albio/Documents/PartyApp/app/src/main/res/layout/all_partys_layout.xml" value="0.25" />
+        <entry key="..\:/Users/albio/Documents/PartyApp/app/src/main/res/layout/enter_name_fragment.xml" value="0.2598958333333333" />
+        <entry key="..\:/Users/albio/Documents/PartyApp/app/src/main/res/layout/enter_partyinfo_fragment.xml" value="0.17760416666666667" />
+        <entry key="..\:/Users/albio/Documents/PartyApp/app/src/main/res/layout/login_layout.xml" value="0.17760416666666667" />
+        <entry key="..\:/Users/albio/Documents/PartyApp/app/src/main/res/layout/participant_textview.xml" value="0.1408514492753623" />
+        <entry key="..\:/Users/albio/Documents/PartyApp/app/src/main/res/layout/party_layout.xml" value="0.17760416666666667" />
+        <entry key="..\:/Users/albio/Documents/PartyApp/app/src/main/res/layout/signup_layout.xml" value="0.1408514492753623" />
+        <entry key="..\:/Users/albio/Documents/PartyApp/app/src/main/res/layout/single_party.xml" value="0.25" />
         <entry key="app/src/main/res/drawable/arrow.xml" value="0.2574074074074074" />
         <entry key="app/src/main/res/drawable/custiombutton.xml" value="0.2916666666666667" />
         <entry key="app/src/main/res/drawable/custom_button.xml" value="0.1" />
