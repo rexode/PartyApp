@@ -11,6 +11,9 @@ class PartyViewModel: ViewModel()  {
     fun getUser(id:String):UserLiveData{
       return  user.getUser(id)
     }
+    fun getParties():PartiesLiveData{
+        return this.Parties
+    }
     fun addUser(newUser:User){
         //user.addName(newUser)
     }
