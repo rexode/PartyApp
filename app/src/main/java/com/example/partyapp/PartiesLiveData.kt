@@ -1,6 +1,8 @@
 package com.example.partyapp
 
+import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
@@ -11,20 +13,14 @@ import java.nio.file.Files.find
 class PartiesLiveData: MutableLiveData<MutableList<Party>>() {
     private var reference: DatabaseReference
     init {
-        // Initialize LiveData with empty list
-        // Connect to database and create a reference to "notes" node
         reference = FirebaseDatabase.getInstance().getReference("Parties")
 
 
     }
-    fun addNote(party:Party) {
-        // Get a new unique key from database
+    fun addParty(party:Party) {
         val uid: String? = reference.push().key
         if (uid != null) {
-            // Write new value to database under path /notes/$uid
             reference.child(uid).setValue(party)
-            // We don't need to handle data or UI changes here,
-            // because once data is changes onDataChange() from getNotes() will be called
         }
 
     }
@@ -48,7 +44,7 @@ class PartiesLiveData: MutableLiveData<MutableList<Party>>() {
                 snapshot.children.forEach {
                     if (it != null) {
                         val party = it.getValue<Party>()!!
-                            .also { note -> note.uid = it.key.toString() }
+                            .also { party -> party.uid = it.key.toString() }
                         tmpNotesList.add(party)
                     }
                 }

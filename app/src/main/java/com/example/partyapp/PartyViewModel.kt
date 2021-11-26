@@ -6,13 +6,13 @@ class PartyViewModel: ViewModel()  {
     private val Parties = PartiesLiveData()
     private var user =UserLiveData()
     fun addParty(party: Party) {
-        Parties.addNote(party)
+        Parties.addParty(party)
     }
     fun getUser(id:String):UserLiveData{
       return  user.getUser(id)
     }
     fun getParties():PartiesLiveData{
-        return this.Parties
+        return Parties.getParties()
     }
     fun addUser(newUser:User){
         //user.addName(newUser)

@@ -14,7 +14,6 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
 class NameCreating : AppCompatActivity() {
-    private lateinit var database: DatabaseReference
     private lateinit var viewModel: PartyViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +35,7 @@ class NameCreating : AppCompatActivity() {
                 //database.child(id).setValue(user)
                 viewModel.getUserLiveData().addName(user,id)
 
-                intent.putExtra("UserId", id)
+                intent.putExtra("id", id)
                 startActivity(intent)
 
             }
