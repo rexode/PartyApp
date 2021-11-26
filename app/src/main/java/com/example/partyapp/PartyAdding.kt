@@ -30,7 +30,7 @@ class PartyAdding : AppCompatActivity() {
         textedit_party_additionalInfo
         button_done.setOnClickListener{
 
-            val party=Party(id,textedit_party_name.text.toString(),textedit_party_time.text.toString(),textedit_party_location.text.toString(),textedit_party_additionalInfo.text.toString())
+            val party=Party(id,textedit_party_name.text.toString(),textview_party_time.text.toString(),textedit_party_location.text.toString(),textedit_party_additionalInfo.text.toString())
             partyViewModel.addParty(party)
             intent.putExtra("UserId",id)
 
