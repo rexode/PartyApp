@@ -21,8 +21,8 @@ class NameCreating : AppCompatActivity() {
         val id =intent.getStringExtra("id")
         val email =intent.getStringExtra("email")
 
-        val textview=findViewById<TextView>(R.id.prueba)
-        textview.setText(email)
+        //val textview=findViewById<TextView>(R.id.prueba)
+        //textview.setText(email)
         val intent = Intent(this, MainActivity::class.java)
         var editText=findViewById<EditText>(R.id.name_editText)
         var button=findViewById<Button>(R.id.button_done)

@@ -70,8 +70,8 @@ class MainActivity : AppCompatActivity() {
                                     Toast.LENGTH_SHORT
                                 ).show()
 
-                                val intent = Intent(this, PartyAdding::class.java)
-                                intent.putExtra("email",editTextEmail.text.toString())
+                                val intent = Intent(this, AllParties::class.java)
+                                intent.putExtra("email",email)
                                 intent.putExtra("id",firebaseUser.uid)
                                 startActivity(intent)
                                 finish()

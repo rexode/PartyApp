@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PartyApp">
         <activity
-            android:name=".prueba"
+            android:name=".AllParties"
             android:exported="false" />
         <activity
             android:name=".PartyInfo"
@@ -28,7 +28,7 @@
             android:name=".SignUp"
             android:exported="false" />
         <activity
-            android:name=".AllParties"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -19,6 +19,7 @@ class PartyAdding : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.enter_partyinfo_fragment)
+
         val id =intent.getStringExtra("email")
         val factory = PartyViewModelFactory()
         val intent = Intent(this, PartyInfo::class.java)
