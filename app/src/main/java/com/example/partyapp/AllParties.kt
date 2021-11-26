@@ -20,11 +20,6 @@ class AllParties : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.all_partys_layout)
         reference = FirebaseDatabase.getInstance().getReference("Parties")
-        val party=Party("lol","lol","lol")
-        val uid: String? = reference.push().key
-        if (uid != null) {
-            reference.child(uid).setValue(party)
-        }
         viewModel= ViewModelProvider(this).get(PartyViewModel::class.java)
         //reference = FirebaseDatabase.getInstance().getReference("Users")
         val id=intent.getStringExtra("id")

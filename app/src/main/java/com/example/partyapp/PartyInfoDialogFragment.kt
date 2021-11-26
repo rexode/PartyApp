@@ -10,9 +10,13 @@ import kotlinx.android.synthetic.main.enter_partyinfo_fragment.*
 import kotlinx.android.synthetic.main.enter_partyinfo_fragment.view.*
 import java.util.zip.Inflater
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import kotlinx.android.synthetic.main.enter_name_fragment.*
+import kotlinx.android.synthetic.main.enter_partyinfo_fragment.button_done
 
 
 class PartyInfoDialogFragment: DialogFragment() {
+    private lateinit var partyViewModel: PartyViewModel
 
 
     override fun onCreateView(inflater: LayoutInflater,
@@ -44,8 +48,9 @@ class PartyInfoDialogFragment: DialogFragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             } else{
-                //Todo DOTO: LiveData with AllParties and update the list
-
+                partyViewModel = ViewModelProvider(this).get(PartyViewModel::class.java)
+                val party=Party(textedit_party_name.text.toString(),textedit_party_time.text.toString(),textedit_party_location.text.toString(),textedit_party_additionalInfo.text.toString())
+                partyViewModel.addParty(party)
                 dismiss()
             }
 
