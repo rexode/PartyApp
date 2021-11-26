@@ -25,7 +25,7 @@ clicking on signup button forwards you to the all_partys_layout.xml
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/party4" />
+        app:srcCompat="@drawable/confetti" />
 
     <TextView
         android:layout_width="wrap_content"
