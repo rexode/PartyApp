@@ -17,6 +17,9 @@ the buttons all get added to the recyclerview in the all_partys_layout
 
 
     <Button
+        android:textStyle="bold"
+        android:fontFamily="@font/msemibold"
+        android:letterSpacing="0.2"
         android:id="@+id/button_with_partyname"
         android:layout_width="match_parent"
         android:layout_height="80dp"
@@ -29,6 +32,7 @@ the buttons all get added to the recyclerview in the all_partys_layout
 
 
     <TextView
+        android:fontFamily="@font/msemibold"
         android:id="@+id/textview_substitute_with_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,6 +48,7 @@ the buttons all get added to the recyclerview in the all_partys_layout
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
+        android:fontFamily="@font/msemibold"
         android:layout_marginTop="8dp"
         android:drawablePadding="5dp"
         android:drawableEnd="@drawable/location"
