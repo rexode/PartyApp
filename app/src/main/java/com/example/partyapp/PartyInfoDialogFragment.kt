@@ -33,10 +33,16 @@ class PartyInfoDialogFragment: DialogFragment() {
                     "Please enter a partyname",
                     Toast.LENGTH_SHORT
                 ).show()
-            } else if(textedit_party_time.text.isNullOrEmpty()){
+            } else if(textview_party_time.text.isNullOrEmpty()) {
                 Toast.makeText(
                     activity,
                     "Please enter a timeslot",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }else if(textview_party_date.text.isNullOrEmpty()){
+                Toast.makeText(
+                    activity,
+                    "Please enter a date",
                     Toast.LENGTH_SHORT
                 ).show()
             } else if(textedit_party_location.text.isNullOrEmpty())  {
