@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PartyApp">
         <activity
+            android:name=".prueba"
+            android:exported="false" />
+        <activity
+            android:name=".PartyInfo"
+            android:exported="false" />
+        <activity
             android:name=".PartyAdding"
             android:exported="false" />
         <activity

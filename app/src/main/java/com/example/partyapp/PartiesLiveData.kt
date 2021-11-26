@@ -9,6 +9,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import java.nio.file.Files.find
 
 class PartiesLiveData: MutableLiveData<MutableList<Party>>() {
     private var reference: DatabaseReference
@@ -68,6 +69,10 @@ class PartiesLiveData: MutableLiveData<MutableList<Party>>() {
         })
             return this
         }
+    fun getParty(id:String){
+        val party: Party? = value?.find { it.uid == id }
+
+    }
 
 
 }

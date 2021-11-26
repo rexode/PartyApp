@@ -69,7 +69,10 @@ class MainActivity : AppCompatActivity() {
                                     "Logged sucessfully",
                                     Toast.LENGTH_SHORT
                                 ).show()
-                                val intent = Intent(this, Partieslist::class.java)
+
+                                val intent = Intent(this, PartyAdding::class.java)
+                                intent.putExtra("email",editTextEmail.text.toString())
+                                intent.putExtra("id",firebaseUser.uid)
                                 startActivity(intent)
                                 finish()
                             }else{
