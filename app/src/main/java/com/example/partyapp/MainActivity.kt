@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.database.ktx.database
+import kotlinx.android.synthetic.main.login_layout.*
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -22,26 +23,32 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_layout)
 
+
+        /**
         val LogInbutton=findViewById<Button>(R.id.button_login)
         val SignUpButton=findViewById<Button>(R.id.button_createAcc)
         var editTextEmail = findViewById<EditText>(R.id.textview_email)
         var editTextPassword = findViewById<EditText>(R.id.textview_password)
         val intent = Intent(this, SignUp::class.java)
 
+*/
 
-        SignUpButton.setOnClickListener {
+
+        button_createNewAcc.setOnClickListener {
+            val intent = Intent(this, SignUp::class.java)
             startActivity(intent)
         }
-        LogInbutton.setOnClickListener{
+
+        button_login.setOnClickListener{
             when{
-                TextUtils.isEmpty(editTextEmail.text.toString().trim{it<=' '})->{
+                TextUtils.isEmpty(textview_email.text.toString().trim{it<=' '})->{
                     Toast.makeText(
                         this,
                         "Please enter email",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-                TextUtils.isEmpty(editTextPassword.text.toString().trim{it<=' '})->{
+                TextUtils.isEmpty(textview_password.text.toString().trim{it<=' '})->{
                     Toast.makeText(
                         this,
                         "Please enter Password",
@@ -49,8 +56,8 @@ class MainActivity : AppCompatActivity() {
                     ).show()
                 }
                 else->{
-                    val email=editTextEmail.text.toString().trim{it<= ' '}
-                    val password=editTextPassword.text.toString().trim{it<= ' '}
+                    val email=textview_email.text.toString().trim{it<= ' '}
+                    val password=textview_password.text.toString().trim{it<= ' '}
 
                     FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password)
                         .addOnCompleteListener { task ->
@@ -76,6 +83,7 @@ class MainActivity : AppCompatActivity() {
                                 ).show()
                             }
                         }
+
                 }
             }
         }

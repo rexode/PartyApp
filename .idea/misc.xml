@@ -24,15 +24,18 @@
         <entry key="app/src/main/res/drawable/ic_person.xml" value="0.29259259259259257" />
         <entry key="app/src/main/res/drawable/lock.xml" value="0.3807291666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22780797101449277" />
-        <entry key="app/src/main/res/layout/all_partys_layout.xml" value="0.22780797101449277" />
-        <entry key="app/src/main/res/layout/enter_name_fragment.xml" value="0.3645833333333333" />
-        <entry key="app/src/main/res/layout/enter_partyinfo_fragment.xml" value="0.5795660588217454" />
+        <entry key="app/src/main/res/layout/all_partys_layout.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/enter_name_fragment.xml" value="0.17313432835820897" />
+        <entry key="app/src/main/res/layout/enter_partyinfo_fragment.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.1469387755102041" />
-        <entry key="app/src/main/res/layout/login_layout.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/login_after_layout.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/login_before_layout.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/login_layout.xml" value="0.25" />
         <entry key="app/src/main/res/layout/participant_textview.xml" value="0.3645833333333333" />
         <entry key="app/src/main/res/layout/party.xml" value="0.22780797101449277" />
         <entry key="app/src/main/res/layout/party_layout.xml" value="0.2758152173913043" />
         <entry key="app/src/main/res/layout/signup_layout.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/signup_layout_animated.xml" value="0.2557291666666667" />
         <entry key="app/src/main/res/layout/single_party.xml" value="0.15830800405268491" />
       </map>
     </option>
