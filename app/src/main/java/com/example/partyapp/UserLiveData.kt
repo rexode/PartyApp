@@ -16,7 +16,7 @@ class UserLiveData(): LiveData<User>(){
     }
     fun addName(user:User,id:String) {
         if (id != null) {
-            reference.child(id!!).setValue(user)
+            reference.child(id).setValue(user)
         }
 
     }

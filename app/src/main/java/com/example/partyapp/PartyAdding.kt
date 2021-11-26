@@ -19,19 +19,14 @@ class PartyAdding : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.enter_partyinfo_fragment)
-        val id =intent.getStringExtra("id")
+        //val id =intent.getStringExtra("id")
         val factory = PartyViewModelFactory()
-        val intent = Intent(this, PartyInfo::class.java)
-        partyViewModel = ViewModelProviders.of(this, factory).get(PartyViewModel::class.java)
-        button_done
-        textedit_party_name
-        textedit_party_location
-        textedit_party_additionalInfo
+        val intent = Intent(this, AllParties::class.java)
+        partyViewModel = ViewModelProvider(this).get(PartyViewModel::class.java)
         button_done.setOnClickListener{
-
-            val party=Party(id,textedit_party_name.text.toString(),textedit_party_time.text.toString(),textedit_party_location.text.toString(),textedit_party_additionalInfo.text.toString())
+            val party=Party(textedit_party_name.text.toString(),textedit_party_time.text.toString(),textedit_party_location.text.toString(),textedit_party_additionalInfo.text.toString())
             partyViewModel.addParty(party)
-            intent.putExtra("UserId",id)
+            //intent.putExtra("UserId",)
 
             startActivity(intent)
         }
