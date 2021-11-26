@@ -3,17 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/albio/Documents/PartyApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/albio/Documents/PartyApp/app/src/main/res/layout/all_partys_layout.xml" value="0.25" />
-        <entry key="..\:/Users/albio/Documents/PartyApp/app/src/main/res/layout/enter_name_fragment.xml" value="0.2598958333333333" />
-        <entry key="..\:/Users/albio/Documents/PartyApp/app/src/main/res/layout/enter_party_info.xml" value="0.2755208333333333" />
-        <entry key="..\:/Users/albio/Documents/PartyApp/app/src/main/res/layout/enter_partyinfo_fragment.xml" value="0.17760416666666667" />
-        <entry key="..\:/Users/albio/Documents/PartyApp/app/src/main/res/layout/login_layout.xml" value="0.17760416666666667" />
-        <entry key="..\:/Users/albio/Documents/PartyApp/app/src/main/res/layout/participant_textview.xml" value="0.1408514492753623" />
-        <entry key="..\:/Users/albio/Documents/PartyApp/app/src/main/res/layout/party_layout.xml" value="0.335" />
-        <entry key="..\:/Users/albio/Documents/PartyApp/app/src/main/res/layout/signup_layout.xml" value="0.1" />
-        <entry key="..\:/Users/albio/Documents/PartyApp/app/src/main/res/layout/single_party.xml" value="0.25" />
-        <entry key="app/src/main/res/drawable/arrow.xml" value="0.2574074074074074" />
+        <entry key="..\:/Users/santi/Desktop/PartyApp/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/santi/Desktop/PartyApp/app/src/main/res/layout/all_partys_layout.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/santi/Desktop/PartyApp/app/src/main/res/layout/enter_name_fragment.xml" value="0.176" />
+        <entry key="..\:/Users/santi/Desktop/PartyApp/app/src/main/res/layout/enter_partyinfo_fragment.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/santi/Desktop/PartyApp/app/src/main/res/layout/login_layout.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/santi/Desktop/PartyApp/app/src/main/res/layout/participant_textview.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/santi/Desktop/PartyApp/app/src/main/res/layout/party_layout.xml" value="0.176" />
+        <entry key="..\:/Users/santi/Desktop/PartyApp/app/src/main/res/layout/signup_layout.xml" value="0.4" />
+        <entry key="..\:/Users/santi/Desktop/PartyApp/app/src/main/res/layout/single_party.xml" value="0.13020833333333334" />
         <entry key="app/src/main/res/drawable/custiombutton.xml" value="0.2916666666666667" />
         <entry key="app/src/main/res/drawable/custom_button.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/edittext_background.xml" value="0.10462962962962963" />
@@ -28,7 +26,6 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22780797101449277" />
         <entry key="app/src/main/res/layout/all_partys_layout.xml" value="0.25" />
         <entry key="app/src/main/res/layout/enter_name_fragment.xml" value="0.17313432835820897" />
-        <entry key="app/src/main/res/layout/enter_party_info.xml" value="0.1" />
         <entry key="app/src/main/res/layout/enter_partyinfo_fragment.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.1469387755102041" />
         <entry key="app/src/main/res/layout/login_after_layout.xml" value="0.25" />
