@@ -22,12 +22,6 @@ class SignUp : AppCompatActivity() {
         setContentView(R.layout.signup_layout)
 
 
-        //go back button
-        val actionbar = supportActionBar
-        actionbar?.setDisplayHomeAsUpEnabled(true)
-        actionbar?.setDisplayHomeAsUpEnabled(true)
-
-
         button_createAcc.setOnClickListener {
             when{
                 TextUtils.isEmpty(textview_email.text.toString().trim{it<=' '})->{
@@ -86,10 +80,4 @@ class SignUp : AppCompatActivity() {
 
         }
     }
-    //also for go back button
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
-    }
-
 }

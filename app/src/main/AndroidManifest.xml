@@ -19,9 +19,6 @@
             android:name=".PartyAdding"
             android:exported="false" />
         <activity
-            android:name=".Partieslist"
-            android:exported="false" />
-        <activity
             android:name=".NameCreating"
             android:exported="false" />
         <activity
