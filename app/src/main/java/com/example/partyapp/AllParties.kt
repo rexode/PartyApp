@@ -1,16 +1,14 @@
 package com.example.partyapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.all_partys_layout.*
-import kotlinx.android.synthetic.main.enter_partyinfo_fragment.*
-import kotlinx.android.synthetic.main.single_party.*
 
 class AllParties : AppCompatActivity() {
     private lateinit var viewModel: PartyViewModel
@@ -56,6 +54,15 @@ class AllParties : AppCompatActivity() {
                 //partyList.add(Party("new", "new", "new", "new"))
                 //adapter.notifyItemInserted(partyList.size - 1)
             }
+
+        button_view_friends_list.setOnClickListener{
+            var dialog = FriendsListDialogFragment()
+            dialog.show(supportFragmentManager,"friendsListFragment")
+            /* in the end i decided having it as a dialogfragment would be easiest, i did it through several
+            different ways like normal fragment and separate layout, but this was the one i thought worked the smoothest */
+
+        }
+
         /*button_with_partyname.setOnClickListener{
             Toast.makeText(this,"cheers",Toast.LENGTH_SHORT)
         }*/

@@ -3,6 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/sandr/Desktop/PartyApp/PartyApp/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/sandr/Desktop/PartyApp/PartyApp/app/src/main/res/layout/all_partys_layout.xml" value="0.4" />
+        <entry key="..\:/Users/sandr/Desktop/PartyApp/PartyApp/app/src/main/res/layout/enter_name_fragment.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/sandr/Desktop/PartyApp/PartyApp/app/src/main/res/layout/enter_partyinfo_fragment.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/sandr/Desktop/PartyApp/PartyApp/app/src/main/res/layout/friends_list_layout.xml" value="0.264" />
+        <entry key="..\:/Users/sandr/Desktop/PartyApp/PartyApp/app/src/main/res/layout/participant_textview.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/sandr/Desktop/PartyApp/PartyApp/app/src/main/res/layout/party_layout.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/sandr/Desktop/PartyApp/PartyApp/app/src/main/res/layout/single_friend.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/sandr/Desktop/PartyApp/PartyApp/app/src/main/res/layout/single_party.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/santi/Desktop/PartyApp/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/santi/Desktop/PartyApp/app/src/main/res/layout/all_partys_layout.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/santi/Desktop/PartyApp/app/src/main/res/layout/enter_name_fragment.xml" value="0.176" />
