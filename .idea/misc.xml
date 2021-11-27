@@ -23,7 +23,11 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.31851851851851853" />
         <entry key="app/src/main/res/drawable/ic_person.xml" value="0.29259259259259257" />
         <entry key="app/src/main/res/drawable/lock.xml" value="0.3807291666666667" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22780797101449277" />
+        <entry key="app/src/main/res/drawable/lock2.xml" value="0.17962962962962964" />
+        <entry key="app/src/main/res/drawable/lock4.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/mail3.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/person.xml" value="0.17962962962962964" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.45" />
         <entry key="app/src/main/res/layout/all_partys_layout.xml" value="0.25" />
         <entry key="app/src/main/res/layout/enter_name_fragment.xml" value="0.17313432835820897" />
         <entry key="app/src/main/res/layout/enter_party_info.xml" value="0.25" />

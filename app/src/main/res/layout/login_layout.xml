@@ -79,14 +79,14 @@ clicking on signup button forwards you to the all_partys_layout.xml
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="60dp"
             android:background="@drawable/edittext_background"
-            android:drawableStart="@drawable/mail"
+            android:drawableStart="@drawable/mail3"
             android:drawablePadding="6dp"
             android:elevation="6dp"
             android:fontFamily="@font/msemibold"
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:paddingLeft="5dp"
-            android:textColorHint="@color/m_dark_blue" />
+            android:textColorHint="@color/dark_yellow" />
 
 
         <EditText
@@ -96,14 +96,14 @@ clicking on signup button forwards you to the all_partys_layout.xml
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/edittext_background"
-            android:drawableStart="@drawable/lock"
+            android:drawableStart="@drawable/lock3"
             android:drawablePadding="6dp"
             android:elevation="6dp"
             android:fontFamily="@font/msemibold"
             android:hint="Password"
             android:inputType="textPassword"
             android:paddingLeft="5dp"
-            android:textColorHint="@color/m_dark_blue" />
+            android:textColorHint="@color/dark_yellow" />
 
 
         <Button
@@ -154,7 +154,7 @@ clicking on signup button forwards you to the all_partys_layout.xml
             android:fontFamily="@font/mmedium"
             android:text="@string/sign_up"
             android:textAllCaps="false"
-            android:textColor="@color/blueSecond"
+            android:textColor="@color/picture_blue"
             android:textSize="15dp" />
 
 

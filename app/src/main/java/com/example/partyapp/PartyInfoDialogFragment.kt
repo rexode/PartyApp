@@ -49,7 +49,6 @@ class PartyInfoDialogFragment: DialogFragment() {
 
         }
 
-
         // Time-picker
         rootView.textview_party_time.setOnClickListener{
             setTime()
@@ -104,7 +103,6 @@ class PartyInfoDialogFragment: DialogFragment() {
         val sdf = SimpleDateFormat(myFormat, Locale.GERMANY)
         textview_party_date.setText(sdf.format(myCalender.time))
     }
-
 
     // Timepicker -logic
     private fun setTime() {
