@@ -31,7 +31,6 @@ class PartyInfoDialogFragment: DialogFragment() {
         var rootView: View = inflater.inflate(R.layout.enter_partyinfo_fragment, container, false)
 
 
-        /*
        // Date-picker
         val myCalender = Calendar.getInstance()
         val datePicker = DatePickerDialog
@@ -42,24 +41,22 @@ class PartyInfoDialogFragment: DialogFragment() {
                 updateLable(myCalender)
             }
 
-        textview_party_date.setOnClickListener {
-            DatePickerDialog(this
-                , datePicker
-                , myCalender.get(Calendar.YEAR)
-                , myCalender.get(Calendar.MONTH)
-                , myCalender.get(Calendar.DAY_OF_MONTH)).show()
+        rootView.textview_party_date.setOnClickListener {
+            activity?.let { it1 ->
+                DatePickerDialog(
+                    it1, datePicker, myCalender.get(Calendar.YEAR), myCalender.get(Calendar.MONTH), myCalender.get(Calendar.DAY_OF_MONTH)).show()
+            }
 
         }
 
 
-
         // Time-picker
-        textview_party_time.setOnClickListener{
+        rootView.textview_party_time.setOnClickListener{
             setTime()
         }
 
 
-         */
+
 
         rootView.button_done.setOnClickListener {
 
@@ -99,7 +96,8 @@ class PartyInfoDialogFragment: DialogFragment() {
 
         return rootView
     }
-/*
+
+
     // Dateformatter
     private fun updateLable(myCalender: Calendar) {
         val myFormat = "dd.MM.yyyy"
@@ -119,9 +117,9 @@ class PartyInfoDialogFragment: DialogFragment() {
                 textview_party_time.text = SimpleDateFormat("HH:mm")
                     .format(cal.time)
             }
-        TimePickerDialog(this, timeSetListener, cal.get(Calendar.HOUR_OF_DAY),
+        TimePickerDialog(activity, timeSetListener, cal.get(Calendar.HOUR_OF_DAY),
             cal.get(Calendar.MINUTE), true).show()
     }
 
- */
+
 }
