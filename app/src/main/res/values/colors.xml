@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="blueOrigin">#5482FC</color>
+    <color name="blueSecond">#132551</color>
+    <color name="lightblue">#EAEFF9</color>
+    <color name="silver">#9F9F9F</color>
+
+
+
+    <!-- colors to match google maps -->
+
+    <color name="m_light_grey">#e9eaee</color>
+    <color name="m_dark_grey">#8a8c90</color>
+    <color name="blueSoft">#aeccfc</color>
+
+    <color name="m_blue">#1a74e9</color>
+    <color name="m_light_green">#b4dfc2</color>
+    <color name="m_green">#1a8419</color>
+    <color name="m_dark_green">#0d4d0d</color>
+    <color name="m_brown">#c58a44</color>
+    <color name="m_orange">#f7be03</color>
+    <color name="m_red">#e94134</color>
+    <color name="m_dark_blue">#4F648B</color>
+    <color name="grey_blueish">#dbe4f8</color>
+
+
+
+
+
+
+
+</resources>

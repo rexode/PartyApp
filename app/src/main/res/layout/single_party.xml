@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--********************************************************************************************************
+
+Everytime you create a new party, a new button with button.txt = partyname has to be created
+the buttons all get added to the recyclerview in the all_partys_layout
+
+********************************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:paddingStart="4dp"
+    android:paddingEnd="4dp">
+
+    <Button
+        android:id="@+id/button_with_partyname"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginStart="4dp"
+        android:text="party1"
+        android:textStyle="bold"
+        android:fontFamily="@font/msemibold"
+        android:letterSpacing="0.2"
+        android:textAlignment="viewStart"
+        android:textColor="@color/blueSecond"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textedit_party_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:elevation="100dp"
+        android:fontFamily="@font/mmedium"
+        android:text="Location"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button_with_partyname" />
+
+    <TextView
+        android:id="@+id/textview_party_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:elevation="100dp"
+        android:fontFamily="@font/msemibold"
+        android:text="Time"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textedit_party_location" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
