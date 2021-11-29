@@ -34,7 +34,7 @@ class AllParties : AppCompatActivity() {
             user_name_greeting.setText(name)})
         var liveList:List<Party>
         viewModel.getParties().observe(this,{list-> liveList = list
-            val adapter = PartyAdapter(liveList)
+            val adapter = PartyAdapter(liveList,this)
             recyclerviewAllParties.adapter = adapter
         })
             var partyList = mutableListOf(

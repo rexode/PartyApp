@@ -10,12 +10,10 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.LifecycleOwner
 
 
-
-
-
-class PartyAdapter(val Parties :List<Party>) :RecyclerView.Adapter<PartyAdapter.PartyViewHolder>() {
+class PartyAdapter(val Parties :List<Party>,val lf: LifecycleOwner) :RecyclerView.Adapter<PartyAdapter.PartyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PartyViewHolder {
         val view : View=LayoutInflater.from(parent.context).inflate(R.layout.single_party,parent,false)
@@ -24,17 +22,13 @@ class PartyAdapter(val Parties :List<Party>) :RecyclerView.Adapter<PartyAdapter.
 
     override fun onBindViewHolder(holder: PartyViewHolder, position: Int) {
         //maybe wrong "textname" should be itemview I thinkkk!!
+        var partyModel= PartyViewModel()
         holder.partyBtn.text = Parties[position].name
         holder.partyLoc.text = Parties[position].location
         holder.partTime.text = Parties[position].time
         val partyId=Parties[position].uid
         holder.partyBtn.setOnClickListener{
-            var overlay=  PartyInfo()
-            var args : Bundle = Bundle()
-            args.putString("id", partyId)
-            overlay.arguments = args
-            overlay.show((holder.partyBtn.getContext() as FragmentActivity).supportFragmentManager,
-            "partyOverlay")
+            partyModel.findParty(partyId,lf,(holder.partyBtn.getContext() as FragmentActivity).supportFragmentManager)
         }
         //holder.itemView.text
 
