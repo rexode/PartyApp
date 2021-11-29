@@ -1,5 +1,8 @@
 package com.example.partyapp
 
+import android.content.Context
+import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
 
@@ -29,8 +32,8 @@ class PartyViewModel: ViewModel()  {
         return userprueba
     }
 
-    fun findParty(id:String?) : Party?{
-        return Parties.findParty(id)
+    fun findParty(id:String?,context: LifecycleOwner,fragmentManager: FragmentManager) {
+         Partiesprueba.findParty(id,context,fragmentManager)
     }
 
 }
