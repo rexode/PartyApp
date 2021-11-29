@@ -38,11 +38,11 @@ class AllParties : AppCompatActivity() {
             recyclerviewAllParties.adapter = adapter
         })
             var partyList = mutableListOf(
-                Party("aId", "aName", "atime", "ahere", mutableListOf<User>()),
-                Party("bId", "bName", "btime", "bhere", mutableListOf<User>()),
-                Party("cId", "cName", "ctime", "chere", mutableListOf<User>()),
-                Party("dId", "dName", "dtime", "dhere", mutableListOf<User>()),
-                Party("eId", "eName", "etime", "ehere", mutableListOf<User>()),
+                Party("aId", "aName", "atime", "ahere"),
+                Party("bId", "bName", "btime", "bhere"),
+                Party("cId", "cName", "ctime", "chere"),
+                Party("dId", "dName", "dtime", "dhere"),
+                Party("eId", "eName", "etime", "ehere"),
             )
 
             //recyclerviewAllParties.adapter = adapter

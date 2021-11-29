@@ -23,4 +23,8 @@ class PartyViewModel: ViewModel()  {
         return user
     }
 
+    fun findParty(id:String?) : Party?{
+        return Parties.findParty(id)
+    }
+
 }
