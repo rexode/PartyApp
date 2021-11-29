@@ -12,15 +12,23 @@ import java.nio.file.Files.find
 
 class PartiesLiveData: MutableLiveData<MutableList<Party>>() {
     private var reference: DatabaseReference
+
     init {
         reference = FirebaseDatabase.getInstance().getReference("Parties")
+
 
 
     }
     fun addParty(party:Party) {
         val uid: String? = reference.push().key
+        //val partyA=Party("a","B","C","D","E")
         if (uid != null) {
             reference.child(uid).setValue(party)
+
+            reference.child(uid).child("Participants").setValue("participant1")
+            reference.child(uid).child("Participants").setValue("participant2")
+            reference.child(uid).child("Participants").setValue("participant3")
+
         }
 
     }

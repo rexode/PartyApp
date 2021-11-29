@@ -50,13 +50,13 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:19.2.0'
     implementation 'com.google.firebase:firebase-database-ktx'
     implementation 'com.google.firebase:firebase-analytics-ktx'
-    implementation     'com.google.firebase:firebase-messaging:9.2.0'
+    implementation 'com.google.firebase:firebase-messaging:9.2.0'
     implementation "android.arch.lifecycle:extensions:1.1.1"
     implementation "androidx.core:core-ktx:+"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "androidx.recyclerview:recyclerview:1.2.0"
-
+    implementation "com.google.firebase:firebase-firestore:22.0.0"
     implementation 'pub.devrel:easypermissions:3.0.0'
 
 }

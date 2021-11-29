@@ -86,7 +86,11 @@ class PartyInfoDialogFragment: DialogFragment() {
                 ).show()
             } else{
                 partyViewModel = ViewModelProvider(this).get(PartyViewModel::class.java)
-                val party=Party(textedit_party_name.text.toString(),textview_party_time.text.toString(),textedit_party_location.text.toString(),textedit_party_additionalInfo.text.toString())
+                val party=Party(textedit_party_name.text.toString(),textview_party_date.text.toString(),textview_party_time.text.toString(),textedit_party_location.text.toString(),textedit_party_additionalInfo.text.toString())
+                party.participants.add("pepe")
+                party.participants.add("juan")
+                party.participants.add("pedro")
+
                 partyViewModel.addParty(party)
                 dismiss()
             }

@@ -28,7 +28,8 @@ class PartyAdding : AppCompatActivity() {
         partyViewModel = ViewModelProvider(this).get(PartyViewModel::class.java)
 
         button_done.setOnClickListener{
-            val party=Party(textedit_party_name.text.toString(),textview_party_time.text.toString(),textedit_party_location.text.toString(),textedit_party_additionalInfo.text.toString())
+            //val party=Party(textedit_party_name.text.toString(),"mañana",textview_party_time.text.toString(),textedit_party_location.text.toString(),textedit_party_additionalInfo.text.toString())
+            val party=Party("a","B","C","D","E")
             partyViewModel.addParty(party)
             //intent.putExtra("UserId",)
 
