@@ -13,14 +13,22 @@ import kotlinx.android.synthetic.main.all_partys_layout.*
 class AllParties : AppCompatActivity() {
     private lateinit var viewModel: PartyViewModel
     private lateinit var reference: DatabaseReference
+    private lateinit var idG: String
+
+    public fun getId() : String{
+        return idG
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.all_partys_layout)
+        setContentView(R.layout .all_partys_layout)
         reference = FirebaseDatabase.getInstance().getReference("Parties")
         viewModel= ViewModelProvider(this).get(PartyViewModel::class.java)
         //reference = FirebaseDatabase.getInstance().getReference("Users")
         val id=intent.getStringExtra("id")
+        if (id != null) {
+            idG = id
+        }
         var name: String? =id
         /*reference.child(id!!).get().addOnSuccessListener {
             if(it.exists()){
@@ -56,7 +64,7 @@ class AllParties : AppCompatActivity() {
             }
 
         button_view_friends_list.setOnClickListener{
-            var dialog = FriendsListDialogFragment()
+            var dialog = FriendsListDialogFragment(this)
             dialog.show(supportFragmentManager,"friendsListFragment")
             /* in the end i decided having it as a dialogfragment would be easiest, i did it through several
             different ways like normal fragment and separate layout, but this was the one i thought worked the smoothest */
