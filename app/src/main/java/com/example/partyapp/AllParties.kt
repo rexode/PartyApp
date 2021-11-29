@@ -6,6 +6,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.all_partys_layout.*
@@ -14,9 +16,14 @@ class AllParties : AppCompatActivity() {
     private lateinit var viewModel: PartyViewModel
     private lateinit var reference: DatabaseReference
     private lateinit var idG: String
+    private lateinit var nameG: String
 
     public fun getId() : String{
         return idG
+    }
+
+    public fun getName() : String{
+        return nameG
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,6 +44,7 @@ class AllParties : AppCompatActivity() {
         viewModel.getUser(id!!).observe(this,{user->
             Toast.makeText(this,user.name,Toast.LENGTH_SHORT).show()
             name=user.name
+            nameG = name.toString()
             user_name_greeting.setText(name)})
         var liveList:List<Party>
         viewModel.getParties().observe(this,{list-> liveList = list

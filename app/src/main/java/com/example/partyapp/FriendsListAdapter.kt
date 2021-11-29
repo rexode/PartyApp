@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class FriendsListAdapter(private val fList: List<User>?) : RecyclerView.Adapter<FriendsListAdapter.ViewHolder>() {
+class FriendsListAdapter(private val fList: MutableList<User>?) : RecyclerView.Adapter<FriendsListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 

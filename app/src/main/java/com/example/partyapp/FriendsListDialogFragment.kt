@@ -35,13 +35,16 @@ class FriendsListDialogFragment(var Activity: AllParties) : DialogFragment() {
 
 
 
-
+        lview.textView_user_name_fl.text = Activity.getName()
         lview.recyclerView_friends_list.layoutManager = LinearLayoutManager(Activity)
-        var liveList:List<User>?
-        viewmodel.getFriendsListData().getFriendsList(Activity.getId()).observe(this,{list -> liveList = list.friends
-        val adapter = FriendsListAdapter(liveList)
-            recyclerView_friends_list.adapter = adapter
-        })
+        lview.recyclerView_friends_list.adapter = FriendsListAdapter(viewmodel.getList(Activity.getId()))
+
+
+        button_add_friend.setOnClickListener{
+            viewmodel.addFriendToList(Activity.getId(),flist_enter_email.text.toString())
+            flist_enter_email.text.clear()
+        }
+
 
 
 

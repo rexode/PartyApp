@@ -5,21 +5,15 @@ import androidx.lifecycle.ViewModel
 class FriendListViewModel : ViewModel() {
 
     private  val users = UserLiveData()
-    private val friendsLists = FriendsListLiveData()
 
-    fun addList(list: FriendsList, id: String)
+    fun addOrChangeList(list: FriendsList, id: String)
     {
-        friendsLists.addList(list,id)
+        users.addListOrUpdate(list,id)
     }
 
-    fun changeList(id: String, list: FriendsList, fid: String)
+    fun getList(id: String):MutableList<User>?
     {
-        friendsLists.addFriendtoList(list,id,fid)
-    }
-
-    fun getList(id: String):FriendsListLiveData
-    {
-        return friendsLists.getFriendsList(id)
+        return users.getFriendsList(id)
     }
 
     fun getUserData():UserLiveData
@@ -27,8 +21,13 @@ class FriendListViewModel : ViewModel() {
         return  users
     }
 
-    fun getFriendsListData(): FriendsListLiveData
+    fun addFriendToList(id: String, email: String)
     {
-        return  friendsLists
+        users.addFriendToList(id,email)
+    }
+
+    fun getFriendsListData(): UserLiveData
+    {
+        return users
     }
 }
