@@ -19,6 +19,7 @@ import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.firebase.database.*
@@ -45,6 +46,17 @@ class PartyInfo() : DialogFragment() {
     ): View? {
         partyViewModel= ViewModelProvider(this).get(PartyViewModel::class.java)
         var rootView=inflater.inflate(R.layout.party_layout,container,false)
+        var partyList = mutableListOf(
+            Party("aId", "aName", "atime", "ahere"),
+            Party("bId", "bName", "btime", "bhere"),
+            Party("cId", "cName", "ctime", "chere"),
+            Party("dId", "dName", "dtime", "dhere"),
+            Party("eId", "eName", "etime", "ehere"),
+        )
+        val adapter = ParticipantAdapter(partyList)
+        //recyclerviewPartyInfo.adapter = adapter
+        //recyclerviewPartyInfo.layoutManager = LinearLayoutManager(activity)
+        //rootView.textView_date.text= party.date
 
 
         rootView.textView_party_name.text = arguments?.get("name").toString()
@@ -65,11 +77,15 @@ class PartyInfo() : DialogFragment() {
                 DisplayTrack(location);
             }
         rootView.button_edit_party.setOnClickListener{
-            //Toast.makeText(context, "pressed edit party", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, "pressed edit party", Toast.LENGTH_LONG).show()
             //TODO open up edit party, paste infos from party --> change stuff
             //var dialog = PartyInfoDialogFragment()
             //dialog.show(supportFragmentManager, "customDialog")
 
+        }
+        rootView.button_join_party.setOnClickListener{
+            //partyList.add(Party("eId", "eName", "etime", "ehere"))
+            //adapter.notifyItemInserted(partyList.size -1)
         }
 
 
