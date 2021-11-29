@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/santi/Desktop/Nueva carpeta (3)/PartyApp/app/src/main/res/layout/enter_name_fragment.xml" value="0.17481884057971014" />
+        <entry key="..\:/Users/santi/Desktop/Nueva carpeta (3)/PartyApp/app/src/main/res/layout/enter_partyinfo_fragment.xml" value="0.17481884057971014" />
+        <entry key="..\:/Users/santi/Desktop/Nueva carpeta (3)/PartyApp/app/src/main/res/layout/login_layout.xml" value="0.17481884057971014" />
+        <entry key="..\:/Users/santi/Desktop/Nueva carpeta (3)/PartyApp/app/src/main/res/layout/participant_textview.xml" value="0.17481884057971014" />
+        <entry key="..\:/Users/santi/Desktop/Nueva carpeta (3)/PartyApp/app/src/main/res/layout/party_layout.xml" value="0.17481884057971014" />
+        <entry key="..\:/Users/santi/Desktop/Nueva carpeta (3)/PartyApp/app/src/main/res/layout/signup_layout.xml" value="0.17481884057971014" />
+        <entry key="..\:/Users/santi/Desktop/Nueva carpeta (3)/PartyApp/app/src/main/res/layout/single_party.xml" value="0.264" />
         <entry key="..\:/Users/santi/Desktop/PartyApp/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/santi/Desktop/PartyApp/app/src/main/res/layout/all_partys_layout.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/santi/Desktop/PartyApp/app/src/main/res/layout/enter_name_fragment.xml" value="0.176" />
@@ -23,7 +30,11 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.31851851851851853" />
         <entry key="app/src/main/res/drawable/ic_person.xml" value="0.29259259259259257" />
         <entry key="app/src/main/res/drawable/lock.xml" value="0.3807291666666667" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22780797101449277" />
+        <entry key="app/src/main/res/drawable/lock2.xml" value="0.17962962962962964" />
+        <entry key="app/src/main/res/drawable/lock4.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/mail3.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/person.xml" value="0.17962962962962964" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.45" />
         <entry key="app/src/main/res/layout/all_partys_layout.xml" value="0.25" />
         <entry key="app/src/main/res/layout/enter_name_fragment.xml" value="0.17313432835820897" />
         <entry key="app/src/main/res/layout/enter_party_info.xml" value="0.25" />
@@ -38,6 +49,7 @@
         <entry key="app/src/main/res/layout/signup_layout.xml" value="0.335" />
         <entry key="app/src/main/res/layout/signup_layout_animated.xml" value="0.2557291666666667" />
         <entry key="app/src/main/res/layout/single_party.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/test_location_route_layout.xml" value="0.22871376811594202" />
       </map>
     </option>
   </component>

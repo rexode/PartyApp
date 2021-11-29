@@ -23,6 +23,8 @@ class LogInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_layout)
 
+
+
 /**
         LoginButton= findViewById(R.id.button_login)
         SignupButton= findViewById(R.id.button_createAcc)
