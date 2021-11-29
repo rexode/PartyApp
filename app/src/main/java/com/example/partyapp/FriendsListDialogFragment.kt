@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.DatabaseReference
@@ -29,6 +30,9 @@ class FriendsListDialogFragment(var Activity: AllParties) : DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         var lview : View = inflater.inflate(R.layout.friends_list_layout,container,false)
+        referance = FirebaseDatabase.getInstance().getReference("FriendsLists")
+        viewmodel = ViewModelProvider(this).get(FriendListViewModel::class.java)
+
 
 
 
@@ -38,6 +42,7 @@ class FriendsListDialogFragment(var Activity: AllParties) : DialogFragment() {
         val adapter = FriendsListAdapter(liveList)
             recyclerView_friends_list.adapter = adapter
         })
+
 
 
 

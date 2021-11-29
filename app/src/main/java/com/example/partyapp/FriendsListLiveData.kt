@@ -51,5 +51,5 @@ class FriendsListLiveData : LiveData<FriendsList>() {
         })
         return this
     }
-    
+
 }
