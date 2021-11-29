@@ -2,6 +2,8 @@ package com.example.partyapp
 
 import android.app.ActionBar
 import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
@@ -85,11 +87,31 @@ class AllParties : AppCompatActivity() {
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
+
+    // logout in menu and map
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.map -> Toast.makeText(this, "Open Map", Toast.LENGTH_SHORT).show()
-            R.id.logout -> Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show()
+            R.id.map ->
+                Toast.makeText(this, "Open Map", Toast.LENGTH_SHORT).show()
+
+
+
+            R.id.logout ->
+                {
+                    Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show()
+                    var preferences: SharedPreferences = getSharedPreferences("checkbox", MODE_PRIVATE)
+                    var editor: SharedPreferences.Editor = preferences.edit()
+                    editor.putString("remember", "false")
+                    editor.apply()
+
+
+                    var intent= Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+
+                }
+
         }
         return super.onOptionsItemSelected(item)
     }
