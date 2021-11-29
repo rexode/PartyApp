@@ -30,6 +30,8 @@ import java.util.*
 class PartyInfo : DialogFragment() {
     private lateinit var partyViewModel: PartyViewModel
     private lateinit var dbRef: DatabaseReference
+    private val dummyParty: Party = Party("name","today","now","here","info")
+
 
     lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     var currentLocation: String = ""
@@ -44,7 +46,8 @@ class PartyInfo : DialogFragment() {
         var party: Party? = partyViewModel.findParty(arguments?.getString("id"))
 
         //TODO if(user == creator) --> visible
-        rootView.button_edit_party.visibility = View.VISIBLE
+        if("name" != dummyParty.name)
+        rootView.button_edit_party.visibility = View.GONE
 
         rootView.textView_party_name.text = party?.name
         rootView.textView_party_time.text = party?.time
@@ -64,7 +67,11 @@ class PartyInfo : DialogFragment() {
                 DisplayTrack(location);
             }
         rootView.button_edit_party.setOnClickListener{
-            Toast.makeText(context, "pressed edit party", Toast.LENGTH_LONG).show()
+            //Toast.makeText(context, "pressed edit party", Toast.LENGTH_LONG).show()
+            //TODO open up edit party, paste infos from party --> change stuff
+            //var dialog = PartyInfoDialogFragment()
+            //dialog.show(supportFragmentManager, "customDialog")
+
         }
 
 
