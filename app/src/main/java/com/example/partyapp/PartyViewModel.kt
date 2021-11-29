@@ -1,6 +1,7 @@
 package com.example.partyapp
 
 import androidx.lifecycle.ViewModel
+import com.google.firebase.auth.FirebaseAuth
 
 class PartyViewModel: ViewModel()  {
     private val Parties = PartiesLiveData()
@@ -21,11 +22,15 @@ class PartyViewModel: ViewModel()  {
         return Partiesprueba.getParties()
     }
     fun addUser(newUser:User){
-        //user.addName(newUser)
+        FirebaseAuth.getInstance().currentUser?.let { user.addName(newUser, it.uid) }
     }
     fun getUserLiveData():UserLiveDataPrueba{
 
         return userprueba
+    }
+
+    fun findParty(id:String?) : Party?{
+        return Parties.findParty(id)
     }
 
 }

@@ -30,7 +30,6 @@ class PartyInfoDialogFragment: DialogFragment() {
                               savedInstanceState: Bundle?): View? {
         var rootView: View = inflater.inflate(R.layout.enter_partyinfo_fragment, container, false)
 
-
        // Date-picker
         val myCalender = Calendar.getInstance()
         val datePicker = DatePickerDialog
