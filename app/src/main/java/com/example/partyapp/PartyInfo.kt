@@ -46,10 +46,6 @@ class PartyInfo() : DialogFragment() {
         partyViewModel= ViewModelProvider(this).get(PartyViewModel::class.java)
         var rootView=inflater.inflate(R.layout.party_layout,container,false)
 
-        rootView.textView_party_name.text = party?.name
-        rootView.textView_party_time.text = party?.time
-        rootView.textView_location.text= party?.location
-        rootView.textView_insert_addInfo.text=party?.AditionalInfo
 //      rootView.textView_date.text= party.date
 
         rootView.textView_party_name.text = arguments?.get("name").toString()
