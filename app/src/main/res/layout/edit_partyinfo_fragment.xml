@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--********************************************************************************************************
+
+Fragment lets you enter party info, to create a new party
+
+********************************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="440dp"
+        android:background="@drawable/flags_background"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="20dp"
+        >
+
+        <EditText
+            android:fontFamily="@font/msemibold"
+            android:textColorHint="@color/m_dark_blue"
+            android:id="@+id/textedit_party_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Party-name"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="50dp"/>
+
+        <TextView
+            android:layout_marginTop="-10dp"
+            android:id="@+id/textview_party_time"
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="48dp"
+            android:background="@color/grey_blueish"
+            android:elevation="3dp"
+            android:fontFamily="@font/msemibold"
+            android:gravity="center"
+            android:hint="Time"
+            android:inputType="time"
+            android:textColorHint="@color/m_dark_blue"
+            android:textSize="20dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/textview_party_time"
+            app:layout_constraintEnd_toStartOf="@+id/textview_party_date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textedit_party_name"
+            app:layout_constraintVertical_bias="0.505" />
+
+        <TextView
+            android:id="@+id/textview_party_date"
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="-40dp"
+            android:layout_marginStart="200dp"
+            android:background="@color/grey_blueish"
+            android:elevation="3dp"
+            android:ems="10"
+            android:fontFamily="@font/msemibold"
+            android:gravity="center"
+            android:hint="Date"
+            android:inputType="date"
+            android:textColorHint="@color/m_dark_blue"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/textedit_party_date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textedit_party_name" />
+
+        <EditText
+            android:layout_marginTop="30dp"
+            android:textColorHint="@color/m_dark_blue"
+            android:fontFamily="@font/msemibold"
+            android:id="@+id/textedit_party_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="Location" />
+
+        <EditText
+            android:textColorHint="@color/m_dark_blue"
+            android:fontFamily="@font/msemibold"
+            android:id="@+id/textedit_party_additionalInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="Additional info" />
+
+        <Button
+            android:id="@+id/button_done"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="240dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/edittext_background"
+            android:fontFamily="@font/mmedium"
+            android:letterSpacing="0.2"
+            android:text="Done"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
