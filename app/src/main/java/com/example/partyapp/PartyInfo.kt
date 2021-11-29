@@ -20,6 +20,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.enter_partyinfo_fragment.view.*
 import kotlinx.android.synthetic.main.party_layout.*
 import kotlinx.android.synthetic.main.party_layout.*
 import kotlinx.android.synthetic.main.party_layout.view.*
@@ -29,6 +30,8 @@ import java.util.*
 class PartyInfo : DialogFragment() {
     private lateinit var partyViewModel: PartyViewModel
     private lateinit var dbRef: DatabaseReference
+    private val dummyParty: Party = Party("name","today","now","here","info")
+
 
     lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     var currentLocation: String = ""
@@ -41,6 +44,10 @@ class PartyInfo : DialogFragment() {
         partyViewModel = ViewModelProvider(this).get(PartyViewModel::class.java)
         var rootView = inflater.inflate(R.layout.party_layout, container, false)
         var party: Party? = partyViewModel.findParty(arguments?.getString("id"))
+
+        //TODO if(user == creator) --> visible
+        if("name" != dummyParty.name)
+        rootView.button_edit_party.visibility = View.GONE
 
         rootView.textView_party_name.text = party?.name
         rootView.textView_party_time.text = party?.time
@@ -59,7 +66,13 @@ class PartyInfo : DialogFragment() {
                 getLocation()
                 DisplayTrack(location);
             }
+        rootView.button_edit_party.setOnClickListener{
+            //Toast.makeText(context, "pressed edit party", Toast.LENGTH_LONG).show()
+            //TODO open up edit party, paste infos from party --> change stuff
+            //var dialog = PartyInfoDialogFragment()
+            //dialog.show(supportFragmentManager, "customDialog")
 
+        }
 
 
         return rootView
