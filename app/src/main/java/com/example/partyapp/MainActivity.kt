@@ -1,3 +1,5 @@
+
+
 package com.example.partyapp
 
 import android.content.Intent
@@ -24,7 +26,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_layout)
 
-
+        actionBar?.hide()
+        supportActionBar?.hide()
 
         /**
         val LogInbutton=findViewById<Button>(R.id.button_login)
@@ -64,6 +67,7 @@ class MainActivity : AppCompatActivity() {
                             if (task.isSuccessful) {
                                 val firebaseUser: FirebaseUser = task.result!!.user!!
 
+
                                 Toast.makeText(
                                     this,
                                     "Logged sucessfully",
@@ -86,6 +90,8 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
+
 
 
     }

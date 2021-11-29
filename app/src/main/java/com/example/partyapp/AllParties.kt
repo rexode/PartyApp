@@ -1,6 +1,11 @@
 package com.example.partyapp
 
+import android.app.ActionBar
+import android.content.Context
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -13,12 +18,22 @@ import kotlinx.android.synthetic.main.enter_partyinfo_fragment.*
 import kotlinx.android.synthetic.main.single_party.*
 
 class AllParties : AppCompatActivity() {
+
+
     private lateinit var viewModel: PartyViewModel
     private lateinit var reference: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.all_partys_layout)
+
+
+        var token = getSharedPreferences("username", Context.MODE_PRIVATE)
+
+
+        actionBar?.setTitle("All partys")
+        supportActionBar?.setTitle("All Partys")
+
         reference = FirebaseDatabase.getInstance().getReference("Parties")
         viewModel= ViewModelProvider(this).get(PartyViewModel::class.java)
         //reference = FirebaseDatabase.getInstance().getReference("Users")
@@ -60,6 +75,25 @@ class AllParties : AppCompatActivity() {
             Toast.makeText(this,"cheers",Toast.LENGTH_SHORT)
         }*/
         }
+
+
+
+    // Menu in tool-bar
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        var inflator:MenuInflater  = menuInflater
+        inflator.inflate(R.menu.dot_menu, menu)
+        return true
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when(item.itemId){
+            R.id.map -> Toast.makeText(this, "Open Map", Toast.LENGTH_SHORT).show()
+            R.id.logout -> Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+}
 
 

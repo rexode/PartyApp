@@ -106,26 +106,30 @@ clicking on signup button forwards you to the all_partys_layout.xml
             android:textColorHint="@color/dark_yellow" />
 
 
-        <Button
+        <CheckBox
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/checkbox_rememberme"
+            android:hint="Remember me"
+            android:textColorHint="@color/blueSecond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
+        <Button
             android:id="@+id/button_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="85dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/edittext_background"
             android:fontFamily="@font/msemibold"
             android:letterSpacing="0.3"
             android:text="Login"
             android:textColor="@color/white"
-
             android:textStyle="bold" />
 
     </LinearLayout>
 
-
-
-    <!-- everything above is hidden due to the animation -->
 
 
     <LinearLayout
