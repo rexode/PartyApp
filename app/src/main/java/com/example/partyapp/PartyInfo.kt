@@ -20,6 +20,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.enter_partyinfo_fragment.view.*
 import kotlinx.android.synthetic.main.party_layout.*
 import kotlinx.android.synthetic.main.party_layout.*
 import kotlinx.android.synthetic.main.party_layout.view.*
@@ -42,6 +43,9 @@ class PartyInfo : DialogFragment() {
         var rootView = inflater.inflate(R.layout.party_layout, container, false)
         var party: Party? = partyViewModel.findParty(arguments?.getString("id"))
 
+        //TODO if(user == creator) --> visible
+        rootView.button_edit_party.visibility = View.VISIBLE
+
         rootView.textView_party_name.text = party?.name
         rootView.textView_party_time.text = party?.time
         rootView.textView_location.text = party?.location
@@ -59,7 +63,9 @@ class PartyInfo : DialogFragment() {
                 getLocation()
                 DisplayTrack(location);
             }
-
+        rootView.button_edit_party.setOnClickListener{
+            Toast.makeText(context, "pressed edit party", Toast.LENGTH_LONG).show()
+        }
 
 
         return rootView
