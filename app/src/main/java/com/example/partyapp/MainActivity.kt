@@ -144,7 +144,6 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Checked", Toast.LENGTH_SHORT).show()
 
 
-
             } else if(!isChecked) {
                 var preferences: SharedPreferences = getSharedPreferences("checkbox", MODE_PRIVATE)
                 var editor: SharedPreferences.Editor = preferences.edit()
