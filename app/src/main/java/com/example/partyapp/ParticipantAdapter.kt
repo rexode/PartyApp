@@ -22,7 +22,8 @@ class ParticipantAdapter(val Parties :List<Party>) :RecyclerView.Adapter<Partici
     }
 
     override fun onBindViewHolder(holder: ParticipantViewHolder, position: Int) {
-        holder.itemView.textView_participant1.text = Parties[position].name
+        //holder.itemView.textView_participant1.text = Parties[position].name
+        holder.textName.text = Parties[position].name
     }
 
 
@@ -44,6 +45,7 @@ class ParticipantAdapter(val Parties :List<Party>) :RecyclerView.Adapter<Partici
     }
 
     class ParticipantViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
+        val textName = itemView.findViewById<TextView>(R.id.textView_participant1)
     }
 
 }

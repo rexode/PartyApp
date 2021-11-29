@@ -53,10 +53,12 @@ class PartyInfo() : DialogFragment() {
             Party("dId", "dName", "dtime", "dhere"),
             Party("eId", "eName", "etime", "ehere"),
         )
+
         val adapter = ParticipantAdapter(partyList)
-        //recyclerviewPartyInfo.adapter = adapter
-        //recyclerviewPartyInfo.layoutManager = LinearLayoutManager(activity)
+        recyclerviewPartyInfo.adapter = adapter
+        recyclerviewPartyInfo.layoutManager = LinearLayoutManager(activity)
         //rootView.textView_date.text= party.date
+
 
 
         rootView.textView_party_name.text = arguments?.get("name").toString()
