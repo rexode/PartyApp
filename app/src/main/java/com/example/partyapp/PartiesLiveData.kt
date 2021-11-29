@@ -17,6 +17,29 @@ class PartiesLiveData: MutableLiveData<MutableList<Party>>() {
 
 
     }
+
+    fun findParty(id:String?): Party{
+        var resParty= Party("123","21312","12312","info")
+
+        reference.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                // Populate a list of notes from database
+                snapshot.children.forEach {
+                    if (it != null) {
+                        val party = it.getValue<Party>()!!
+                            .also { party -> party.uid = id }
+                        resParty=it.getValue<Party>()!!
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.e("firebase", error.message)
+            }
+        })
+        return resParty
+    }
+
     fun addParty(party:Party) {
         val uid: String? = reference.push().key
         if (uid != null) {
