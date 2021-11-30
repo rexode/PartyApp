@@ -7,6 +7,8 @@ import android.location.Address
 import android.location.Geocoder
 import android.location.Location
 import android.net.Uri
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -14,6 +16,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.all_partys_layout.*
+import kotlinx.android.synthetic.main.enter_partyinfo_fragment.view.*
 import kotlinx.android.synthetic.main.party_layout.*
 import java.io.IOException
 import java.util.*
@@ -67,9 +72,16 @@ class PartyInfo() : AppCompatActivity() {
             Party("dId", "dName", "dtime", "dhere"),
             Party("eId", "eName", "etime", "ehere"),
         )
-       val adapter = ParticipantAdapter(partyList)
-        recyclerviewPartyInfo.adapter = adapter
+        var liveList:List<User>
+        partyViewModel.getParticipants(intent.getStringExtra("id")!!).observe(this, { list ->
+            liveList = list
+            val adapter = ParticipantAdapter(liveList)
+            recyclerviewPartyInfo.adapter = adapter
+        })
+       //val adapter = ParticipantAdapter(partyList)
         recyclerviewPartyInfo.layoutManager = LinearLayoutManager(this)
+        //recyclerviewPartyInfo.adapter = adapter
+        //recyclerviewPartyInfo.layoutManager = LinearLayoutManager(this)
 
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
@@ -84,9 +96,22 @@ class PartyInfo() : AppCompatActivity() {
 
 
         button_join_party.setOnClickListener{
-
-            //partyList.add(Party("eId", "eName", "etime", "ehere"))
-            //adapter.notifyItemInserted(partyList.size -1)
+            val sp: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
+            val uidRestored = sp.getString("key", "")
+            val sp2: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
+            val nameRestored = sp2.getString("username", "")
+            val sp3: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
+            val emailRestored = sp3.getString("email", "")
+            Toast.makeText(this,nameRestored,Toast.LENGTH_SHORT).show()
+            partyViewModel.addParticipants(emailRestored!!, uidRestored!!, nameRestored!!, intent.getStringExtra("id")!!)
+            //partyViewModel.addParticipants()
+        }
+        button_leave.setOnClickListener{
+            //NOT TESTED YEEEEEEEEEEEEEET
+            val sp: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
+            val uidRestored = sp.getString("key", "")
+            //Toast.makeText(this, "jmGgeoscPYgjjqzW49sjLMx7HJv2",Toast.LENGTH_LONG).show()
+            partyViewModel.removeParticipant(uidRestored!!, intent.getStringExtra("id")!!)
         }
 
         button_edit_party.setOnClickListener {

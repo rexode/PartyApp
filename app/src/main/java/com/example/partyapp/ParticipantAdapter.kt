@@ -14,7 +14,7 @@ import androidx.lifecycle.LifecycleOwner
 import kotlinx.android.synthetic.main.participant_textview.view.*
 
 
-class ParticipantAdapter(val Parties :List<Party>) :RecyclerView.Adapter<ParticipantAdapter.ParticipantViewHolder>() {
+class ParticipantAdapter(val Parties :List<User>) :RecyclerView.Adapter<ParticipantAdapter.ParticipantViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ParticipantViewHolder {
         val view : View=LayoutInflater.from(parent.context).inflate(R.layout.participant_textview,parent,false)

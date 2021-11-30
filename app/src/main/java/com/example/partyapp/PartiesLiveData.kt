@@ -58,7 +58,6 @@ class PartiesLiveData: MutableLiveData<MutableList<Party>>() {
     fun updateNote(party:Party) {
         if (party.uid != null) {
             // Update note under path /notes/$uid
-            reference.child(party.uid!!).updateChildren(party.toMap())
         }
     }
     fun deleteNote(note: Party) {

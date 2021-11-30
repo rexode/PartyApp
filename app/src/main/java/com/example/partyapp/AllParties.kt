@@ -28,6 +28,7 @@ class AllParties : AppCompatActivity() {
     private lateinit var reference: DatabaseReference
     private lateinit var idG: String
     private lateinit var nameG: String
+    private var actualUser=User()
 
     public fun getId() : String{
         return idG
@@ -40,10 +41,6 @@ class AllParties : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.all_partys_layout)
-
-
-        var token = getSharedPreferences("username", Context.MODE_PRIVATE)
-
 
         actionBar?.setTitle("All partys")
         supportActionBar?.setTitle("All Partys")
@@ -76,6 +73,10 @@ class AllParties : AppCompatActivity() {
 
 
             nameG = name.toString()
+            Toast.makeText(this,id,Toast.LENGTH_SHORT).show()
+            actualUser=user
+            actualUser.id=id
+            name=actualUser.name
             user_name_greeting.setText(name)})
         var liveList:List<Party>
         viewModel.getParties().observe(this,{list-> liveList = list
@@ -99,7 +100,15 @@ class AllParties : AppCompatActivity() {
 
             button_add_party.setOnClickListener {
                 var dialog = PartyInfoDialogFragment()
+                var args = Bundle()
+                args.putString("userName",actualUser.name)
+                args.putString("userEmail",actualUser.email)
+                args.putString("userId",actualUser.id)
+                Toast.makeText(this,actualUser.id,Toast.LENGTH_SHORT).show()
+
+                dialog.arguments=args
                 dialog.show(supportFragmentManager, "customDialog")
+
                 //partyList.add(Party("new", "new", "new", "new"))
                 //adapter.notifyItemInserted(partyList.size - 1)
             }

@@ -23,14 +23,8 @@ import java.time.format.DateTimeFormatter
 
 class PartiesLiveDataPrueba: MutableLiveData<MutableList<Party>>() {
     private var db=FirebaseFirestore.getInstance()
-    private var reference: DatabaseReference
-
-    init {
-        reference = FirebaseDatabase.getInstance().getReference("Parties")
-        //db.collection("Parties")
 
 
-    }
 
 //    Party("error","error","error","error")
 
@@ -70,29 +64,24 @@ class PartiesLiveDataPrueba: MutableLiveData<MutableList<Party>>() {
                 value=partiesList
             }
         }
+
         return this
         }
 
-    fun addParty(party:Party) {
-        val id=db.collection("participants").document().id
+    fun addParty(party:Party):String{
+        val id=db.collection("Parties").document().id
         party.uid=id
         db.collection("Parties").document(id).set(party)
-        val string="poa"
-        val user=User(string)
-        db.collection("Parties").document(id).collection("Participants").document().set(user)
-
-
+        return id
     }
     fun updateNote(party:Party) {
         if (party.uid != null) {
             // Update note under path /notes/$uid
-            reference.child(party.uid!!).updateChildren(party.toMap())
         }
     }
     fun deleteNote(note: Party) {
         if (note.uid != null) {
             // Delete note under path /notes/$uid
-            reference.child(note.uid!!).removeValue()
         }
     }
     fun getParties():PartiesLiveDataPrueba{
