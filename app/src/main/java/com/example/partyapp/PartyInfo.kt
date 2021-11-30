@@ -51,10 +51,16 @@ class PartyInfo() : AppCompatActivity() {
             textView_date.text = list.get(0).date
 
         })
-       // val adapter = ParticipantAdapter(partyList)
-       // recyclerviewPartyInfo.adapter = adapter
-        //recyclerviewPartyInfo.layoutManager = LinearLayoutManager(activity)
-        //rootView.textView_date.text= party.date
+        var partyList = mutableListOf(
+            Party("aId", "aName", "atime", "ahere"),
+            Party("bId", "bName", "btime", "bhere"),
+            Party("cId", "cName", "ctime", "chere"),
+            Party("dId", "dName", "dtime", "dhere"),
+            Party("eId", "eName", "etime", "ehere"),
+        )
+       val adapter = ParticipantAdapter(partyList)
+        recyclerviewPartyInfo.adapter = adapter
+        recyclerviewPartyInfo.layoutManager = LinearLayoutManager(this)
 
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)

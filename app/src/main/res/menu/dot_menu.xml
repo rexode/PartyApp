@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/map"
-        android:icon="@drawable/map"
-        android:title="Map"
+    <item android:id="@+id/profile"
+        android:icon="@drawable/profile_icon"
+        android:title="Profile"
         app:showAsAction="ifRoom"
         />
 
