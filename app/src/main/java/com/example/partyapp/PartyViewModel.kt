@@ -40,5 +40,9 @@ class PartyViewModel: ViewModel()  {
     fun addParticipants(user:User,id:String){
         return userList.addFollower(user,id)
     }
+    fun getParticipants(partiId:String):UserListLiveData{
+       return userList.getParticipants(partiId)
+
+    }
 
 }
