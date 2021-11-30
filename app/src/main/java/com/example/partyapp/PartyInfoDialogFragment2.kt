@@ -58,8 +58,6 @@ private var addInfo = addInfo
         var rootView: View = inflater.inflate(R.layout.enter_partyinfo_fragment, container, false)
 
 
-       Toast.makeText(activity, "$name + $time + $location", Toast.LENGTH_SHORT).show()
-
 
         rootView.textedit_party_name.text = Editable.Factory.getInstance().newEditable(name)
         rootView.textview_party_date.text = date
@@ -69,7 +67,6 @@ private var addInfo = addInfo
          rootView.textedit_party_additionalInfo.text =
             Editable.Factory.getInstance().newEditable(addInfo)
 
-        Toast.makeText(activity, "2: $name + $time + $location", Toast.LENGTH_SHORT).show()
 
 
        // Date-picker

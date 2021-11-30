@@ -61,7 +61,7 @@ class AllParties : AppCompatActivity() {
                 name= it.child("name").value as String?
             }}*/
         viewModel.getUser(id!!).observe(this,{user->
-            Toast.makeText(this,user.name,Toast.LENGTH_SHORT).show()
+           // Toast.makeText(this,user.name,Toast.LENGTH_SHORT).show()
 
             name=user.name
 
