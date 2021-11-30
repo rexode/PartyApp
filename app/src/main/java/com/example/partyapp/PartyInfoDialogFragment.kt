@@ -95,24 +95,12 @@ class PartyInfoDialogFragment: DialogFragment() {
                 ).show()
             } else{
                 partyViewModel = ViewModelProvider(this).get(PartyViewModel::class.java)
-                partyViewModel.addParticipants(email!!, name!!, id!!,newId)
-
                 val party=Party(textedit_party_name.text.toString(),textview_party_date.text.toString(),textview_party_time.text.toString(),textedit_party_location.text.toString(),textedit_party_additionalInfo.text.toString())
                 val user=User(email,name,id)
                 val newId=partyViewModel.addParty(party,user)
                 //Toast.makeText(activity,user.id+user.email+user.name+newId,Toast.LENGTH_SHORT).show()
                 partyViewModel.addParticipants(email!!, name!!, id!!,newId)
-                /* Following code was from main, line 100 till 103 was from FirestoreDatabase-branch
-                val party=Party(textedit_party_name.text.toString(),
-                    textview_party_date.text.toString(),
-                    textview_party_time.text.toString(),
-                    textedit_party_location.text.toString(),
-                    textedit_party_additionalInfo.text.toString())
-                    partyViewModel.addParty(party)
-                //party.participants.add("pepe")
-                //party.participants.add("juan")
-                //party.participants.add("pedro")
-                */
+
                 dismiss()
             }
 
