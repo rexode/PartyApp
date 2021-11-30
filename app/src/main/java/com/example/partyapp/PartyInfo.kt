@@ -11,6 +11,7 @@ import android.net.Uri
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -30,68 +31,54 @@ import kotlinx.android.synthetic.main.party_layout.view.*
 import java.io.IOException
 import java.util.*
 
-class PartyInfo() : DialogFragment() {
+class PartyInfo() : AppCompatActivity() {
     private lateinit var partyViewModel: PartyViewModel
-    private lateinit var dbRef: DatabaseReference
     private val dummyParty: Party = Party("name","today","now","here","info")
 
 
     lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     var currentLocation: String = ""
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View? {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.party_layout)
         partyViewModel= ViewModelProvider(this).get(PartyViewModel::class.java)
-        var rootView=inflater.inflate(R.layout.party_layout,container,false)
-        var partyList = mutableListOf(
-            Party("aId", "aName", "atime", "ahere"),
-            Party("bId", "bName", "btime", "bhere"),
-            Party("cId", "cName", "ctime", "chere"),
-            Party("dId", "dName", "dtime", "dhere"),
-            Party("eId", "eName", "etime", "ehere"),
-        )
+        partyViewModel.findParty(intent.getStringExtra("id")).observe(this,{
+            list->
+            textView_party_name.text = list.get(0).name
+            textView_party_time.text = list.get(0).time
+            textView_insert_addInfo.text = list.get(0).AditionalInfo
+            textView_location.text = list.get(0).location
+            textView_date.text = list.get(0).date
 
+        })
        // val adapter = ParticipantAdapter(partyList)
        // recyclerviewPartyInfo.adapter = adapter
         //recyclerviewPartyInfo.layoutManager = LinearLayoutManager(activity)
         //rootView.textView_date.text= party.date
 
 
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
 
-        rootView.textView_party_name.text = arguments?.get("name").toString()
-        rootView.textView_party_time.text = arguments?.get("time").toString()
-        rootView.textView_location.text= arguments?.get("location").toString()
-        rootView.textView_insert_addInfo.text=arguments?.get("additionalInfo").toString()
-        rootView.textView_date.text= arguments?.get("date").toString()
+        textView_location.setOnClickListener {
 
-
-
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(activity)
-
-        rootView.textView_location.setOnClickListener {
-
-        var location: String = rootView.textView_location.text.toString()
+        var location: String = textView_location.text.toString()
 
                 getLocation()
                 DisplayTrack(location);
             }
-        rootView.button_edit_party.setOnClickListener{
-            Toast.makeText(context, "pressed edit party", Toast.LENGTH_LONG).show()
+        button_edit_party.setOnClickListener{
+            Toast.makeText(this, "pressed edit party", Toast.LENGTH_LONG).show()
             //TODO open up edit party, paste infos from party --> change stuff
             //var dialog = PartyInfoDialogFragment()
             //dialog.show(supportFragmentManager, "customDialog")
 
         }
-        rootView.button_join_party.setOnClickListener{
+        button_join_party.setOnClickListener{
             //partyList.add(Party("eId", "eName", "etime", "ehere"))
             //adapter.notifyItemInserted(partyList.size -1)
         }
 
 
-        return rootView
     }
 
 
@@ -107,7 +94,7 @@ class PartyInfo() : DialogFragment() {
             var location: Location = it.getResult()
             if (location != null) {
                 try {
-                    var geocoder: Geocoder = Geocoder(activity, Locale.getDefault())
+                    var geocoder: Geocoder = Geocoder(this, Locale.getDefault())
 
                     var adresses: List<Address> = geocoder.getFromLocation(
                         location.latitude, location.longitude, 1

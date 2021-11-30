@@ -32,8 +32,8 @@ class PartyViewModel: ViewModel()  {
         return userprueba
     }
 
-    fun findParty(id:String?,context: LifecycleOwner,fragmentManager: FragmentManager) {
-         Partiesprueba.findParty(id,context,fragmentManager)
+    fun findParty(id:String?) :PartiesLiveDataPrueba{
+         return Partiesprueba.findParty(id)
     }
 
 }

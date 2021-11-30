@@ -2,9 +2,11 @@ package com.example.partyapp
 
 import android.content.ContentValues.TAG
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.LifecycleOwner
@@ -17,10 +19,12 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.all_partys_layout.*
 import java.nio.file.Files.find
+import java.time.format.DateTimeFormatter
 
 class PartiesLiveDataPrueba: MutableLiveData<MutableList<Party>>() {
     private var db=FirebaseFirestore.getInstance()
     private var reference: DatabaseReference
+
     init {
         reference = FirebaseDatabase.getInstance().getReference("Parties")
         //db.collection("Parties")
@@ -30,33 +34,44 @@ class PartiesLiveDataPrueba: MutableLiveData<MutableList<Party>>() {
 
 //    Party("error","error","error","error")
 
-    fun findParty(id:String?,context: LifecycleOwner,fragmentManager: FragmentManager) {
-        db.collection("Parties").addSnapshotListener{
-                snapshot,e->
+    fun findParty(id:String?):PartiesLiveDataPrueba {
+        /*getParties().observe(context,{list->
+            list.forEach { if (it.uid.equals(id)){
+                var overlay=  PartyInfo()
+                var args : Bundle = Bundle()
+                args.putString("name",it.name)
+                args.putString("time",it.time)
+                args.putString("date",it.date)
+                args.putString("location",it.location)
+                args.putString("additionalInfo",it.AditionalInfo)
+                overlay.arguments = args
+                overlay.show(fragmentManager,
+                    "partyOverlay")
+
+            }
+            }
+
+        })*/
+        db.collection("Parties").whereEqualTo("uid",id).addSnapshotListener{
+            snapshot,e->
             if(e!=null){
                 Log.w(TAG,"Listen faile",e)
             }
+
             if(snapshot!=null){
+                var partiesList = mutableListOf<Party>()
                 var document = snapshot.documents
                 document.forEach{
                     val party=it.toObject(Party::class.java)
-                    if(party!=null && party.uid.equals(id)){
-                        var overlay=  PartyInfo()
-                        var args : Bundle = Bundle()
-                        args.putString("name",party.name)
-                        args.putString("time",party.time)
-                        args.putString("date",party.date)
-                        args.putString("location",party.location)
-                        args.putString("additionalInfo",party.AditionalInfo)
-                        overlay.arguments = args
-                        overlay.show(fragmentManager,
-                            "partyOverlay")
+                    if(party!=null){
+                        partiesList.add(party)
                     }
                 }
+                value=partiesList
             }
-
         }
-    }
+        return this
+        }
 
     fun addParty(party:Party) {
         val id=db.collection("participants").document().id
@@ -90,8 +105,8 @@ class PartiesLiveDataPrueba: MutableLiveData<MutableList<Party>>() {
         }
             return this*/
 
-        db.collection("Parties").addSnapshotListener{
-                snapshot,e->
+        db.collection("Parties").orderBy("date").addSnapshotListener{
+            snapshot,e->
             if(e!=null){
                 Log.w(TAG,"Listen faile",e)
             }
@@ -109,7 +124,7 @@ class PartiesLiveDataPrueba: MutableLiveData<MutableList<Party>>() {
 
         }
         return this
-    }
+        }
     fun getParty(id:String){
         val party: Party? = value?.find { it.uid == id }
 

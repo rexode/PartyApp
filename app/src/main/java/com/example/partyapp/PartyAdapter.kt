@@ -28,8 +28,10 @@ class PartyAdapter(val Parties :List<Party>,val lf: LifecycleOwner) :RecyclerVie
         holder.partTime.text = Parties[position].time
         val partyId=Parties[position].uid
         holder.partyBtn.setOnClickListener{
-            partyModel.findParty(partyId,lf,(holder.partyBtn.getContext() as FragmentActivity).supportFragmentManager)
-        }
+            val intent = Intent(it.context, PartyInfo::class.java)
+            intent.putExtra("id",partyId)
+            it.context.startActivity(intent)
+            }
         //holder.itemView.text
 
         //holder.textName.text=Party.title
