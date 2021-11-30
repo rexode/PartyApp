@@ -82,13 +82,15 @@ class AllParties : AppCompatActivity() {
             val adapter = PartyAdapter(liveList,this)
             recyclerviewAllParties.adapter = adapter
         })
-            var partyList = mutableListOf(
+        /*    var partyList = mutableListOf(
                 Party("aId", "aName", "atime", "ahere"),
                 Party("bId", "bName", "btime", "bhere"),
                 Party("cId", "cName", "ctime", "chere"),
                 Party("dId", "dName", "dtime", "dhere"),
                 Party("eId", "eName", "etime", "ehere"),
             )
+
+         */
 
             //recyclerviewAllParties.adapter = adapter
             recyclerviewAllParties.layoutManager = LinearLayoutManager(this)

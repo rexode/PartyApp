@@ -12,9 +12,13 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
 class NameCreating : AppCompatActivity() {
+
+    private var db= FirebaseFirestore.getInstance()
+
     private lateinit var viewModel: PartyViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +43,7 @@ class NameCreating : AppCompatActivity() {
         var button=findViewById<Button>(R.id.button_done)
 
         button.setOnClickListener {
+
             if (id != null) {
                 val user = User(email, editText.text.toString())
                 //database.child(id).setValue(user)
