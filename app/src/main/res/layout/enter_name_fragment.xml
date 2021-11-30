@@ -24,7 +24,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/msemibold"
-            android:text="Please enter your Name"
+            android:text="Please enter a Username"
             android:textColor="@color/blueSecond"
             android:textSize="20dp" />
 
@@ -36,7 +36,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
             android:fontFamily="@font/msemibold"
-            android:hint="Name Surename"
+            android:hint="Username"
             android:textColorHint="@color/m_dark_blue" />
 
         <Button
