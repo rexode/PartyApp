@@ -24,6 +24,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.all_partys_layout.*
 import kotlinx.android.synthetic.main.enter_partyinfo_fragment.view.*
 import kotlinx.android.synthetic.main.party_layout.*
 import kotlinx.android.synthetic.main.party_layout.*
@@ -57,9 +58,16 @@ class PartyInfo() : AppCompatActivity() {
             Party("dId", "dName", "dtime", "dhere"),
             Party("eId", "eName", "etime", "ehere"),
         )
-       val adapter = ParticipantAdapter(partyList)
-        recyclerviewPartyInfo.adapter = adapter
+        var liveList:List<User>
+        partyViewModel.getParticipants(intent.getStringExtra("id")!!).observe(this, { list ->
+            liveList = list
+            val adapter = ParticipantAdapter(liveList)
+            recyclerviewPartyInfo.adapter = adapter
+        })
+       //val adapter = ParticipantAdapter(partyList)
         recyclerviewPartyInfo.layoutManager = LinearLayoutManager(this)
+        //recyclerviewPartyInfo.adapter = adapter
+        //recyclerviewPartyInfo.layoutManager = LinearLayoutManager(this)
 
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
