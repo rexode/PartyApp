@@ -8,9 +8,10 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class UserListLiveData: MutableLiveData<MutableList<User>>() {
     private var db= FirebaseFirestore.getInstance()
-    fun addFollower(user:User,id:String) {
+    fun addFollower(email:String,id:String,name:String, partyId:String) {
 
-            db.collection("Parties").document(id).collection("participants").add(user)
+            //db.collection("Parties").document(id).collection("participants").add(user)
+            db.collection("Parties").document(partyId).collection("participants").document(id).set(User(email,id,name))
 
     }
     fun getParticipants(partieId:String ):UserListLiveData{

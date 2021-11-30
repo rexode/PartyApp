@@ -37,8 +37,8 @@ class PartyViewModel: ViewModel()  {
     fun findParty(id:String?) :PartiesLiveDataPrueba{
          return Partiesprueba.findParty(id)
     }
-    fun addParticipants(user:User,id:String){
-        return userList.addFollower(user,id)
+    fun addParticipants(email:String,id:String,name:String, partyId:String){
+        return userList.addFollower(email, id, name, partyId)
     }
     fun getParticipants(partiId:String):UserListLiveData{
        return userList.getParticipants(partiId)

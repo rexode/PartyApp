@@ -9,6 +9,7 @@ import android.location.Geocoder
 import android.location.Location
 import android.net.Uri
 import android.content.Context
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -87,10 +88,22 @@ class PartyInfo() : AppCompatActivity() {
 
         }
         button_join_party.setOnClickListener{
-            partyViewModel.addParticipants()
+            val sp: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
+            val uidRestored = sp.getString("key", "")
+            val sp2: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
+            val nameRestored = sp2.getString("username", "")
+            val sp3: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
+            val emailRestored = sp3.getString("email", "")
+            Toast.makeText(this,nameRestored,Toast.LENGTH_SHORT).show()
+            partyViewModel.addParticipants(emailRestored!!, uidRestored!!, nameRestored!!, intent.getStringExtra("id")!!)
+            //partyViewModel.addParticipants()
         }
-        button_remove{
-            partyViewModel.removeParticipant("todooo","todoo")
+        button_leave.setOnClickListener{
+            //NOT TESTED YEEEEEEEEEEEEEET
+            val sp: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
+            val uidRestored = sp.getString("key", "")
+            //Toast.makeText(this, "jmGgeoscPYgjjqzW49sjLMx7HJv2",Toast.LENGTH_LONG).show()
+            partyViewModel.removeParticipant(uidRestored!!, intent.getStringExtra("id")!!)
         }
 
 
