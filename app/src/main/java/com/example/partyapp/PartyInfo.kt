@@ -44,6 +44,12 @@ class PartyInfo() : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.party_layout)
+
+        actionBar?.setTitle("Party Info")
+        supportActionBar?.setTitle("Party Info")
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         partyViewModel= ViewModelProvider(this).get(PartyViewModel::class.java)
         partyViewModel.findParty(intent.getStringExtra("id")).observe(this,{
             list->

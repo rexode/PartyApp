@@ -1,6 +1,7 @@
 package com.example.partyapp
 
 import android.content.Intent
+import java.io.FileFilter
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -18,6 +19,7 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.database.ktx.database
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.login_layout.*
+import java.io.File
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -46,6 +48,8 @@ class MainActivity : AppCompatActivity() {
 
             val intent = Intent(this, AllParties::class.java)
             intent.putExtra("id",uidRestored)
+
+
             startActivity(intent)
             finish()
 

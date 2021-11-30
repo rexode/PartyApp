@@ -43,7 +43,6 @@ class PartyInfoDialogFragment2: DialogFragment() {
 
         })
 
-
  */
             //actionBar?.setTitle("Party Information")
         // supportActionBar?.setTitle("Party Information")
@@ -76,7 +75,6 @@ class PartyInfoDialogFragment2: DialogFragment() {
 
 
         rootView.button_done.setOnClickListener {
-
             //checking for empty field
             if (textedit_party_name.text.isNullOrEmpty()) {
                 Toast.makeText(
