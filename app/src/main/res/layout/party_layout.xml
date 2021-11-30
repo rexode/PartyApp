@@ -36,6 +36,8 @@ using "participant_textview.xml"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:background="@color/grey_blueish"
+        android:textColor="@color/blueSecond"
         android:textColorHint="@color/blueSecond"
         android:id="@+id/textView_party_time"
         android:layout_width="170dp"
@@ -48,6 +50,8 @@ using "participant_textview.xml"
         app:layout_constraintTop_toBottomOf="@+id/textView_party_name" />
 
     <TextView
+        android:background="@color/grey_blueish"
+        android:textColor="@color/blueSecond"
         android:textColorHint="@color/blueSecond"
         android:layout_marginTop="40dp"
         android:id="@+id/textView_date"
@@ -68,12 +72,21 @@ using "participant_textview.xml"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="36dp"
         android:hint="Location:"
+        android:textColor="@color/blueSecond"
         android:textColorHint="@color/blueSecond"
         android:textSize="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_party_time" />
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="click location for route"
+        android:textColor="@color/blueSecond"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_location" />
 
     <TextView
         android:textColorHint="@color/blueSecond"
@@ -127,11 +140,11 @@ using "participant_textview.xml"
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerviewPartyInfo"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_participants" />
 
@@ -139,10 +152,10 @@ using "participant_textview.xml"
         android:id="@+id/button_join_party"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="56dp"
-        android:text="Join"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:gravity="center"
+        android:text="Join"
         android:textColor="@color/white"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -165,20 +178,22 @@ using "participant_textview.xml"
         android:id="@+id/button_edit_party"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="616dp"
         android:text="edit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerviewPartyInfo" />
+        app:layout_constraintHorizontal_bias="0.938"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button_leave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:text="Leave"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button_edit_party"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerviewPartyInfo" />
+        app:layout_constraintEnd_toStartOf="@+id/button_join_party"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
