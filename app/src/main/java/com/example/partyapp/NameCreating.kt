@@ -1,6 +1,7 @@
 package com.example.partyapp
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -23,8 +24,16 @@ class NameCreating : AppCompatActivity() {
         val id =intent.getStringExtra("id")
         val email =intent.getStringExtra("email")
 
-        val textview=findViewById<TextView>(R.id.prueba)
-        textview.setText(email)
+        val sp: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
+        val edit : SharedPreferences.Editor = sp.edit()
+        edit.putString("email", email)
+        edit.apply()
+
+        // val textview=findViewById<TextView>(R.id.prueba)
+        // textview.setText(email)
+
+
+
         val intent = Intent(this, AllParties::class.java)
         var editText=findViewById<EditText>(R.id.name_editText)
         var button=findViewById<Button>(R.id.button_done)

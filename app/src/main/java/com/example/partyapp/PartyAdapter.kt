@@ -27,6 +27,7 @@ class PartyAdapter(val Parties :List<Party>,val lf: LifecycleOwner) :RecyclerVie
         holder.partyLoc.text = Parties[position].location
         holder.partTime.text = Parties[position].time
         val partyId=Parties[position].uid
+
         holder.partyBtn.setOnClickListener{
             val intent = Intent(it.context, PartyInfo::class.java)
             intent.putExtra("id",partyId)

@@ -2,32 +2,19 @@ package com.example.partyapp
 
 import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.location.Address
 import android.location.Geocoder
 import android.location.Location
 import android.net.Uri
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.DialogFragment
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.enter_partyinfo_fragment.view.*
 import kotlinx.android.synthetic.main.party_layout.*
-import kotlinx.android.synthetic.main.party_layout.*
-import kotlinx.android.synthetic.main.party_layout.view.*
 import java.io.IOException
 import java.util.*
 
@@ -41,6 +28,7 @@ class PartyInfo() : AppCompatActivity() {
 
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.party_layout)
@@ -50,6 +38,12 @@ class PartyInfo() : AppCompatActivity() {
         actionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        var name: String = ""
+        var date: String= ""
+        var time :String= ""
+        var location : String= ""
+        var addInfo : String= ""
+
         partyViewModel= ViewModelProvider(this).get(PartyViewModel::class.java)
         partyViewModel.findParty(intent.getStringExtra("id")).observe(this,{
             list->
@@ -58,6 +52,12 @@ class PartyInfo() : AppCompatActivity() {
             textView_insert_addInfo.text = list.get(0).AditionalInfo
             textView_location.text = list.get(0).location
             textView_date.text = list.get(0).date
+
+            name = list.get(0).name.toString()
+            time = list.get(0).time.toString()
+            addInfo = list.get(0).AditionalInfo.toString()
+            location= list.get(0).location.toString()
+            date =list.get(0).date.toString()
 
         })
         var partyList = mutableListOf(
@@ -81,20 +81,43 @@ class PartyInfo() : AppCompatActivity() {
                 getLocation()
                 DisplayTrack(location);
             }
-        button_edit_party.setOnClickListener{
-            Toast.makeText(this, "pressed edit party", Toast.LENGTH_LONG).show()
-            //TODO open up edit party, paste infos from party --> change stuff
-            //var dialog = PartyInfoDialogFragment()
-            //dialog.show(supportFragmentManager, "customDialog")
 
-        }
+
         button_join_party.setOnClickListener{
+
             //partyList.add(Party("eId", "eName", "etime", "ehere"))
             //adapter.notifyItemInserted(partyList.size -1)
         }
 
         button_edit_party.setOnClickListener {
-            var dialog = PartyInfoDialogFragment2()
+
+            var partyId = intent.getStringExtra("id")
+
+           /* val bundle = Bundle()
+            bundle.putString("edttext", "From Activity")
+            // set Fragmentclass Arguments
+            // set Fragmentclass Arguments
+            val fragobj = PartyInfoDialogFragment2(partyId)
+            fragobj.setArguments(bundle)
+
+            */
+
+
+           /*  val intent2 = Intent(it.context, PartyInfoDialogFragment2::class.java)
+            intent2.putExtra("partyId",partyId )
+            it.context.startActivity(intent2)
+
+            val sp: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
+            val edit : SharedPreferences.Editor = sp.edit()
+            edit.putString("partyId", partyId)
+            edit.apply()
+
+            */
+
+            Toast.makeText(this, partyId, Toast.LENGTH_SHORT).show()
+
+
+            var dialog = PartyInfoDialogFragment2(partyId,name,time, date, location, addInfo)
             dialog.show(supportFragmentManager, "customDialog") }
 
     }

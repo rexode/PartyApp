@@ -62,7 +62,19 @@ class AllParties : AppCompatActivity() {
             }}*/
         viewModel.getUser(id!!).observe(this,{user->
             Toast.makeText(this,user.name,Toast.LENGTH_SHORT).show()
+
             name=user.name
+
+
+            // *********************************************************
+
+            val sp: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
+            val edit : SharedPreferences.Editor = sp.edit()
+            edit.putString("username", name)
+            edit.apply()
+
+
+
             nameG = name.toString()
             user_name_greeting.setText(name)})
         var liveList:List<Party>

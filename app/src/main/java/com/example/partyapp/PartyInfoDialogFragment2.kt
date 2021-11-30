@@ -2,50 +2,74 @@ package com.example.partyapp
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
-import kotlinx.android.synthetic.main.enter_partyinfo_fragment.*
 import kotlinx.android.synthetic.main.enter_partyinfo_fragment.view.*
-import java.util.zip.Inflater
-import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
-import kotlinx.android.synthetic.main.enter_name_fragment.*
-import kotlinx.android.synthetic.main.enter_partyinfo_fragment.button_done
-import kotlinx.android.synthetic.main.party_layout.*
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
+import kotlinx.android.synthetic.main.enter_partyinfo_fragment.textedit_party_additionalInfo
+import kotlinx.android.synthetic.main.enter_partyinfo_fragment.textedit_party_location
+import kotlinx.android.synthetic.main.enter_partyinfo_fragment.textedit_party_name
+import kotlinx.android.synthetic.main.enter_partyinfo_fragment.textview_party_date
+import kotlinx.android.synthetic.main.enter_partyinfo_fragment.textview_party_time
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.*
+import android.text.Editable
 
 
-class PartyInfoDialogFragment2: DialogFragment() {
+
+class PartyInfoDialogFragment2(
+    partyId: String?,
+    name: String,
+    time: String,
+    date: String,
+    location: String,
+    addInfo: String
+) : DialogFragment() {
+
+private var name = name
+private var date = date
+private var time = time
+private var location = location
+private var addInfo = addInfo
+
     private lateinit var partyViewModel: PartyViewModel
 
+    private var db= FirebaseFirestore.getInstance()
 
+    private val partyCollectionRef = FirebaseFirestore.getInstance().collection("Parties")
 
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+
+
+
         var rootView: View = inflater.inflate(R.layout.enter_partyinfo_fragment, container, false)
 
-/*
-        partyViewModel= ViewModelProvider(this).get(PartyViewModel::class.java)
-        partyViewModel.findParty(intent.getStringExtra("id")).observe(this, { list ->
-            textView_party_name.text = list.get(0).name
-            textView_party_time.text = list.get(0).time
-            textView_insert_addInfo.text = list.get(0).AditionalInfo
-            textView_location.text = list.get(0).location
-            textView_date.text = list.get(0).date
 
-        })
+       Toast.makeText(activity, "$name + $time + $location", Toast.LENGTH_SHORT).show()
 
- */
-            //actionBar?.setTitle("Party Information")
-        // supportActionBar?.setTitle("Party Information")
+
+        rootView.textedit_party_name.text = Editable.Factory.getInstance().newEditable(name)
+        rootView.textview_party_date.text = date
+        rootView.textview_party_time.text = time
+        rootView.textedit_party_location.text =
+            Editable.Factory.getInstance().newEditable(location)
+         rootView.textedit_party_additionalInfo.text =
+            Editable.Factory.getInstance().newEditable(addInfo)
+
+        Toast.makeText(activity, "2: $name + $time + $location", Toast.LENGTH_SHORT).show()
 
 
        // Date-picker
@@ -101,13 +125,11 @@ class PartyInfoDialogFragment2: DialogFragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             } else{
-                partyViewModel = ViewModelProvider(this).get(PartyViewModel::class.java)
-                val party=Party(textedit_party_name.text.toString(),textview_party_date.text.toString(),textview_party_time.text.toString(),textedit_party_location.text.toString(),textedit_party_additionalInfo.text.toString())
-                party.participants.add("pepe")
-                party.participants.add("juan")
-                party.participants.add("pedro")
 
-                partyViewModel.addParty(party)
+                val oldParty = getOldParty()
+                val newPartyMap = getNewPartyMap()
+                updateParty(oldParty,newPartyMap)
+
                 dismiss()
             }
 
@@ -115,6 +137,10 @@ class PartyInfoDialogFragment2: DialogFragment() {
 
         return rootView
     }
+
+
+
+    // *********************************************************************************************************************
 
 
     // Dateformatter
@@ -140,4 +166,70 @@ class PartyInfoDialogFragment2: DialogFragment() {
     }
 
 
-}
+
+
+    fun getOldParty(): Party {
+
+
+        return Party(name, date, time, location, addInfo)
+    }
+
+        fun getNewPartyMap(): Map<String, Any> { // from enter_partyinfo_fragment
+            val name = textedit_party_name.text.toString()
+            val date = textview_party_date.text.toString()
+            val time = textview_party_time.text.toString()
+            val location = textedit_party_location.text.toString()
+            val addInfo = textedit_party_additionalInfo.text.toString()
+            val map = mutableMapOf<String, Any>()
+
+            map["name"] = name
+            map["date"] = date
+            map["time"] = time
+            map["date"] = date
+            map["location"] = location
+            map["aditionalInfo"] = addInfo
+
+            return map
+        }
+
+        private fun updateParty(party: Party, newPartyMap: Map<String, Any>) =
+            CoroutineScope(Dispatchers.IO).launch {
+                val partyQuery = partyCollectionRef
+                    .whereEqualTo("name", party.name)
+                    .whereEqualTo("date", party.date)
+                    .whereEqualTo("time", party.time)
+                    .whereEqualTo("location", party.location)
+                    .whereEqualTo("aditionalInfo", party.AditionalInfo)
+                    .get().await()
+
+                if (partyQuery.documents.isNotEmpty()) {
+                    for (document in partyQuery) {
+                        try {
+                            partyCollectionRef.document(document.id).set(
+                                newPartyMap,
+                                SetOptions.merge()
+                            ).await()
+                        } catch (e: Exception) {
+                            withContext(Dispatchers.Main) {
+                                Toast.makeText(
+                                    activity, e.message,
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            }
+                        }
+                    }
+
+
+                } else {
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(
+                            activity, "No party matched the query",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
+
+            }
+
+
+    }
