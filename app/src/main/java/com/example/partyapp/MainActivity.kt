@@ -97,6 +97,14 @@ class MainActivity : AppCompatActivity() {
                     val email=textview_email.text.toString().trim{it<= ' '}
                     val password=textview_password.text.toString().trim{it<= ' '}
 
+                  /*  val sp: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
+                    val edit : SharedPreferences.Editor = sp.edit()
+                    edit.putString("email", email)
+                    edit.apply()
+
+                   */
+
+
                     FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password)
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful) {

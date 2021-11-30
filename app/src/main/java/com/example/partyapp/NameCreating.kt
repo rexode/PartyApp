@@ -28,7 +28,7 @@ class NameCreating : AppCompatActivity() {
         val id =intent.getStringExtra("id")
         val email =intent.getStringExtra("email")
 
-        val sp: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
+       val sp: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
         val edit : SharedPreferences.Editor = sp.edit()
         edit.putString("email", email)
         edit.apply()

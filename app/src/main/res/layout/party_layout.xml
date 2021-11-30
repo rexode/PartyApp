@@ -21,6 +21,7 @@ using "participant_textview.xml"
 
 
     <TextView
+        android:textColor="@color/blueSecond"
         android:textColorHint="@color/blueSecond"
         android:fontFamily="@font/msemibold"
         android:id="@+id/textView_party_name"
@@ -29,7 +30,7 @@ using "participant_textview.xml"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="48dp"
         android:hint="Partyname"
-        android:textSize="40dp"
+        android:textSize="34dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -142,6 +143,19 @@ using "participant_textview.xml"
         android:layout_marginBottom="56dp"
         android:text="Join"
         android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button_delete_party"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="664dp"
+        android:gravity="center"
+        android:text="Delete"
         android:textColor="@color/white"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -102,7 +102,6 @@ class PartyInfo() : AppCompatActivity() {
             val nameRestored = sp2.getString("username", "")
             val sp3: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
             val emailRestored = sp3.getString("email", "")
-            Toast.makeText(this,nameRestored,Toast.LENGTH_SHORT).show()
             partyViewModel.addParticipants(emailRestored!!, uidRestored!!, nameRestored!!, intent.getStringExtra("id")!!)
             //partyViewModel.addParticipants()
         }
@@ -196,6 +195,10 @@ class PartyInfo() : AppCompatActivity() {
         }
     }
 
-
+    //also for go back button
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
 
 }
