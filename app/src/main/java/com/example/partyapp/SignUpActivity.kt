@@ -18,6 +18,9 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signup_layout)
 
+
+
+
         /**
         edtPassword=findViewById(R.id.textview_email)
         edtEmail=findViewById(R.id.textview_password)

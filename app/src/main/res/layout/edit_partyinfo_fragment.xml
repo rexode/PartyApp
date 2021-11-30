@@ -100,7 +100,7 @@ Fragment lets you enter party info, to create a new party
             android:hint="Additional info" />
 
         <Button
-            android:id="@+id/button_done"
+            android:id="@+id/button_save"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginLeft="240dp"
@@ -108,8 +108,14 @@ Fragment lets you enter party info, to create a new party
             android:background="@drawable/edittext_background"
             android:fontFamily="@font/mmedium"
             android:letterSpacing="0.2"
-            android:text="Done"
+            android:text="Save"
             android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/button_delete_party"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="delete" />
 
     </LinearLayout>
 

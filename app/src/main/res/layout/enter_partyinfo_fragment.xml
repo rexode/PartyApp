@@ -111,6 +111,8 @@ Fragment lets you enter party info, to create a new party
             android:text="Done"
             android:textColor="@color/white" />
 
+
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

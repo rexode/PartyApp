@@ -21,7 +21,7 @@ class PartiesLiveData: MutableLiveData<MutableList<Party>>() {
     }
 
     fun findParty(id:String?): Party{
-        var resParty= Party("123","21312","12312","info")
+        var resParty= Party("123","21312","12312","garching")
 
         reference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {

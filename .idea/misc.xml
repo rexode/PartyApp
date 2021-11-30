@@ -19,6 +19,8 @@
         <entry key="..\:/Users/santi/Desktop/PartyApp/app/src/main/res/layout/party_layout.xml" value="0.176" />
         <entry key="..\:/Users/santi/Desktop/PartyApp/app/src/main/res/layout/signup_layout.xml" value="0.4" />
         <entry key="..\:/Users/santi/Desktop/PartyApp/app/src/main/res/layout/single_party.xml" value="0.13020833333333334" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1814814814814815" />
+        <entry key="app/src/main/res/drawable/arrow.xml" value="0.1814814814814815" />
         <entry key="app/src/main/res/drawable/custiombutton.xml" value="0.2916666666666667" />
         <entry key="app/src/main/res/drawable/custom_button.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/edittext_background.xml" value="0.10462962962962963" />
@@ -29,10 +31,16 @@
         <entry key="app/src/main/res/drawable/ic_key.xml" value="0.29259259259259257" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.31851851851851853" />
         <entry key="app/src/main/res/drawable/ic_person.xml" value="0.29259259259259257" />
+        <entry key="app/src/main/res/drawable/location.xml" value="0.1814814814814815" />
         <entry key="app/src/main/res/drawable/lock.xml" value="0.3807291666666667" />
         <entry key="app/src/main/res/drawable/lock2.xml" value="0.17962962962962964" />
+        <entry key="app/src/main/res/drawable/lock3.xml" value="0.1814814814814815" />
         <entry key="app/src/main/res/drawable/lock4.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/logout.xml" value="0.1814814814814815" />
+        <entry key="app/src/main/res/drawable/mail.xml" value="0.1814814814814815" />
+        <entry key="app/src/main/res/drawable/mail2.xml" value="0.1814814814814815" />
         <entry key="app/src/main/res/drawable/mail3.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/map.xml" value="0.1814814814814815" />
         <entry key="app/src/main/res/drawable/person.xml" value="0.17962962962962964" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.45" />
         <entry key="app/src/main/res/layout/all_partys_layout.xml" value="0.25" />
@@ -50,6 +58,7 @@
         <entry key="app/src/main/res/layout/signup_layout_animated.xml" value="0.2557291666666667" />
         <entry key="app/src/main/res/layout/single_party.xml" value="0.375" />
         <entry key="app/src/main/res/layout/test_location_route_layout.xml" value="0.22871376811594202" />
+        <entry key="app/src/main/res/menu/dot_menu.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>

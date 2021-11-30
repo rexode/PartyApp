@@ -61,16 +61,18 @@ using "participant_textview.xml"
 
 
     <TextView
-        android:textColorHint="@color/blueSecond"
         android:id="@+id/textView_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="36dp"
         android:hint="Location:"
-        android:layout_marginHorizontal="20dp"
+        android:textColorHint="@color/blueSecond"
         android:textSize="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_party_time" />
+
+
 
     <TextView
         android:textColorHint="@color/blueSecond"
@@ -144,5 +146,15 @@ using "participant_textview.xml"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button_edit_party"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="edit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerviewPartyInfo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
