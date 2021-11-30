@@ -31,24 +31,32 @@ class PartiesLiveDataPrueba: MutableLiveData<MutableList<Party>>() {
 //    Party("error","error","error","error")
 
     fun findParty(id:String?,context: LifecycleOwner,fragmentManager: FragmentManager) {
-        getParties().observe(context,{list->
-            list.forEach { if (it.uid.equals(id)){
-                var overlay=  PartyInfo()
-                var args : Bundle = Bundle()
-                args.putString("name",it.name)
-                args.putString("time",it.time)
-                args.putString("date",it.date)
-                args.putString("location",it.location)
-                args.putString("additionalInfo",it.AditionalInfo)
-                overlay.arguments = args
-                overlay.show(fragmentManager,
-                    "partyOverlay")
-
+        db.collection("Parties").addSnapshotListener{
+                snapshot,e->
+            if(e!=null){
+                Log.w(TAG,"Listen faile",e)
             }
+            if(snapshot!=null){
+                var document = snapshot.documents
+                document.forEach{
+                    val party=it.toObject(Party::class.java)
+                    if(party!=null && party.uid.equals(id)){
+                        var overlay=  PartyInfo()
+                        var args : Bundle = Bundle()
+                        args.putString("name",party.name)
+                        args.putString("time",party.time)
+                        args.putString("date",party.date)
+                        args.putString("location",party.location)
+                        args.putString("additionalInfo",party.AditionalInfo)
+                        overlay.arguments = args
+                        overlay.show(fragmentManager,
+                            "partyOverlay")
+                    }
+                }
             }
 
-        })
         }
+    }
 
     fun addParty(party:Party) {
         val id=db.collection("participants").document().id
@@ -83,7 +91,7 @@ class PartiesLiveDataPrueba: MutableLiveData<MutableList<Party>>() {
             return this*/
 
         db.collection("Parties").addSnapshotListener{
-            snapshot,e->
+                snapshot,e->
             if(e!=null){
                 Log.w(TAG,"Listen faile",e)
             }
@@ -101,7 +109,7 @@ class PartiesLiveDataPrueba: MutableLiveData<MutableList<Party>>() {
 
         }
         return this
-        }
+    }
     fun getParty(id:String){
         val party: Party? = value?.find { it.uid == id }
 
