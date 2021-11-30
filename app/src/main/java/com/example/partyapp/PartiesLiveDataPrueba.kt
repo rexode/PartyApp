@@ -2,9 +2,11 @@ package com.example.partyapp
 
 import android.content.ContentValues.TAG
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.LifecycleOwner
@@ -17,10 +19,12 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.all_partys_layout.*
 import java.nio.file.Files.find
+import java.time.format.DateTimeFormatter
 
 class PartiesLiveDataPrueba: MutableLiveData<MutableList<Party>>() {
     private var db=FirebaseFirestore.getInstance()
     private var reference: DatabaseReference
+
     init {
         reference = FirebaseDatabase.getInstance().getReference("Parties")
         //db.collection("Parties")
@@ -30,8 +34,8 @@ class PartiesLiveDataPrueba: MutableLiveData<MutableList<Party>>() {
 
 //    Party("error","error","error","error")
 
-    fun findParty(id:String?,context: LifecycleOwner,fragmentManager: FragmentManager) {
-        getParties().observe(context,{list->
+    fun findParty(id:String?):PartiesLiveDataPrueba {
+        /*getParties().observe(context,{list->
             list.forEach { if (it.uid.equals(id)){
                 var overlay=  PartyInfo()
                 var args : Bundle = Bundle()
@@ -47,7 +51,26 @@ class PartiesLiveDataPrueba: MutableLiveData<MutableList<Party>>() {
             }
             }
 
-        })
+        })*/
+        db.collection("Parties").whereEqualTo("uid",id).addSnapshotListener{
+            snapshot,e->
+            if(e!=null){
+                Log.w(TAG,"Listen faile",e)
+            }
+
+            if(snapshot!=null){
+                var partiesList = mutableListOf<Party>()
+                var document = snapshot.documents
+                document.forEach{
+                    val party=it.toObject(Party::class.java)
+                    if(party!=null){
+                        partiesList.add(party)
+                    }
+                }
+                value=partiesList
+            }
+        }
+        return this
         }
 
     fun addParty(party:Party) {
@@ -82,7 +105,7 @@ class PartiesLiveDataPrueba: MutableLiveData<MutableList<Party>>() {
         }
             return this*/
 
-        db.collection("Parties").addSnapshotListener{
+        db.collection("Parties").orderBy("date").addSnapshotListener{
             snapshot,e->
             if(e!=null){
                 Log.w(TAG,"Listen faile",e)
