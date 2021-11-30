@@ -90,7 +90,11 @@ class AllParties : AppCompatActivity() {
                 //adapter.notifyItemInserted(partyList.size - 1)
             }
 
-        button_view_friends_list.setOnClickListener{
+
+
+      // **********************************REMOVED THIS BUTTON ******************************************************************************************************
+
+       /*  button_view_friends_list.setOnClickListener{
             var dialog = FriendsListDialogFragment(this)
             dialog.show(supportFragmentManager,"friendsListFragment")
             /* in the end i decided having it as a dialogfragment would be easiest, i did it through several
@@ -98,9 +102,8 @@ class AllParties : AppCompatActivity() {
 
         }
 
-        /*button_with_partyname.setOnClickListener{
-            Toast.makeText(this,"cheers",Toast.LENGTH_SHORT)
-        }*/
+        */
+
         }
 
 
@@ -113,13 +116,16 @@ class AllParties : AppCompatActivity() {
     }
 
 
+    // **********************************LOGOUT AND PROFILE MENU********************************************************************************
 
-    // logout in menu and map
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.map ->
-                Toast.makeText(this, "Open Map", Toast.LENGTH_SHORT).show()
+            R.id.profile -> {
+                Toast.makeText(this, "Open Profile", Toast.LENGTH_SHORT).show()
 
+                var intent = Intent(this, ProfileActivity::class.java)
+                startActivity(intent)
+            }
 
 
             R.id.logout ->
