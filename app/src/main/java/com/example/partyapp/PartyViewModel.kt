@@ -11,12 +11,14 @@ class PartyViewModel: ViewModel()  {
     private var user =UserLiveData()
     private val Partiesprueba = PartiesLiveDataPrueba()
     private val userprueba=UserLiveDataPrueba()
+    private val userList=UserListLiveData()
 
 
-    fun addParty(party: Party) {
+    fun addParty(party: Party,user:User):String {
         //val party=Party("a","B","C","D","E")
 
-        Partiesprueba.addParty(party)
+        return Partiesprueba.addParty(party)
+
     }
     fun getUser(id:String):UserLiveDataPrueba{
       return  userprueba.getUser(id)
@@ -34,6 +36,9 @@ class PartyViewModel: ViewModel()  {
 
     fun findParty(id:String?) :PartiesLiveDataPrueba{
          return Partiesprueba.findParty(id)
+    }
+    fun addParticipants(user:User,id:String){
+        return userList.addFollower(user,id)
     }
 
 }

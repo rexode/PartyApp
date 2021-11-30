@@ -49,7 +49,6 @@ class PartyInfo() : AppCompatActivity() {
             textView_insert_addInfo.text = list.get(0).AditionalInfo
             textView_location.text = list.get(0).location
             textView_date.text = list.get(0).date
-
         })
         var partyList = mutableListOf(
             Party("aId", "aName", "atime", "ahere"),
