@@ -20,21 +20,16 @@ the buttons all get added to the recyclerview in the all_partys_layout
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_marginStart="4dp"
-        android:background="#EA0A0A"
-        android:backgroundTint="#F60000"
+        android:text="party1"
+        android:textStyle="bold"
         android:fontFamily="@font/msemibold"
         android:letterSpacing="0.2"
-        android:text="party1"
         android:textAlignment="viewStart"
         android:textColor="@color/blueSecond"
-        android:textStyle="bold"
-        app:iconTint="#F30404"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:rippleColor="#E10A0A"
-        app:strokeColor="#DA0000" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textedit_party_location"

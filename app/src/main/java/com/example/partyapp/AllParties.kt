@@ -16,6 +16,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.enter_partyinfo_fragment.*
+import kotlinx.android.synthetic.main.single_party.*
+import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.all_partys_layout.*
 
 class AllParties : AppCompatActivity() {
