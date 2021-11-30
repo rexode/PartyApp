@@ -74,7 +74,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:text="Followers:"
+        android:text="Following:"
         android:textColor="@color/blueSecond"
         android:fontFamily="@font/msemibold"
         android:textSize="30dp"

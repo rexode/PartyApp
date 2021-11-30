@@ -16,12 +16,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.enter_name_fragment.*
 import kotlinx.android.synthetic.main.enter_partyinfo_fragment.button_done
+import kotlinx.android.synthetic.main.party_layout.*
 import java.text.SimpleDateFormat
 import java.util.*
 
 
-class PartyInfoDialogFragment: DialogFragment() {
+class PartyInfoDialogFragment2: DialogFragment() {
     private lateinit var partyViewModel: PartyViewModel
+
+
 
 
     override fun onCreateView(inflater: LayoutInflater,
@@ -29,6 +32,21 @@ class PartyInfoDialogFragment: DialogFragment() {
                               savedInstanceState: Bundle?): View? {
         var rootView: View = inflater.inflate(R.layout.enter_partyinfo_fragment, container, false)
 
+/*
+        partyViewModel= ViewModelProvider(this).get(PartyViewModel::class.java)
+        partyViewModel.findParty(intent.getStringExtra("id")).observe(this, { list ->
+            textView_party_name.text = list.get(0).name
+            textView_party_time.text = list.get(0).time
+            textView_insert_addInfo.text = list.get(0).AditionalInfo
+            textView_location.text = list.get(0).location
+            textView_date.text = list.get(0).date
+
+        })
+
+
+ */
+            //actionBar?.setTitle("Party Information")
+        // supportActionBar?.setTitle("Party Information")
 
 
        // Date-picker

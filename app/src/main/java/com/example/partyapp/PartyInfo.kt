@@ -35,9 +35,12 @@ class PartyInfo() : AppCompatActivity() {
     private lateinit var partyViewModel: PartyViewModel
     private val dummyParty: Party = Party("name","today","now","here","info")
 
-
     lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+
     var currentLocation: String = ""
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.party_layout)
@@ -84,6 +87,9 @@ class PartyInfo() : AppCompatActivity() {
             //adapter.notifyItemInserted(partyList.size -1)
         }
 
+        button_edit_party.setOnClickListener {
+            var dialog = PartyInfoDialogFragment2()
+            dialog.show(supportFragmentManager, "customDialog") }
 
     }
 
