@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.firebase.database.*
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.all_partys_layout.*
 import kotlinx.android.synthetic.main.enter_partyinfo_fragment.view.*
 import kotlinx.android.synthetic.main.party_layout.*
@@ -102,6 +103,7 @@ class PartyInfo() : AppCompatActivity() {
             val nameRestored = sp2.getString("username", "")
             val sp3: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
             val emailRestored = sp3.getString("email", "")
+            Toast.makeText(this,emailRestored,Toast.LENGTH_SHORT).show()
             partyViewModel.addParticipants(emailRestored!!, uidRestored!!, nameRestored!!, intent.getStringExtra("id")!!)
             //partyViewModel.addParticipants()
         }
@@ -143,6 +145,12 @@ class PartyInfo() : AppCompatActivity() {
 
             var dialog = PartyInfoDialogFragment2(partyId,name,time, date, location, addInfo)
             dialog.show(supportFragmentManager, "customDialog") }
+
+        button_delete_party.setOnClickListener{
+            partyViewModel.findParty(intent.getStringExtra("id")!!)
+            var db= FirebaseFirestore.getInstance()
+            db.collection("Parties").document(intent.getStringExtra("id")!!).delete()
+        }
 
     }
 

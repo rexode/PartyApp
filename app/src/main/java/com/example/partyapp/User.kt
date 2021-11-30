@@ -4,7 +4,8 @@ data class User(var email: String?=null,var id:String?=null,var name:String?=nul
     fun toMap(): Map<String, Any?> {
         return mapOf(
             "email" to email,
-            "name" to name
+            "name" to name,
+            "id" to id
         )
     }
 
