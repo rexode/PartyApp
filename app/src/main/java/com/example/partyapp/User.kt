@@ -1,6 +1,6 @@
 package com.example.partyapp
-
-data class User(var email: String?=null,var name:String?=null,var id:String?=null) {
+//BEFORE: EMAIL NAME USER -------------------30.11.2021 21:01---->EMAIL ID NAME
+data class User(var email: String?=null,var id:String?=null,var name:String?=null) {
     fun toMap(): Map<String, Any?> {
         return mapOf(
             "email" to email,
