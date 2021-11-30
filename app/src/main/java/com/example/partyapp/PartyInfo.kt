@@ -79,8 +79,10 @@ class PartyInfo() : AppCompatActivity() {
 
         }
         button_join_party.setOnClickListener{
-            //partyList.add(Party("eId", "eName", "etime", "ehere"))
-            //adapter.notifyItemInserted(partyList.size -1)
+            partyViewModel.addParticipants()
+        }
+        button_remove{
+            partyViewModel.removeParticipant("todooo","todoo")
         }
 
 

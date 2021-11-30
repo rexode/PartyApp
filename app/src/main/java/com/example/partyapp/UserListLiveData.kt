@@ -1,6 +1,7 @@
 package com.example.partyapp
 
 import android.content.ContentValues
+import android.content.ContentValues.TAG
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.firestore.FirebaseFirestore
@@ -41,5 +42,10 @@ class UserListLiveData: MutableLiveData<MutableList<User>>() {
 
         }
         return this
+    }
+    fun removeParticipant(userId:String,partyId:String){
+        db.collection("Parties").document(partyId).collection("participants").document(userId).delete()
+            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully deleted!") }
+            .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }
     }
 }

@@ -44,5 +44,8 @@ class PartyViewModel: ViewModel()  {
        return userList.getParticipants(partiId)
 
     }
+    fun removeParticipant(userId:String,partyId:String){
+        userList.removeParticipant(userId,partyId)
+    }
 
 }
