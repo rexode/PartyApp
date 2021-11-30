@@ -31,6 +31,14 @@
     <color name="m_dark_blue">#4F648B</color>
     <color name="grey_blueish">#dbe4f8</color>
 
+    <color name="dark_red">#cd4f44</color>
+    <color name="light_red">#db7261</color>
+    <color name="dark_yellow">#f0973a</color>
+    <color name="light_yellow">#f4ae5e</color>
+    <color name="picture_blue">#6eadff</color>
+    <color name="light_picture_blue">#8ebfff</color>
+
+
 
 
 

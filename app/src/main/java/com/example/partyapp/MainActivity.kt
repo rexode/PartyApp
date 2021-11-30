@@ -1,27 +1,63 @@
 package com.example.partyapp
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.widget.Button
+import android.widget.CompoundButton
 import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.oAuthProvider
 import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.database.ktx.database
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.login_layout.*
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
+    var uid: String = ""
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_layout)
+
+        actionBar?.hide()
+        supportActionBar?.hide()
+
+
+
+        var preferences: SharedPreferences = getSharedPreferences("checkbox", MODE_PRIVATE)
+        var checkboxS = preferences.getString("remember", "")
+
+
+        if(checkboxS.toString() == "true"){
+
+            // get data from share SharePreference
+            val sp: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
+            val uidRestored = sp.getString("key", "")
+
+            val intent = Intent(this, AllParties::class.java)
+            intent.putExtra("id",uidRestored)
+            startActivity(intent)
+            finish()
+
+
+        } else if(checkboxS.equals("false")){
+            Toast.makeText(this, "Please sign in", Toast.LENGTH_SHORT).show()
+
+        }
+
+
+
+
 
 
         /**
@@ -30,9 +66,7 @@ class MainActivity : AppCompatActivity() {
         var editTextEmail = findViewById<EditText>(R.id.textview_email)
         var editTextPassword = findViewById<EditText>(R.id.textview_password)
         val intent = Intent(this, SignUp::class.java)
-
-*/
-
+         */
 
         button_createNewAcc.setOnClickListener {
             val intent = Intent(this, SignUp::class.java)
@@ -64,11 +98,20 @@ class MainActivity : AppCompatActivity() {
                             if (task.isSuccessful) {
                                 val firebaseUser: FirebaseUser = task.result!!.user!!
 
+
+
                                 Toast.makeText(
                                     this,
                                     "Logged sucessfully",
                                     Toast.LENGTH_SHORT
                                 ).show()
+
+                                // save data to share SharePreference
+                                val sp: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
+                                val edit : SharedPreferences.Editor = sp.edit()
+                                edit.putString("key", firebaseUser.uid)
+                                edit.apply()
+
 
                                 val intent = Intent(this, AllParties::class.java)
                                 intent.putExtra("id",firebaseUser.uid)
@@ -86,8 +129,34 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-    }
 
+
+
+        //Checkbox
+        checkbox_rememberme.setOnCheckedChangeListener { compoundButton, isChecked ->
+
+            if(isChecked){
+                var preferences: SharedPreferences = getSharedPreferences("checkbox", MODE_PRIVATE)
+                var editor: SharedPreferences.Editor = preferences.edit()
+                editor.putString("remember", "true")
+                editor.apply()
+
+                Toast.makeText(this, "Checked", Toast.LENGTH_SHORT).show()
+
+
+            } else if(!isChecked) {
+                var preferences: SharedPreferences = getSharedPreferences("checkbox", MODE_PRIVATE)
+                var editor: SharedPreferences.Editor = preferences.edit()
+                editor.putString("remember", "false")
+                editor.apply()
+
+                Toast.makeText(this, "Unchecked", Toast.LENGTH_SHORT).show()
+            }
+
+        }
+
+
+    }
 
 
 }

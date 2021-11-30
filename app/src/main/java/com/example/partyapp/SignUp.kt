@@ -23,9 +23,10 @@ class SignUp : AppCompatActivity() {
 
 
         //go back button
-        val actionbar = supportActionBar
-        actionbar?.setDisplayHomeAsUpEnabled(true)
-        actionbar?.setDisplayHomeAsUpEnabled(true)
+        actionBar?.setTitle("")
+        supportActionBar?.setTitle("")
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 
         button_createAcc.setOnClickListener {
@@ -90,5 +91,6 @@ class SignUp : AppCompatActivity() {
         onBackPressed()
         return true
     }
+
 
 }
