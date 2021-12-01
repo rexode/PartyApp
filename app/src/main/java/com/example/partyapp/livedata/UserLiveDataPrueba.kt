@@ -35,7 +35,7 @@ class UserLiveDataPrueba: LiveData<User>() {
         db.collection("Parties").document(partyId).collection("participants").whereEqualTo("uid",userId).addSnapshotListener{
                 snapshot,e->
             if(e!=null){
-                Log.w(ContentValues.TAG,"Listen faile",e)
+                Log.w(ContentValues.TAG,"Listen failed",e)
             }
             if(snapshot!=null){
                 var document = snapshot.documents
