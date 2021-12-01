@@ -1,7 +1,5 @@
-package com.example.partyapp
+package com.example.partyapp.parties
 
-import android.app.ActionBar
-import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -12,13 +10,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
+import com.example.partyapp.*
+import com.example.partyapp.livedata.PartyViewModel
+import com.example.partyapp.livedata.User
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.enter_partyinfo_fragment.*
-import kotlinx.android.synthetic.main.single_party.*
-import androidx.lifecycle.Observer
+import com.example.partyapp.login.MainActivity
+import com.example.partyapp.partydetails.PartyInfoDialogFragment
 import kotlinx.android.synthetic.main.all_partys_layout.*
 
 class AllParties : AppCompatActivity() {
@@ -28,7 +26,7 @@ class AllParties : AppCompatActivity() {
     private lateinit var reference: DatabaseReference
     private lateinit var idG: String
     private lateinit var nameG: String
-    private var actualUser=User()
+    private var actualUser= User()
 
     public fun getId() : String{
         return idG

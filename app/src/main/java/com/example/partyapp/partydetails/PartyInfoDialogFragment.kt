@@ -1,8 +1,7 @@
-package com.example.partyapp
+package com.example.partyapp.partydetails
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.view.LayoutInflater
@@ -11,14 +10,11 @@ import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import kotlinx.android.synthetic.main.enter_partyinfo_fragment.*
 import kotlinx.android.synthetic.main.enter_partyinfo_fragment.view.*
-import java.util.zip.Inflater
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.all_partys_layout.*
-import kotlinx.android.synthetic.main.enter_name_fragment.*
-import kotlinx.android.synthetic.main.enter_partyinfo_fragment.button_done
+import com.example.partyapp.livedata.PartyViewModel
+import com.example.partyapp.R
+import com.example.partyapp.livedata.User
+import com.example.partyapp.parties.Party
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -95,8 +91,8 @@ class PartyInfoDialogFragment: DialogFragment() {
                 ).show()
             } else{
                 partyViewModel = ViewModelProvider(this).get(PartyViewModel::class.java)
-                val party=Party(textedit_party_name.text.toString(),textview_party_date.text.toString(),textview_party_time.text.toString(),textedit_party_location.text.toString(),textedit_party_additionalInfo.text.toString())
-                val user=User(email,id,name)
+                val party= Party(textedit_party_name.text.toString(),textview_party_date.text.toString(),textview_party_time.text.toString(),textedit_party_location.text.toString(),textedit_party_additionalInfo.text.toString())
+                val user= User(email,id,name)
                 val newId=partyViewModel.addParty(party,user)
                 //Toast.makeText(activity,user.id+user.email+user.name+newId,Toast.LENGTH_SHORT).show()
                 partyViewModel.addParticipants(email!!, id!!, name!!, newId)

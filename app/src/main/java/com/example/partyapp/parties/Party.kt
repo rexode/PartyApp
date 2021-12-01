@@ -1,4 +1,4 @@
-package com.example.partyapp
+package com.example.partyapp.parties
 
 class Party(var name :String?=null,var date:String?=null,var time:String?=null,var location:String?=null,var AditionalInfo:String?=null) {
 

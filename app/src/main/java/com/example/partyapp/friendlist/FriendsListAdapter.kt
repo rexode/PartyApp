@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.partyapp.R
-import com.example.partyapp.User
+import com.example.partyapp.livedata.User
 
 class FriendsListAdapter(private val fList: MutableList<User>?) : RecyclerView.Adapter<FriendsListAdapter.ViewHolder>() {
 

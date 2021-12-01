@@ -1,4 +1,4 @@
-package com.example.partyapp
+package com.example.partyapp.livedata
 
 import android.content.ContentValues
 import android.content.ContentValues.TAG
@@ -11,10 +11,12 @@ class UserListLiveData: MutableLiveData<MutableList<User>>() {
     fun addFollower(email:String,id:String,name:String, partyId:String) {
 
             //db.collection("Parties").document(id).collection("participants").add(user)
-            db.collection("Parties").document(partyId).collection("participants").document(id).set(User(email,id,name))
+            db.collection("Parties").document(partyId).collection("participants").document(id).set(
+                User(email,id,name)
+            )
 
     }
-    fun getParticipants(partieId:String ):UserListLiveData{
+    fun getParticipants(partieId:String ): UserListLiveData {
         /*db.collection("Parties").get().addOnSuccessListener{parties->
             var partiesList = mutableListOf<Party>()
             for(party in parties){

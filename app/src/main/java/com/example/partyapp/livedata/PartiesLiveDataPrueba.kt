@@ -1,25 +1,10 @@
-package com.example.partyapp
+package com.example.partyapp.livedata
 
 import android.content.ContentValues.TAG
-import android.content.Context
-import android.os.Build
-import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
-import androidx.annotation.RequiresApi
-import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
-import com.google.firebase.database.*
-import com.google.firebase.database.ktx.database
-import com.google.firebase.database.ktx.getValue
-import com.google.firebase.firestore.DocumentReference
+import com.example.partyapp.parties.Party
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.all_partys_layout.*
-import java.nio.file.Files.find
-import java.time.format.DateTimeFormatter
 
 class PartiesLiveDataPrueba: MutableLiveData<MutableList<Party>>() {
     private var db=FirebaseFirestore.getInstance()
@@ -28,7 +13,7 @@ class PartiesLiveDataPrueba: MutableLiveData<MutableList<Party>>() {
 
 //    Party("error","error","error","error")
 
-    fun findParty(id:String?):PartiesLiveDataPrueba {
+    fun findParty(id:String?): PartiesLiveDataPrueba {
         /*getParties().observe(context,{list->
             list.forEach { if (it.uid.equals(id)){
                 var overlay=  PartyInfo()
@@ -68,13 +53,13 @@ class PartiesLiveDataPrueba: MutableLiveData<MutableList<Party>>() {
         return this
         }
 
-    fun addParty(party:Party):String{
+    fun addParty(party: Party):String{
         val id=db.collection("Parties").document().id
         party.uid=id
         db.collection("Parties").document(id).set(party)
         return id
     }
-    fun updateNote(party:Party) {
+    fun updateNote(party: Party) {
         if (party.uid != null) {
             // Update note under path /notes/$uid
         }
@@ -84,7 +69,7 @@ class PartiesLiveDataPrueba: MutableLiveData<MutableList<Party>>() {
             // Delete note under path /notes/$uid
         }
     }
-    fun getParties():PartiesLiveDataPrueba{
+    fun getParties(): PartiesLiveDataPrueba {
         /*db.collection("Parties").get().addOnSuccessListener{parties->
             var partiesList = mutableListOf<Party>()
             for(party in parties){

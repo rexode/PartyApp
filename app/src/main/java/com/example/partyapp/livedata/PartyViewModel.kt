@@ -1,42 +1,39 @@
-package com.example.partyapp
+package com.example.partyapp.livedata
 
-import android.content.Context
-import androidx.fragment.app.FragmentManager
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
-import com.google.firebase.auth.FirebaseAuth
+import com.example.partyapp.parties.Party
 
 class PartyViewModel: ViewModel()  {
     private val Partiesprueba = PartiesLiveDataPrueba()
-    private val userprueba=UserLiveDataPrueba()
-    private val userList=UserListLiveData()
+    private val userprueba= UserLiveDataPrueba()
+    private val userList= UserListLiveData()
 
 
-    fun addParty(party: Party,user:User):String {
+    fun addParty(party: Party, user: User):String {
         //val party=Party("a","B","C","D","E")
 
         return Partiesprueba.addParty(party)
 
     }
-    fun getUser(id:String):UserLiveDataPrueba{
+    fun getUser(id:String): UserLiveDataPrueba {
       return  userprueba.getUser(id)
     }
-    fun getParties():PartiesLiveDataPrueba{
+    fun getParties(): PartiesLiveDataPrueba {
         return Partiesprueba.getParties()
     }
     
-    fun getUserLiveData():UserLiveDataPrueba{
+    fun getUserLiveData(): UserLiveDataPrueba {
 
         return userprueba
     }
 
-    fun findParty(id:String?) :PartiesLiveDataPrueba{
+    fun findParty(id:String?) : PartiesLiveDataPrueba {
          return Partiesprueba.findParty(id)
     }
     fun addParticipants(email:String,id:String,name:String, partyId:String){
         return userList.addFollower(email, id, name, partyId)
     }
-    fun getParticipants(partiId:String):UserListLiveData{
+    fun getParticipants(partiId:String): UserListLiveData {
        return userList.getParticipants(partiId)
 
     }

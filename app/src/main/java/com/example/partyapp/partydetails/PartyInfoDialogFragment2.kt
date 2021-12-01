@@ -1,4 +1,4 @@
-package com.example.partyapp
+package com.example.partyapp.partydetails
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
@@ -24,7 +24,9 @@ import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.*
 import android.text.Editable
-
+import com.example.partyapp.livedata.PartyViewModel
+import com.example.partyapp.R
+import com.example.partyapp.parties.Party
 
 
 class PartyInfoDialogFragment2(

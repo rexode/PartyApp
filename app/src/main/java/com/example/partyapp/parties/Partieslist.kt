@@ -1,7 +1,9 @@
-package com.example.partyapp
+package com.example.partyapp.parties
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.partyapp.partydetails.PartyInfoDialogFragment
+import com.example.partyapp.R
 import kotlinx.android.synthetic.main.all_partys_layout.*
 
 class Partieslist : AppCompatActivity() {

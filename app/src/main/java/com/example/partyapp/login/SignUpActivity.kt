@@ -1,8 +1,9 @@
-package com.example.partyapp
+package com.example.partyapp.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.partyapp.R
 import kotlinx.android.synthetic.main.login_layout.*
 
 class SignUpActivity : AppCompatActivity() {
@@ -28,7 +29,7 @@ class SignUpActivity : AppCompatActivity() {
         */
 
         button_createNewAcc.setOnClickListener{
-            var intent= Intent(this,MainActivity :: class.java)
+            var intent= Intent(this, MainActivity :: class.java)
             startActivity(intent)
             SignUp(textview_password.text.toString(),textview_email.text.toString())
         }

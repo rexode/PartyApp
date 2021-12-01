@@ -1,17 +1,12 @@
-package com.example.partyapp
+package com.example.partyapp.partydetails
 
-import android.content.Context
-import android.content.Intent
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.fragment.app.FragmentActivity
-import androidx.lifecycle.LifecycleOwner
-import kotlinx.android.synthetic.main.participant_textview.view.*
+import com.example.partyapp.R
+import com.example.partyapp.livedata.User
 
 
 class ParticipantAdapter(val Parties :List<User>) :RecyclerView.Adapter<ParticipantAdapter.ParticipantViewHolder>() {

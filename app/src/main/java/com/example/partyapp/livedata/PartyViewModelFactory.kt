@@ -1,4 +1,4 @@
-package com.example.partyapp
+package com.example.partyapp.livedata
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
