@@ -84,19 +84,21 @@ class PartyInfo() : AppCompatActivity() {
             Party("eId", "eName", "etime", "ehere", "creatorid"),
         )
 
-        var usrId = "Error"
-        partyViewModel.findParty(intent.getStringExtra("id")).observe(this, { list ->
-             usrId = list.get(0).creatorId.toString()
-
-           // if(Firebase.auth.uid==list.get(0).creatorId){
-
-            })
 
 
         val sp: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
         val uidRestored = sp.getString("key", "")
 
-        Toast.makeText(this, "$usrId and $uidRestored", Toast.LENGTH_SHORT).show()
+        var usrId = "Error"
+        partyViewModel.findParty(intent.getStringExtra("id")).observe(this, { list ->
+             usrId = list.get(0).creatorId.toString()
+
+            if (usrId == uidRestored) owner = true
+
+           // if(Firebase.auth.uid==list.get(0).creatorId){
+
+            })
+
 
 
         if(usrId == uidRestored){
@@ -245,9 +247,6 @@ class PartyInfo() : AppCompatActivity() {
                 //var db = FirebaseFirestore.getInstance()
 
                 var partyId = intent.getStringExtra("id")
-
-
-                Toast.makeText(this, "have a good time c:", Toast.LENGTH_SHORT).show()
 
 
                 var dialog = PartyInfoDialogFragment2(partyId, name, time, date, location, addInfo)
