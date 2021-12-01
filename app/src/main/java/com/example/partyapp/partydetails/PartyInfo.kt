@@ -217,6 +217,10 @@ class PartyInfo() : AppCompatActivity() {
             menu!!.removeItem(R.id.menu_edit)
             menu.removeItem(R.id.menu_delete)
         }
+        if(owner){
+            menu!!.removeItem(R.id.menu_leave)
+            button_join_party.visibility = View.GONE
+        }
 
 
         return super.onPrepareOptionsMenu(menu)
