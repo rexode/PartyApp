@@ -1,10 +1,16 @@
 package com.example.partyapp.livedata
 
 import android.content.ContentValues.TAG
+import android.os.Build
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.MutableLiveData
 import com.example.partyapp.parties.Party
 import com.google.firebase.firestore.FirebaseFirestore
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 class PartiesLiveDataPrueba: MutableLiveData<MutableList<Party>>() {
     private var db=FirebaseFirestore.getInstance()
@@ -61,6 +67,7 @@ class PartiesLiveDataPrueba: MutableLiveData<MutableList<Party>>() {
     }
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     fun getParties(): PartiesLiveDataPrueba {
         /*db.collection("Parties").get().addOnSuccessListener{parties->
             var partiesList = mutableListOf<Party>()
@@ -70,7 +77,8 @@ class PartiesLiveDataPrueba: MutableLiveData<MutableList<Party>>() {
 
         }
             return this*/
-
+        val sdf = SimpleDateFormat("dd-M-yyyy")
+        //val currentDate =LocalDate.parse(sdf.format(Date()), DateTimeFormatter.ISO_DATE)
         db.collection("Parties").orderBy("date").addSnapshotListener{
             snapshot,e->
             if(e!=null){
@@ -82,6 +90,7 @@ class PartiesLiveDataPrueba: MutableLiveData<MutableList<Party>>() {
                 document.forEach{
                     val party=it.toObject(Party::class.java)
                     if(party!=null){
+
                         partiesList.add(party)
                     }
                 }

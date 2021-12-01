@@ -54,8 +54,10 @@ class UserListLiveData: MutableLiveData<MutableList<User>>() {
     }
 
     fun addFollowing(email:String,id:String,name:String, userId:String){
-        db.collection("Users").document(userId).collection("followings").document(id).set(User(email,id,name))
-
+        if(id.equals(userId)) {
+            db.collection("Users").document(userId).collection("followings").document(id)
+                .set(User(email, id, name))
+        }
     }
     fun getFollowing(id:String):UserListLiveData{
         db.collection("Users").document(id).collection("followings").addSnapshotListener{
