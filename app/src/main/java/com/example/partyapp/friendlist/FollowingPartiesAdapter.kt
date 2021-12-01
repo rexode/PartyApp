@@ -21,11 +21,11 @@ class FollowingPartiesAdapter(val Parties :List<Party>) :RecyclerView.Adapter<Fo
     override fun onBindViewHolder(holder: FollowingPartiesViewHolder, position: Int) {
         //holder.itemView.textView_participant1.text = Parties[position].name
         holder.textName.text = Parties[position].name
-        holder.textName.setOnClickListener{
+        //holder.textName.setOnClickListener{
             //val intent = Intent(it.context, OtherProfile::class.java)
             //intent.putExtra("id",Parties[position].uid)
             //it.context.startActivity(intent)
-        }
+        //}
     }
 
 
