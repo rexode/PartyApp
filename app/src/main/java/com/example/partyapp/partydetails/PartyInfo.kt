@@ -97,7 +97,6 @@ class PartyInfo() : AppCompatActivity() {
 
             if (usrId == uidRestored) owner = true
 
-            // if(Firebase.auth.uid==list.get(0).creatorId){
 
         })
 

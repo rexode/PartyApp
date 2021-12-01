@@ -1,6 +1,7 @@
 package com.example.partyapp.friendlist
 
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -20,6 +21,7 @@ import kotlinx.android.synthetic.main.party_layout.*
 
 class MyProfile: AppCompatActivity() {
     private lateinit var partyViewModel: PartyViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,6 +75,7 @@ class MyProfile: AppCompatActivity() {
 
         })
     }
+
 
     //also for go back button
     override fun onSupportNavigateUp(): Boolean {
