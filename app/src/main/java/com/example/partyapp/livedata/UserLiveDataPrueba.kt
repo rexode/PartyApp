@@ -1,6 +1,7 @@
 package com.example.partyapp.livedata
 
 import androidx.lifecycle.LiveData
+import com.example.partyapp.partydetails.User
 import com.google.firebase.firestore.FirebaseFirestore
 
 class UserLiveDataPrueba: LiveData<User>() {

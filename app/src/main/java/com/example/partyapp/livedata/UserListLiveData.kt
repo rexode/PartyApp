@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import com.example.partyapp.partydetails.User
 import com.google.firebase.firestore.FirebaseFirestore
 
 class UserListLiveData: MutableLiveData<MutableList<User>>() {

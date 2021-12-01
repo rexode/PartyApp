@@ -13,7 +13,6 @@ import kotlinx.android.synthetic.main.enter_partyinfo_fragment.view.*
 import androidx.lifecycle.ViewModelProvider
 import com.example.partyapp.livedata.PartyViewModel
 import com.example.partyapp.R
-import com.example.partyapp.livedata.User
 import com.example.partyapp.parties.Party
 import java.text.SimpleDateFormat
 import java.util.*

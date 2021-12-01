@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.partyapp.parties.AllParties
 import com.example.partyapp.livedata.PartyViewModel
 import com.example.partyapp.R
-import com.example.partyapp.livedata.User
+import com.example.partyapp.partydetails.User
 import com.google.firebase.firestore.FirebaseFirestore
 
 class NameCreating : AppCompatActivity() {

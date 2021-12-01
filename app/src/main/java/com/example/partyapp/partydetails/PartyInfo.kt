@@ -17,7 +17,6 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.partyapp.livedata.PartyViewModel
-import com.example.partyapp.livedata.User
 import com.example.partyapp.parties.Party
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -77,6 +76,13 @@ class PartyInfo() : AppCompatActivity() {
             date = list.get(0).date.toString()
 
         })
+        var partyList = mutableListOf(
+            Party("aId", "aName", "atime", "ahere", "creatorid"),
+            Party("bId", "bName", "btime", "bhere", "creatorid"),
+            Party("cId", "cName", "ctime", "chere", "creatorid"),
+            Party("dId", "dName", "dtime", "dhere", "creatorid"),
+            Party("eId", "eName", "etime", "ehere", "creatorid"),
+        )
 
         var usrId = "Error"
         partyViewModel.findParty(intent.getStringExtra("id")).observe(this, { list ->

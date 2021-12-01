@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.partyapp.R
 import com.example.partyapp.friendlist.OtherProfile
-import com.example.partyapp.livedata.User
 
 
 class ParticipantAdapter(val Parties :List<User>) :RecyclerView.Adapter<ParticipantAdapter.ParticipantViewHolder>() {

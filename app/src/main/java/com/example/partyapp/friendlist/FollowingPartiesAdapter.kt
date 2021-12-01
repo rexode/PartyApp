@@ -8,22 +8,23 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.partyapp.R
 import com.example.partyapp.friendlist.OtherProfile
+import com.example.partyapp.parties.Party
 
 
-class FriendsListAdapter(val Users :List<User>) :RecyclerView.Adapter<FriendsListAdapter.FriendListViewHolder>() {
+class FollowingPartiesAdapter(val Parties :List<Party>) :RecyclerView.Adapter<FollowingPartiesAdapter.FollowingPartiesViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FriendListViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FollowingPartiesViewHolder {
         val view : View=LayoutInflater.from(parent.context).inflate(R.layout.participant_textview,parent,false)
-        return FriendListViewHolder(view)
+        return FollowingPartiesViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: FriendListViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: FollowingPartiesViewHolder, position: Int) {
         //holder.itemView.textView_participant1.text = Parties[position].name
-        holder.textName.text = Users[position].name
+        holder.textName.text = Parties[position].name
         //holder.textName.setOnClickListener{
-        //    val intent = Intent(it.context, OtherProfile::class.java)
-        //    intent.putExtra("id",Users[position].id)
-       //     it.context.startActivity(intent)
+            //val intent = Intent(it.context, OtherProfile::class.java)
+            //intent.putExtra("id",Parties[position].uid)
+            //it.context.startActivity(intent)
         //}
     }
 
@@ -42,10 +43,10 @@ class FriendsListAdapter(val Users :List<User>) :RecyclerView.Adapter<FriendsLis
     //holder.textName.text=Party.title
 
     override fun getItemCount(): Int {
-        return Users.size
+        return Parties.size
     }
 
-    class FriendListViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
+    class FollowingPartiesViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
         val textName = itemView.findViewById<TextView>(R.id.textView_participant1)
     }
 
