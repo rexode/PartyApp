@@ -53,5 +53,8 @@ class PartyViewModel: ViewModel()  {
     fun getFollowings(id:String):UserListLiveData{
         return userList.getFollowing(id)
     }
+    fun removeFollowing(userId:String,followingId:String){
+        userList.removeFollowing(userId,followingId)
+    }
 
 }
