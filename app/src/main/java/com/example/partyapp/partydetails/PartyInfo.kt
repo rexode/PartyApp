@@ -17,8 +17,6 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.partyapp.livedata.PartyViewModel
-import com.example.partyapp.R
-import com.example.partyapp.livedata.User
 import com.example.partyapp.parties.Party
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices

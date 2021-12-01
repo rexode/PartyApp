@@ -47,8 +47,8 @@ class MyProfile: AppCompatActivity() {
         val adapter = FriendsListAdapter(userList)
         recyclerviewFollowers.adapter = adapter
         recyclerviewFollowers.layoutManager = LinearLayoutManager(this)
-        recyclerviewFollowing.adapter = adapter
-        recyclerviewFollowing.layoutManager = LinearLayoutManager(this)
+        //recyclerviewFollowing.adapter = adapter
+        //recyclerviewFollowing.layoutManager = LinearLayoutManager(this)
         val pardapter = FollowingPartiesAdapter(partyList)
         recyclerviewAllParties.adapter = pardapter
         recyclerviewAllParties.layoutManager = LinearLayoutManager(this)
@@ -59,7 +59,7 @@ class MyProfile: AppCompatActivity() {
         actionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         partyViewModel.getUser(Firebase.auth.currentUser?.uid!!).observe(this,{
-            user_number_of_followers.setText(it.name)
+            user_name.setText(it.name)
         })
     }
 
