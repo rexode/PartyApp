@@ -17,7 +17,6 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.partyapp.livedata.PartyViewModel
-import com.example.partyapp.R
 import com.example.partyapp.livedata.User
 import com.example.partyapp.parties.Party
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -26,23 +25,29 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.party_layout.*
 import java.io.IOException
 import java.util.*
-
-
+import android.view.View
+import com.example.partyapp.R
+import com.google.firebase.ktx.Firebase
 
 
 class PartyInfo() : AppCompatActivity() {
+
+
     private lateinit var partyViewModel: PartyViewModel
     private val dummyParty: Party = Party("name", "today", "now", "here", "info")
 
     lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
-    var currentLocation: String = ""
+    private var currentLocation: String = ""
 
-    var name: String = ""
-    var date: String = ""
-    var time: String = ""
-    var location: String = ""
-    var addInfo: String = ""
+    private var name: String = ""
+    private var date: String = ""
+    private var time: String = ""
+    private var location: String = ""
+    private var addInfo: String = ""
+
+   // private  var owner: Boolean = false
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,30 +76,25 @@ class PartyInfo() : AppCompatActivity() {
             date = list.get(0).date.toString()
 
         })
-        var partyList = mutableListOf(
-            Party("aId", "aName", "atime", "ahere"),
-            Party("bId", "bName", "btime", "bhere"),
-            Party("cId", "cName", "ctime", "chere"),
-            Party("dId", "dName", "dtime", "dhere"),
-            Party("eId", "eName", "etime", "ehere"),
-        )
 
-        var usrId :String = "error"
-        partyViewModel.findParty( intent.getStringExtra("id")!!).observe(this,{
-            usrId = it.get(0).creatorId!!
-        })
+
+      /*  partyViewModel.findParty(intent.getStringExtra("id")).observe(this, { list ->
+            if(Firebase.auth.uid==list.get(0).creatorId){
+                button_delete_party.visibility=View.VISIBLE
+            }
 
         val sp: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
         val uidRestored = sp.getString("key", "")
+
+        Toast.makeText(this, "$usrId and $uidRestored", Toast.LENGTH_SHORT).show()
+
+
         if(usrId == uidRestored){
-            /*
-            val myitem: MenuItem = menu
-            myitem.isVisible = false
-            val inflater = menuInflater
-            inflater.inflate(R.menu.dot_menu_partylayout, menu)
-            */
+            owner = true
 
         }
+
+       */
 
         var partyId = intent.getStringExtra("id")
         var liveList: List<User>
@@ -196,16 +196,36 @@ class PartyInfo() : AppCompatActivity() {
     // Menu in tool-bar
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         var inflator: MenuInflater = menuInflater
-        inflator.inflate(R.menu.dot_menu_partylayout, menu)
+        inflator.inflate(com.example.partyapp.R.menu.dot_menu_partylayout, menu)
+
+        var item_delete = menu!!.findItem(com.example.partyapp.R.id.menu_edit)
+        // item_delete!!.isVisible = false //
+
         return true
     }
 
 
 // **********************************LOGOUT AND PROFILE MENU********************************************************************************
 
+/*
+    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+
+        if(!owner){
+            menu!!.removeItem(R.id.menu_edit)
+            menu.removeItem(R.id.menu_delete)
+        }
+
+
+        return super.onPrepareOptionsMenu(menu)
+    }
+
+ */
+
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.menu_leave -> {
+            com.example.partyapp.R.id.menu_leave -> {
+
 
                 //NOT TESTED YEEEEEEEEEEEEEET
                 val sp: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
@@ -215,7 +235,7 @@ class PartyInfo() : AppCompatActivity() {
             }
 
 
-            R.id.menu_edit -> {
+            com.example.partyapp.R.id.menu_edit -> {
                 //var db = FirebaseFirestore.getInstance()
 
                 var partyId = intent.getStringExtra("id")
@@ -229,7 +249,7 @@ class PartyInfo() : AppCompatActivity() {
 
             }
 
-            R.id.menu_delete -> {
+            com.example.partyapp.R.id.menu_delete -> {
 
                 partyViewModel.findParty(intent.getStringExtra("id")!!)
                 var db = FirebaseFirestore.getInstance()
@@ -241,4 +261,6 @@ class PartyInfo() : AppCompatActivity() {
 
         return super.onOptionsItemSelected(item)
     }
+
+
 }

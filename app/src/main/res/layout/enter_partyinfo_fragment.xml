@@ -26,6 +26,7 @@ Fragment lets you enter party info, to create a new party
         >
 
         <EditText
+            android:maxLength="19"
             android:fontFamily="@font/msemibold"
             android:textColorHint="@color/m_dark_blue"
             android:id="@+id/textedit_party_name"
@@ -78,6 +79,7 @@ Fragment lets you enter party info, to create a new party
             app:layout_constraintTop_toBottomOf="@+id/textedit_party_name" />
 
         <EditText
+            android:maxLength="32"
             android:layout_marginTop="30dp"
             android:textColorHint="@color/m_dark_blue"
             android:fontFamily="@font/msemibold"

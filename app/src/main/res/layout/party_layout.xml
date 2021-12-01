@@ -21,7 +21,7 @@ using "participant_textview.xml"
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="-50dp"
         android:src="@drawable/bluewave"
@@ -30,7 +30,7 @@ using "participant_textview.xml"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/bottomwelle"
         android:layout_marginBottom="-20dp"
@@ -127,26 +127,28 @@ using "participant_textview.xml"
         android:textColorHint="@color/m_dark_blue"
         android:textSize="30dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout1"/>
 
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_addInfo">
 
         <TextView
-            android:textColorHint="@color/m_dark_blue"
-            android:fontFamily="@font/msemibold"
-            android:textColor="@color/m_dark_blue"
             android:id="@+id/textView_insert_addInfo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="0dp"
+            android:fontFamily="@font/msemibold"
             android:hint="this text will be replaced with the additional info"
+            android:textColor="@color/m_dark_blue"
+            android:textColorHint="@color/m_dark_blue"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
