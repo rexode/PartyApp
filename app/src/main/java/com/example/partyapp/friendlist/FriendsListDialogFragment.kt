@@ -1,4 +1,4 @@
-package com.example.partyapp
+package com.example.partyapp.friendlist
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.partyapp.parties.AllParties
+import com.example.partyapp.R
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.friends_list_layout.*
@@ -29,6 +30,7 @@ class FriendsListDialogFragment(var Activity: AllParties) : DialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         var lview : View = inflater.inflate(R.layout.friends_list_layout,container,false)
         referance = FirebaseDatabase.getInstance().getReference("FriendsLists")
         viewmodel = ViewModelProvider(this).get(FriendListViewModel::class.java)
@@ -37,11 +39,11 @@ class FriendsListDialogFragment(var Activity: AllParties) : DialogFragment() {
 
         lview.textView_user_name_fl.text = Activity.getName()
         lview.recyclerView_friends_list.layoutManager = LinearLayoutManager(Activity)
-        lview.recyclerView_friends_list.adapter = FriendsListAdapter(viewmodel.getList(Activity.getId()))
+        //lview.recyclerView_friends_list.adapter = FriendsListAdapter(viewmodel.getList(Activity.getId()))
 
 
         button_add_friend.setOnClickListener{
-            viewmodel.addFriendToList(Activity.getId(),flist_enter_email.text.toString())
+            //viewmodel.addFriendToList(Activity.getId(),flist_enter_email.text.toString())
             flist_enter_email.text.clear()
         }
 

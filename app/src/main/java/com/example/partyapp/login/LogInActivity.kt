@@ -1,14 +1,11 @@
-package com.example.partyapp
+package com.example.partyapp.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
-import kotlinx.android.synthetic.main.all_partys_layout.*
+import com.example.partyapp.R
 import kotlinx.android.synthetic.main.login_layout.*
-import kotlin.math.log
 
 class LogInActivity : AppCompatActivity() {
 

@@ -1,10 +1,12 @@
-package com.example.partyapp
+package com.example.partyapp.friendlist
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.partyapp.R
+import com.example.partyapp.livedata.User
 
 class FriendsListAdapter(private val fList: MutableList<User>?) : RecyclerView.Adapter<FriendsListAdapter.ViewHolder>() {
 

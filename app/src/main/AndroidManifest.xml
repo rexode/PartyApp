@@ -14,28 +14,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PartyApp">
         <activity
-            android:name=".PartyInfo"
+            android:name=".partydetails.PartyInfo"
             android:exported="false" />
         <activity
             android:name=".PartyAdding"
             android:exported="false" />
         <activity
-            android:name=".Partieslist"
+            android:name=".parties.Partieslist"
             android:exported="false" />
         <activity
-            android:name=".NameCreating"
+            android:name=".login.NameCreating"
             android:exported="false" />
         <activity
-            android:name=".SignUp"
+            android:name=".login.SignUp"
             android:exported="false" />
         <activity
-            android:name=".AllParties"
+            android:name=".parties.AllParties"
             android:exported="false" />
         <activity
             android:name=".ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".login.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,4 +1,4 @@
-package com.example.partyapp
+package com.example.partyapp.partydetails
 
 import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
@@ -7,7 +7,6 @@ import android.location.Address
 import android.location.Geocoder
 import android.location.Location
 import android.net.Uri
-import android.content.Context
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,12 +16,13 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.partyapp.livedata.PartyViewModel
+import com.example.partyapp.R
+import com.example.partyapp.livedata.User
+import com.example.partyapp.parties.Party
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import com.google.firebase.database.*
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.all_partys_layout.*
-import kotlinx.android.synthetic.main.enter_partyinfo_fragment.view.*
 import kotlinx.android.synthetic.main.party_layout.*
 import java.io.IOException
 import java.util.*

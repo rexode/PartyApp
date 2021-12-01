@@ -1,19 +1,19 @@
-package com.example.partyapp
+package com.example.partyapp.parties
 
-import android.content.Context
 import android.content.Intent
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.LifecycleOwner
+import com.example.partyapp.partydetails.PartyInfo
+import com.example.partyapp.livedata.PartyViewModel
+import com.example.partyapp.R
 
 
-class PartyAdapter(val Parties :List<Party>,val lf: LifecycleOwner) :RecyclerView.Adapter<PartyAdapter.PartyViewHolder>() {
+class PartyAdapter(val Parties :List<Party>, val lf: LifecycleOwner) :RecyclerView.Adapter<PartyAdapter.PartyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PartyViewHolder {
         val view : View=LayoutInflater.from(parent.context).inflate(R.layout.single_party,parent,false)

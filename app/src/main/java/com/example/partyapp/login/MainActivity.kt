@@ -1,26 +1,16 @@
-package com.example.partyapp
+package com.example.partyapp.login
 
 import android.content.Intent
-import java.io.FileFilter
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
-import android.widget.Button
-import android.widget.CompoundButton
-import android.widget.EditText
 import android.widget.Toast
+import com.example.partyapp.parties.AllParties
+import com.example.partyapp.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.ktx.oAuthProvider
-import com.google.firebase.database.*
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.database.ktx.database
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.login_layout.*
-import java.io.File
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 

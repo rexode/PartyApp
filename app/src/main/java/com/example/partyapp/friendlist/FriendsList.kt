@@ -1,4 +1,6 @@
-package com.example.partyapp
+package com.example.partyapp.friendlist
+
+import com.example.partyapp.livedata.User
 
 data class FriendsList (var user: String? = null, var friends:MutableList<User>? = null){
 
