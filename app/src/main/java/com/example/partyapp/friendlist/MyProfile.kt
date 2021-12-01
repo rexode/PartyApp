@@ -44,13 +44,22 @@ class MyProfile: AppCompatActivity() {
         //partyViewModel.getParticipants(intent.getStringExtra("id")!!).observe(this, { list ->
             //liveList = list
 //        })
-        val adapter = FriendsListAdapter(userList)
-        recyclerviewFollowers.adapter = adapter
+        var livList:List<User>
+        partyViewModel.getFollowings(Firebase.auth.uid!!).observe(this,{list-> livList=list
+            val adapter = FriendsListAdapter(livList)
+            recyclerviewFollowers.adapter = adapter
+        })
+
         recyclerviewFollowers.layoutManager = LinearLayoutManager(this)
         //recyclerviewFollowing.adapter = adapter
         //recyclerviewFollowing.layoutManager = LinearLayoutManager(this)
-        val pardapter = FollowingPartiesAdapter(partyList)
-        recyclerviewAllParties.adapter = pardapter
+        var liveList:List<Party>
+        partyViewModel.getUserParties(Firebase.auth.uid!!).observe(this,{list-> liveList=list
+            val pardapter = FollowingPartiesAdapter(liveList)
+            recyclerviewAllParties.adapter = pardapter
+
+        })
+
         recyclerviewAllParties.layoutManager = LinearLayoutManager(this)
 
 
