@@ -98,6 +98,9 @@ class MyProfile: AppCompatActivity() {
                 var bitmap:  Bitmap = MediaStore.Images.Media.getBitmap(contentResolver, uri)
                 profilepic.setImageBitmap(bitmap)
 
+
+
+
             } catch (e: FileNotFoundException){
                 e.printStackTrace()
             } catch (e: IOException){
