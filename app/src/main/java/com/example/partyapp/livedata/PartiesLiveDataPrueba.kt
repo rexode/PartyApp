@@ -59,16 +59,8 @@ class PartiesLiveDataPrueba: MutableLiveData<MutableList<Party>>() {
         db.collection("Parties").document(id).set(party)
         return id
     }
-    fun updateNote(party: Party) {
-        if (party.uid != null) {
-            // Update note under path /notes/$uid
-        }
-    }
-    fun deleteNote(note: Party) {
-        if (note.uid != null) {
-            // Delete note under path /notes/$uid
-        }
-    }
+
+
     fun getParties(): PartiesLiveDataPrueba {
         /*db.collection("Parties").get().addOnSuccessListener{parties->
             var partiesList = mutableListOf<Party>()
@@ -124,6 +116,22 @@ class PartiesLiveDataPrueba: MutableLiveData<MutableList<Party>>() {
     fun getParty(id:String){
         val party: Party? = value?.find { it.uid == id }
 
+    }
+    fun deleteParty(id:String){
+        db.collection("Parties").whereEqualTo("uid",id).addSnapshotListener{
+                snapshot,e->
+            if(e!=null){
+                Log.w(TAG,"Listen faile",e)
+            }
+
+            if(snapshot!=null){
+                var document = snapshot.documents
+                document.forEach{
+                    val party=it.toObject(Party::class.java)
+                    it.reference.delete()
+                }
+            }
+        }
     }
 
 

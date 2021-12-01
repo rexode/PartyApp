@@ -46,5 +46,8 @@ class PartyViewModel: ViewModel()  {
     fun getUserParties(id:String):PartiesLiveDataPrueba{
         return getParties().getUserParties(id)
     }
+    fun deleteParty(id:String){
+        Partiesprueba.deleteParty(id)
+    }
 
 }
