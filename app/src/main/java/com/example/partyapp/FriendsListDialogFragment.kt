@@ -29,6 +29,7 @@ class FriendsListDialogFragment(var Activity: AllParties) : DialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         var lview : View = inflater.inflate(R.layout.friends_list_layout,container,false)
         referance = FirebaseDatabase.getInstance().getReference("FriendsLists")
         viewmodel = ViewModelProvider(this).get(FriendListViewModel::class.java)
@@ -37,11 +38,11 @@ class FriendsListDialogFragment(var Activity: AllParties) : DialogFragment() {
 
         lview.textView_user_name_fl.text = Activity.getName()
         lview.recyclerView_friends_list.layoutManager = LinearLayoutManager(Activity)
-        lview.recyclerView_friends_list.adapter = FriendsListAdapter(viewmodel.getList(Activity.getId()))
+        //lview.recyclerView_friends_list.adapter = FriendsListAdapter(viewmodel.getList(Activity.getId()))
 
 
         button_add_friend.setOnClickListener{
-            viewmodel.addFriendToList(Activity.getId(),flist_enter_email.text.toString())
+            //viewmodel.addFriendToList(Activity.getId(),flist_enter_email.text.toString())
             flist_enter_email.text.clear()
         }
 
