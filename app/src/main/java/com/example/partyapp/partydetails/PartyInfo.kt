@@ -64,10 +64,6 @@ class PartyInfo() : AppCompatActivity() {
 
         partyViewModel = ViewModelProvider(this).get(PartyViewModel::class.java)
         partyViewModel.findParty(intent.getStringExtra("id")).observe(this, { list ->
-            if(Firebase.auth.uid==list.get(0).creatorId){
-                button_delete_party.visibility=View.VISIBLE
-            }
-
             textView_party_name.text = list.get(0).name
             textView_party_time.text = list.get(0).time
             textView_insert_addInfo.text = list.get(0).AditionalInfo
@@ -97,13 +93,13 @@ class PartyInfo() : AppCompatActivity() {
 
         var usrId = "Error"
         partyViewModel.findParty(intent.getStringExtra("id")).observe(this, { list ->
-             usrId = list.get(0).creatorId.toString()
+            usrId = list.get(0).creatorId.toString()
 
             if (usrId == uidRestored) owner = true
 
-           // if(Firebase.auth.uid==list.get(0).creatorId){
+            // if(Firebase.auth.uid==list.get(0).creatorId){
 
-            })
+        })
 
         var partyId = intent.getStringExtra("id")
         var liveList: List<User>
@@ -136,7 +132,7 @@ class PartyInfo() : AppCompatActivity() {
             val nameRestored = sp2.getString("username", "")
             val sp3: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
             val emailRestored = sp3.getString("email", "")
-           // Toast.makeText(this, emailRestored, Toast.LENGTH_SHORT).show()
+            // Toast.makeText(this, emailRestored, Toast.LENGTH_SHORT).show()
             partyViewModel.addParticipants(
                 emailRestored!!,
                 uidRestored!!,
@@ -145,11 +141,6 @@ class PartyInfo() : AppCompatActivity() {
             )
             //partyViewModel.addParticipants()
         }
-        button_delete_party.setOnClickListener{
-            val id=intent.getStringExtra("id")
-            partyViewModel.deleteParty(id!!)
-        }
-
     }
 
 
@@ -225,6 +216,10 @@ class PartyInfo() : AppCompatActivity() {
         if(!owner){
             menu!!.removeItem(R.id.menu_edit)
             menu.removeItem(R.id.menu_delete)
+        }
+        if(owner){
+            menu!!.removeItem(R.id.menu_leave)
+            button_join_party.visibility = View.GONE
         }
 
 
