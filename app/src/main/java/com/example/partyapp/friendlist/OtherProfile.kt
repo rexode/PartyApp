@@ -3,12 +3,17 @@ package com.example.partyapp.friendlist
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.partyapp.livedata.PartyViewModel
 import com.example.partyapp.R
+import com.example.partyapp.parties.Party
+import com.example.partyapp.partydetails.FollowingPartiesAdapter
 import com.example.partyapp.partydetails.User
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.my_profile_layout.*
 import kotlinx.android.synthetic.main.others_profile_layout.*
+import kotlinx.android.synthetic.main.others_profile_layout.recyclerviewAllParties
 
 
 class OtherProfile: AppCompatActivity() {
@@ -37,6 +42,14 @@ class OtherProfile: AppCompatActivity() {
 
             }
         }
+
+        var liveList:List<Party>
+        partyViewModel.getUserParties(userId!!).observe(this,{list-> liveList=list
+            val pardapter = FollowingPartiesAdapter(liveList)
+            recyclerviewAllParties.adapter = pardapter
+        })
+
+        recyclerviewAllParties.layoutManager = LinearLayoutManager(this)
     }
 
     //also for go back button

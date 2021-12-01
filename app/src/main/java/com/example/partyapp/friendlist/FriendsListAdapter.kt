@@ -20,11 +20,11 @@ class FriendsListAdapter(val Users :List<User>) :RecyclerView.Adapter<FriendsLis
     override fun onBindViewHolder(holder: FriendListViewHolder, position: Int) {
         //holder.itemView.textView_participant1.text = Parties[position].name
         holder.textName.text = Users[position].name
-        //holder.textName.setOnClickListener{
-        //    val intent = Intent(it.context, OtherProfile::class.java)
-        //    intent.putExtra("id",Users[position].id)
-       //     it.context.startActivity(intent)
-        //}
+        holder.textName.setOnClickListener{
+            val intent = Intent(it.context, OtherProfile::class.java)
+            intent.putExtra("id",Users[position].id)
+            it.context.startActivity(intent)
+        }
     }
 
 

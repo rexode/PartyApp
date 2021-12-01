@@ -13,6 +13,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,14 +21,14 @@ import com.example.partyapp.livedata.PartyViewModel
 import com.example.partyapp.parties.Party
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.party_layout.*
 import java.io.IOException
 import java.util.*
-import android.view.View
 import com.example.partyapp.R
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 
 
 class PartyInfo() : AppCompatActivity() {
@@ -92,12 +93,12 @@ class PartyInfo() : AppCompatActivity() {
 
         var usrId = "Error"
         partyViewModel.findParty(intent.getStringExtra("id")).observe(this, { list ->
-             usrId = list.get(0).creatorId.toString()
+            usrId = list.get(0).creatorId.toString()
 
             if (usrId == uidRestored) owner = true
 
 
-            })
+        })
 
         var partyId = intent.getStringExtra("id")
         var liveList: List<User>
@@ -130,7 +131,7 @@ class PartyInfo() : AppCompatActivity() {
             val nameRestored = sp2.getString("username", "")
             val sp3: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
             val emailRestored = sp3.getString("email", "")
-           // Toast.makeText(this, emailRestored, Toast.LENGTH_SHORT).show()
+            // Toast.makeText(this, emailRestored, Toast.LENGTH_SHORT).show()
             partyViewModel.addParticipants(
                 emailRestored!!,
                 uidRestored!!,
@@ -139,8 +140,6 @@ class PartyInfo() : AppCompatActivity() {
             )
             //partyViewModel.addParticipants()
         }
-
-
     }
 
 
@@ -217,6 +216,10 @@ class PartyInfo() : AppCompatActivity() {
             menu!!.removeItem(R.id.menu_edit)
             menu.removeItem(R.id.menu_delete)
         }
+        if(owner){
+            menu!!.removeItem(R.id.menu_leave)
+            button_join_party.visibility = View.GONE
+        }
 
 
         return super.onPrepareOptionsMenu(menu)
@@ -249,10 +252,8 @@ class PartyInfo() : AppCompatActivity() {
 
             com.example.partyapp.R.id.menu_delete -> {
 
-                partyViewModel.findParty(intent.getStringExtra("id")!!)
-                var db = FirebaseFirestore.getInstance()
-                db.collection("Parties").document(intent.getStringExtra("id")!!).delete()
-
+                val id=intent.getStringExtra("id")
+                partyViewModel.deleteParty(id!!)
             }
 
         }

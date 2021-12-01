@@ -54,7 +54,32 @@ class UserListLiveData: MutableLiveData<MutableList<User>>() {
     }
 
     fun addFollowing(email:String,id:String,name:String, userId:String){
-        db.collection("Users").document(userId).collection("friends").document(id).set(User(email,id,name))
+        db.collection("Users").document(userId).collection("followings").document(id).set(User(email,id,name))
 
+    }
+    fun getFollowing(id:String):UserListLiveData{
+        db.collection("Users").document(id).collection("followings").addSnapshotListener{
+                snapshot,e->
+            if(e!=null){
+                Log.w(ContentValues.TAG,"Listen faile",e)
+            }
+            if(snapshot!=null){
+                var userList = mutableListOf<User>()
+                var document = snapshot.documents
+                document.forEach{
+                    val user=it.toObject(User::class.java)
+                    if(user!=null){
+                        userList.add(user)
+                    }
+                }
+                value=userList
+            }
+        }
+        return this
+    }
+    fun removeFollowing(userId:String,followingId:String){
+        db.collection("Parties").document(followingId).collection("participants").document(userId).delete()
+            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully deleted!") }
+            .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }
     }
 }

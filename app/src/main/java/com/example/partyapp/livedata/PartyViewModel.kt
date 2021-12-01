@@ -45,7 +45,16 @@ class PartyViewModel: ViewModel()  {
         userList.addFollowing(email,id,name,userId)
     }
     fun getUserParties(id:String):PartiesLiveDataPrueba{
-        return getParties().getUserParties(id)
+        return Partiesprueba.getUserParties(id)
+    }
+    fun deleteParty(id:String){
+        Partiesprueba.deleteParty(id)
+    }
+    fun getFollowings(id:String):UserListLiveData{
+        return userList.getFollowing(id)
+    }
+    fun removeFollowing(userId:String,followingId:String){
+        userList.removeFollowing(userId,followingId)
     }
 
 }
