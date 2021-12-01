@@ -89,21 +89,16 @@ class PartyInfo() : AppCompatActivity() {
 
         val sp: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
         val uidRestored = sp.getString("key", "")
+
         var usrId = "Error"
         partyViewModel.findParty(intent.getStringExtra("id")).observe(this, { list ->
-            usrId = list.get(0).creatorId.toString()
-            Toast.makeText(this, "$usrId and $uidRestored", Toast.LENGTH_SHORT).show()
-            // if(Firebase.auth.uid==list.get(0).creatorId){
+             usrId = list.get(0).creatorId.toString()
 
-        })
-        //Toast.makeText()
+            if (usrId == uidRestored) owner = true
 
+           // if(Firebase.auth.uid==list.get(0).creatorId){
 
-
-        if(usrId == uidRestored){
-            owner = true
-
-        }
+            })
 
         var partyId = intent.getStringExtra("id")
         var liveList: List<User>
