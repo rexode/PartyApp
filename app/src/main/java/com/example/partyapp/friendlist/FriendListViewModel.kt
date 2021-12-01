@@ -1,4 +1,4 @@
-package com.example.partyapp
+package com.example.partyapp.friendlist
 
 import androidx.lifecycle.ViewModel
 

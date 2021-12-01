@@ -1,7 +1,8 @@
-package com.example.partyapp
+package com.example.partyapp.friendlist
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.partyapp.R
 
 class OthersProfileActivity: AppCompatActivity() {
 
