@@ -27,10 +27,8 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.party_layout.*
 import java.io.IOException
 import java.util.*
-import android.view.View
 import com.example.partyapp.R
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 
 
 class PartyInfo() : AppCompatActivity() {
