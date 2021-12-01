@@ -51,4 +51,9 @@ class UserListLiveData: MutableLiveData<MutableList<User>>() {
             .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully deleted!") }
             .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }
     }
+
+    fun addFollowing(email:String,id:String,name:String, userId:String){
+        db.collection("Users").document(userId).collection("friends").document(id).set(User(email,id,name))
+
+    }
 }

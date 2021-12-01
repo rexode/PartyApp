@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.partyapp.*
+import com.example.partyapp.friendlist.MyProfile
 import com.example.partyapp.livedata.PartyViewModel
 import com.example.partyapp.livedata.User
 import com.google.firebase.database.DatabaseReference
@@ -125,7 +126,7 @@ class AllParties : AppCompatActivity() {
             R.id.profile -> {
                 //Toast.makeText(this, "Open Profile", Toast.LENGTH_SHORT).show()
 
-                var intent = Intent(this, ProfileActivity::class.java)
+                var intent = Intent(this, MyProfile::class.java)
                 startActivity(intent)
             }
 

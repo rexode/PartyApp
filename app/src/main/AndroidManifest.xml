@@ -32,8 +32,12 @@
             android:name=".parties.AllParties"
             android:exported="false" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".friendlist.MyProfile"
             android:exported="false" />
+        <activity
+            android:name=".friendlist.OtherProfile"
+            android:exported="false" />
+
         <activity
             android:name=".login.MainActivity"
             android:exported="true">

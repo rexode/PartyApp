@@ -99,6 +99,28 @@ class PartiesLiveDataPrueba: MutableLiveData<MutableList<Party>>() {
         }
         return this
         }
+    fun getUserParties(id:String):PartiesLiveDataPrueba{
+        db.collection("Parties").orderBy("date").whereEqualTo("creatorId",id).addSnapshotListener{
+                snapshot,e->
+            if(e!=null){
+                Log.w(TAG,"Listen faile",e)
+            }
+            if(snapshot!=null){
+                var partiesList = mutableListOf<Party>()
+                var document = snapshot.documents
+                document.forEach{
+                    val party=it.toObject(Party::class.java)
+                    if(party!=null){
+                        partiesList.add(party)
+                    }
+                }
+                value=partiesList
+            }
+
+        }
+
+        return this
+    }
     fun getParty(id:String){
         val party: Party? = value?.find { it.uid == id }
 
