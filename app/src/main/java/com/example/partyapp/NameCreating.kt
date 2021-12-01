@@ -45,7 +45,7 @@ class NameCreating : AppCompatActivity() {
         button.setOnClickListener {
 
             if (id != null) {
-                val user = User(email, editText.text.toString(),id)
+                val user = User(email,id,editText.text.toString())
                 //database.child(id).setValue(user)
                 viewModel.getUserLiveData().addName(user,id)
                 intent.putExtra("id", id)
