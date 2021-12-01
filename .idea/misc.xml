@@ -62,7 +62,7 @@
         <entry key="app/src/main/res/layout/login_before_layout.xml" value="0.1" />
         <entry key="app/src/main/res/layout/login_layout.xml" value="0.25" />
         <entry key="app/src/main/res/layout/my_profile_layout.xml" value="0.3645833333333333" />
-        <entry key="app/src/main/res/layout/others_profile_layout.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/others_profile_layout.xml" value="0.25" />
         <entry key="app/src/main/res/layout/participant_textview.xml" value="0.3645833333333333" />
         <entry key="app/src/main/res/layout/party.xml" value="0.22780797101449277" />
         <entry key="app/src/main/res/layout/party_layout.xml" value="0.2758152173913043" />

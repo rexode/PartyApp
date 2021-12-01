@@ -45,7 +45,7 @@ class AllParties : AppCompatActivity() {
         val sp: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
         val uidRestored = sp.getString("key", "")
 
-        Toast.makeText(this, uidRestored, Toast.LENGTH_SHORT).show()
+       // Toast.makeText(this, uidRestored, Toast.LENGTH_SHORT).show()
 
         actionBar?.setTitle("All partys")
         supportActionBar?.setTitle("All Partys")

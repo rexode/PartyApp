@@ -8,6 +8,7 @@ import android.location.Geocoder
 import android.location.Location
 import android.net.Uri
 import android.content.SharedPreferences
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -29,6 +30,8 @@ import java.io.IOException
 import java.util.*
 import com.example.partyapp.R
 import com.google.firebase.auth.ktx.auth
+import nl.dionsegijn.konfetti.models.Shape
+import nl.dionsegijn.konfetti.models.Size
 
 
 class PartyInfo() : AppCompatActivity() {
@@ -125,6 +128,20 @@ class PartyInfo() : AppCompatActivity() {
 
 
         button_join_party.setOnClickListener {
+
+            konfetti.build()
+                .addColors(Color.parseColor("#DB7261"), Color.parseColor("#F0973A"), Color.parseColor("#6eadff"))
+                .setDirection(0.0, 359.0)
+                .setSpeed(4f, 10f)
+                .setFadeOutEnabled(true)
+                .setTimeToLive(2000L)
+                .addShapes(Shape.RECT, Shape.CIRCLE)
+                .addSizes(Size(12, 5F))
+                .setPosition(-50f, konfetti.width + 50f, -50f)
+                .streamFor(300, 1000L)
+
+
+
             val sp: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
             val uidRestored = sp.getString("key", "")
             val sp2: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)

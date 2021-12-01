@@ -79,7 +79,7 @@ Fragment lets you enter party info, to create a new party
             app:layout_constraintTop_toBottomOf="@+id/textedit_party_name" />
 
         <EditText
-            android:maxLength="32"
+            android:maxLength="40"
             android:layout_marginTop="30dp"
             android:textColorHint="@color/m_dark_blue"
             android:fontFamily="@font/msemibold"
@@ -90,29 +90,36 @@ Fragment lets you enter party info, to create a new party
             android:layout_marginEnd="20dp"
             android:hint="Location" />
 
-        <EditText
-            android:textColorHint="@color/m_dark_blue"
-            android:fontFamily="@font/msemibold"
-            android:id="@+id/textedit_party_additionalInfo"
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:hint="Additional info" />
+            android:layout_height="121dp">
+
+            <EditText
+                android:id="@+id/textedit_party_additionalInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/msemibold"
+                android:hint="Additional info"
+                android:textColorHint="@color/m_dark_blue" />
+
+        </LinearLayout>
+
 
         <Button
             android:id="@+id/button_done"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginLeft="240dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="0dp"
             android:background="@drawable/edittext_background"
             android:fontFamily="@font/mmedium"
             android:letterSpacing="0.2"
             android:text="Done"
             android:textColor="@color/white" />
-
 
 
     </LinearLayout>

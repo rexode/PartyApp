@@ -55,6 +55,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:backgroundTint="@color/picture_blue"
         android:id="@+id/button_follower"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -75,8 +76,12 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:fontFamily="@font/msemibold"
-        android:text="My Parties:"
-        android:textColor="@color/blueSecond"
+        android:text="Hosting:"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/dark_yellow"
+        android:drawableStart="@drawable/following"
+        android:drawableTint="@color/dark_yellow"
+        android:drawablePadding="4dp"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,9 +89,10 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerviewAllParties"
-        android:layout_width="364dp"
-        android:layout_height="270dp"
+        android:layout_width="363dp"
+        android:layout_height="462dp"
         android:layout_marginHorizontal="22dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
