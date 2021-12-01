@@ -80,7 +80,7 @@ class UserListLiveData: MutableLiveData<MutableList<User>>() {
         return this
     }
     fun removeFollowing(userId:String,followingId:String){
-        db.collection("Parties").document(followingId).collection("participants").document(userId).delete()
+        db.collection("Users").document(userId).collection("followings").document(followingId).delete()
             .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully deleted!") }
             .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }
     }
