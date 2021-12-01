@@ -1,6 +1,10 @@
 package com.example.partyapp.friendlist
 
+import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -18,29 +22,21 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.friends_list_layout.*
 import kotlinx.android.synthetic.main.my_profile_layout.*
 import kotlinx.android.synthetic.main.party_layout.*
+import java.io.FileNotFoundException
+import java.io.IOException
 
 class MyProfile: AppCompatActivity() {
+
     private lateinit var partyViewModel: PartyViewModel
+    var SELECT_PHOTO = 1
+    var uri: Uri? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.my_profile_layout)
         partyViewModel = ViewModelProvider(this).get(PartyViewModel::class.java)
-        Toast.makeText(this,"aaaa",Toast.LENGTH_SHORT).show()
 
-        var userList = mutableListOf(
-            User("kek.wa.de","akekid","aaaaakek"),
-            User("kek.wb.de","bkekid","bbbbbkek"),
-            User("kek.wc.de","ckekid","ccccckek"),
-        )
-        var partyList = mutableListOf(
-            Party("aId", "aName", "atime", "ahere", "creatorid"),
-            Party("bId", "bName", "btime", "bhere", "creatorid"),
-            Party("cId", "cName", "ctime", "chere", "creatorid"),
-            Party("dId", "dName", "dtime", "dhere", "creatorid"),
-            Party("eId", "eName", "etime", "ehere", "creatorid"),
-        )
 
         //var liveList: List<User>
         //partyViewModel.getParticipants(intent.getStringExtra("id")!!).observe(this, { list ->
@@ -74,8 +70,42 @@ class MyProfile: AppCompatActivity() {
             my_user_name.setText(it.name)
 
         })
+
+
+        profilepic.setOnClickListener {
+            var intent : Intent =  Intent(Intent.ACTION_PICK)
+            intent.setType("image/*")
+            startActivityForResult(intent, SELECT_PHOTO)
+
+        }
+
     }
 
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+
+        if(requestCode == SELECT_PHOTO
+            && resultCode == RESULT_OK
+            && data != null
+            && data.data != null){
+
+
+            uri = data.data
+            try{
+                var bitmap:  Bitmap = MediaStore.Images.Media.getBitmap(contentResolver, uri)
+                profilepic.setImageBitmap(bitmap)
+
+            } catch (e: FileNotFoundException){
+                e.printStackTrace()
+            } catch (e: IOException){
+                e.printStackTrace()
+            }
+
+        }
+    }
 
     //also for go back button
     override fun onSupportNavigateUp(): Boolean {

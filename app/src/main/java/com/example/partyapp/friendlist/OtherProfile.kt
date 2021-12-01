@@ -38,8 +38,6 @@ class OtherProfile: AppCompatActivity() {
             if (userId != null) {
                     partyViewModel.addFollowing(user.email!!,user.id!!,user.name!!,thisUserid!!)
 
-
-
             }
         }
 
