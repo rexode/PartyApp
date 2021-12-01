@@ -32,7 +32,6 @@ class MyProfile: AppCompatActivity() {
     var uri: Uri? = null
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.my_profile_layout)
