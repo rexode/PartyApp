@@ -42,6 +42,12 @@ class AllParties : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.all_partys_layout)
 
+
+        val sp: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
+        val uidRestored = sp.getString("key", "")
+
+        Toast.makeText(this, uidRestored, Toast.LENGTH_SHORT).show()
+
         actionBar?.setTitle("All partys")
         supportActionBar?.setTitle("All Partys")
 

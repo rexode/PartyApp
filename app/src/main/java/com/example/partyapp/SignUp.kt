@@ -1,6 +1,7 @@
 package com.example.partyapp
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -66,6 +67,11 @@ class SignUp : AppCompatActivity() {
                                     "Sucessfully registered",
                                     Toast.LENGTH_SHORT
                                 ).show()
+
+                                val sp: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
+                                val edit : SharedPreferences.Editor = sp.edit()
+                                edit.putString("key", firebaseUser.uid)
+                                edit.apply()
 
                                 val intent = Intent(this, NameCreating::class.java)
                                 intent.putExtra("id",firebaseUser.uid)
