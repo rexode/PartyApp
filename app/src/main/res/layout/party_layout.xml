@@ -109,6 +109,7 @@ using "participant_textview.xml"
         app:layout_constraintTop_toBottomOf="@+id/textView_addInfo">
 
         <TextView
+            android:textColor="@color/blueSecond"
             android:textColorHint="@color/m_dark_blue"
             android:id="@+id/textView_insert_addInfo"
             android:layout_width="match_parent"
