@@ -241,10 +241,8 @@ class PartyInfo() : AppCompatActivity() {
 
             R.id.menu_delete -> {
 
-                partyViewModel.findParty(intent.getStringExtra("id")!!)
-                var db = FirebaseFirestore.getInstance()
-                db.collection("Parties").document(intent.getStringExtra("id")!!).delete()
-
+                val id=intent.getStringExtra("id")
+                partyViewModel.deleteParty(id!!)
             }
 
         }
