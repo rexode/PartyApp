@@ -91,7 +91,7 @@ class PartyInfoDialogFragment: DialogFragment() {
                 ).show()
             } else{
                 partyViewModel = ViewModelProvider(this).get(PartyViewModel::class.java)
-                val party= Party(textedit_party_name.text.toString(),textview_party_date.text.toString(),textview_party_time.text.toString(),textedit_party_location.text.toString(),textedit_party_additionalInfo.text.toString())
+                val party= Party(textedit_party_name.text.toString(),textview_party_date.text.toString(),textview_party_time.text.toString(),textedit_party_location.text.toString(),textedit_party_additionalInfo.text.toString(),id!!)
                 val user= User(email,id,name)
                 val newId=partyViewModel.addParty(party,user)
                 //Toast.makeText(activity,user.id+user.email+user.name+newId,Toast.LENGTH_SHORT).show()
