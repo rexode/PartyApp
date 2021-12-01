@@ -13,6 +13,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,7 +21,9 @@ import com.example.partyapp.livedata.PartyViewModel
 import com.example.partyapp.parties.Party
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.party_layout.*
 import java.io.IOException
 import java.util.*
@@ -63,6 +66,10 @@ class PartyInfo() : AppCompatActivity() {
 
         partyViewModel = ViewModelProvider(this).get(PartyViewModel::class.java)
         partyViewModel.findParty(intent.getStringExtra("id")).observe(this, { list ->
+            if(Firebase.auth.uid==list.get(0).creatorId){
+                button_delete_party.visibility=View.VISIBLE
+            }
+
             textView_party_name.text = list.get(0).name
             textView_party_time.text = list.get(0).time
             textView_insert_addInfo.text = list.get(0).AditionalInfo
@@ -140,7 +147,10 @@ class PartyInfo() : AppCompatActivity() {
             )
             //partyViewModel.addParticipants()
         }
-
+        button_delete_party.setOnClickListener{
+            val id=intent.getStringExtra("id")
+            partyViewModel.deleteParty(id!!)
+        }
 
     }
 
@@ -250,10 +260,8 @@ class PartyInfo() : AppCompatActivity() {
 
             com.example.partyapp.R.id.menu_delete -> {
 
-                partyViewModel.findParty(intent.getStringExtra("id")!!)
-                var db = FirebaseFirestore.getInstance()
-                db.collection("Parties").document(intent.getStringExtra("id")!!).delete()
-
+                val id=intent.getStringExtra("id")
+                partyViewModel.deleteParty(id!!)
             }
 
         }
