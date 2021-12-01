@@ -1,11 +1,13 @@
 package com.example.partyapp.partydetails
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.partyapp.R
+import com.example.partyapp.friendlist.OtherProfile
 import com.example.partyapp.livedata.User
 
 
@@ -19,6 +21,11 @@ class ParticipantAdapter(val Parties :List<User>) :RecyclerView.Adapter<Particip
     override fun onBindViewHolder(holder: ParticipantViewHolder, position: Int) {
         //holder.itemView.textView_participant1.text = Parties[position].name
         holder.textName.text = Parties[position].name
+        holder.textName.setOnClickListener{
+            val intent = Intent(it.context, OtherProfile::class.java)
+            intent.putExtra("id",Parties[position].id)
+            it.context.startActivity(intent)
+        }
     }
 
 
