@@ -123,7 +123,6 @@ class PartiesLiveDataPrueba: MutableLiveData<MutableList<Party>>() {
             if(e!=null){
                 Log.w(TAG,"Listen faile",e)
             }
-
             if(snapshot!=null){
                 var document = snapshot.documents
                 document.forEach{
