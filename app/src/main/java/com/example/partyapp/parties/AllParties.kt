@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.partyapp.*
 import com.example.partyapp.friendlist.MyProfile
 import com.example.partyapp.livedata.PartyViewModel
-import com.example.partyapp.livedata.User
+import com.example.partyapp.partydetails.User
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.example.partyapp.login.MainActivity
@@ -123,7 +123,7 @@ class AllParties : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.profile -> {
+            R.id.menu_profile -> {
                 //Toast.makeText(this, "Open Profile", Toast.LENGTH_SHORT).show()
 
                 var intent = Intent(this, MyProfile::class.java)
@@ -131,7 +131,7 @@ class AllParties : AppCompatActivity() {
             }
 
 
-            R.id.logout ->
+            R.id.menu_logout ->
                 {
                     // Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show()
                     var preferences: SharedPreferences = getSharedPreferences("checkbox", MODE_PRIVATE)

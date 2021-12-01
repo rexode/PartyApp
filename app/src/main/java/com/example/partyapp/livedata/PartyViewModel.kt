@@ -2,6 +2,7 @@ package com.example.partyapp.livedata
 
 import androidx.lifecycle.ViewModel
 import com.example.partyapp.parties.Party
+import com.example.partyapp.partydetails.User
 
 class PartyViewModel: ViewModel()  {
     private val Partiesprueba = PartiesLiveDataPrueba()
