@@ -26,7 +26,7 @@ class MyProfile: AppCompatActivity() {
         actionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         partyViewModel.getUser(Firebase.auth.currentUser?.uid!!).observe(this,{
-            user_number_of_followers.setText(it.name)
+            my_user_name.setText(it.name)
         })
     }
 

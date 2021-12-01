@@ -27,6 +27,7 @@ import java.io.IOException
 import java.util.*
 import android.view.View
 import com.example.partyapp.R
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 
@@ -46,7 +47,7 @@ class PartyInfo() : AppCompatActivity() {
     private var location: String = ""
     private var addInfo: String = ""
 
-   // private  var owner: Boolean = false
+    private  var owner: Boolean = false
 
 
 
@@ -77,11 +78,14 @@ class PartyInfo() : AppCompatActivity() {
 
         })
 
+        var usrId = "Error"
+        partyViewModel.findParty(intent.getStringExtra("id")).observe(this, { list ->
+             usrId = list.get(0).creatorId.toString()
 
-      /*  partyViewModel.findParty(intent.getStringExtra("id")).observe(this, { list ->
-            if(Firebase.auth.uid==list.get(0).creatorId){
-                button_delete_party.visibility=View.VISIBLE
-            }
+           // if(Firebase.auth.uid==list.get(0).creatorId){
+
+            })
+
 
         val sp: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
         val uidRestored = sp.getString("key", "")
@@ -93,8 +97,6 @@ class PartyInfo() : AppCompatActivity() {
             owner = true
 
         }
-
-       */
 
         var partyId = intent.getStringExtra("id")
         var liveList: List<User>
@@ -207,7 +209,7 @@ class PartyInfo() : AppCompatActivity() {
 
 // **********************************LOGOUT AND PROFILE MENU********************************************************************************
 
-/*
+
     override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
 
         if(!owner){
@@ -218,8 +220,6 @@ class PartyInfo() : AppCompatActivity() {
 
         return super.onPrepareOptionsMenu(menu)
     }
-
- */
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
