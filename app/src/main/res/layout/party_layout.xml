@@ -19,11 +19,19 @@ using "participant_textview.xml"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:layout_marginTop="-50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bluewave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:textColor="@color/blueSecond"
-        android:textColorHint="@color/blueSecond"
-        android:fontFamily="@font/msemibold"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:fontFamily="@font/simpsonfont"
         android:id="@+id/textView_party_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,41 +44,45 @@ using "participant_textview.xml"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:background="@color/grey_blueish"
+        android:id="@+id/textView_party_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="Time:"
+        android:fontFamily="@font/mmedium"
         android:textColor="@color/blueSecond"
         android:textColorHint="@color/blueSecond"
-        android:id="@+id/textView_party_time"
-        android:layout_width="170dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
-        android:hint="Time:"
-        android:textSize="30dp"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.917"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_party_name" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_party_name"
+        app:layout_constraintVertical_bias="1.0" />
+
 
     <TextView
-        android:background="@color/grey_blueish"
+        android:id="@+id/textView_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:fontFamily="@font/mmedium"
+        android:hint="Date:"
         android:textColor="@color/blueSecond"
         android:textColorHint="@color/blueSecond"
-        android:layout_marginTop="40dp"
-        android:id="@+id/textView_date"
-        android:layout_width="170dp"
-        android:layout_height="wrap_content"
-        android:hint="Date:"
-        android:textSize="30dp"
-        android:layout_marginStart="200dp"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.917"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_party_name" />
-
 
     <TextView
         android:id="@+id/textView_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
         android:hint="Location:"
         android:textColor="@color/blueSecond"
         android:textColorHint="@color/blueSecond"
@@ -78,13 +90,12 @@ using "participant_textview.xml"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_party_time" />
 
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:text="click location for route"
-        android:textColor="@color/blueSecond"
+        android:textColor="@color/light_picture_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_location" />
 

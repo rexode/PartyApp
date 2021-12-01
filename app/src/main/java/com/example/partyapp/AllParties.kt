@@ -73,7 +73,7 @@ class AllParties : AppCompatActivity() {
 
 
             nameG = name.toString()
-            Toast.makeText(this,id,Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this,id,Toast.LENGTH_SHORT).show()
             actualUser=user
             actualUser.id=id
             name=actualUser.name
@@ -83,17 +83,7 @@ class AllParties : AppCompatActivity() {
             val adapter = PartyAdapter(liveList,this)
             recyclerviewAllParties.adapter = adapter
         })
-        /*    var partyList = mutableListOf(
-                Party("aId", "aName", "atime", "ahere"),
-                Party("bId", "bName", "btime", "bhere"),
-                Party("cId", "cName", "ctime", "chere"),
-                Party("dId", "dName", "dtime", "dhere"),
-                Party("eId", "eName", "etime", "ehere"),
-            )
 
-         */
-
-            //recyclerviewAllParties.adapter = adapter
             recyclerviewAllParties.layoutManager = LinearLayoutManager(this)
 
 
@@ -109,23 +99,8 @@ class AllParties : AppCompatActivity() {
                 dialog.arguments=args
                 dialog.show(supportFragmentManager, "customDialog")
 
-                //partyList.add(Party("new", "new", "new", "new"))
-                //adapter.notifyItemInserted(partyList.size - 1)
             }
 
-
-
-      // **********************************REMOVED THIS BUTTON ******************************************************************************************************
-
-       /*  button_view_friends_list.setOnClickListener{
-            var dialog = FriendsListDialogFragment(this)
-            dialog.show(supportFragmentManager,"friendsListFragment")
-            /* in the end i decided having it as a dialogfragment would be easiest, i did it through several
-            different ways like normal fragment and separate layout, but this was the one i thought worked the smoothest */
-
-        }
-
-        */
 
         }
 
@@ -144,7 +119,7 @@ class AllParties : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.profile -> {
-                Toast.makeText(this, "Open Profile", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this, "Open Profile", Toast.LENGTH_SHORT).show()
 
                 var intent = Intent(this, ProfileActivity::class.java)
                 startActivity(intent)
@@ -153,7 +128,7 @@ class AllParties : AppCompatActivity() {
 
             R.id.logout ->
                 {
-                    Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show()
+                    // Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show()
                     var preferences: SharedPreferences = getSharedPreferences("checkbox", MODE_PRIVATE)
                     var editor: SharedPreferences.Editor = preferences.edit()
                     editor.putString("remember", "false")
