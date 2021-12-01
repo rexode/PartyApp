@@ -7,8 +7,6 @@ import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
 
 class PartyViewModel: ViewModel()  {
-    private val Parties = PartiesLiveData()
-    private var user =UserLiveData()
     private val Partiesprueba = PartiesLiveDataPrueba()
     private val userprueba=UserLiveDataPrueba()
     private val userList=UserListLiveData()
@@ -26,9 +24,7 @@ class PartyViewModel: ViewModel()  {
     fun getParties():PartiesLiveDataPrueba{
         return Partiesprueba.getParties()
     }
-    fun addUser(newUser:User){
-        FirebaseAuth.getInstance().currentUser?.let { user.addName(newUser, it.uid) }
-    }
+    
     fun getUserLiveData():UserLiveDataPrueba{
 
         return userprueba

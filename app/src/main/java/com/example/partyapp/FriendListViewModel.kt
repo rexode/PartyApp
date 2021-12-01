@@ -3,17 +3,17 @@ package com.example.partyapp
 import androidx.lifecycle.ViewModel
 
 class FriendListViewModel : ViewModel() {
-
-    private  val users = UserLiveData()
+/*
+    private  val users = UserLiveDataPrueba()
 
     fun addOrChangeList(list: FriendsList, id: String)
     {
-        users.addListOrUpdate(list,id)
+        //users.addListOrUpdate(list,id)
     }
 
     fun getList(id: String):MutableList<User>?
     {
-        return users.getFriendsList(id)
+        //return users.getFriendsList(id)
     }
 
     fun getUserData():UserLiveData
@@ -29,5 +29,5 @@ class FriendListViewModel : ViewModel() {
     fun getFriendsListData(): UserLiveData
     {
         return users
-    }
+    }*/
 }
