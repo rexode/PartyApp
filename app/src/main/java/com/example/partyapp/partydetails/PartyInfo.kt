@@ -27,6 +27,9 @@ import kotlinx.android.synthetic.main.party_layout.*
 import java.io.IOException
 import java.util.*
 
+
+
+
 class PartyInfo() : AppCompatActivity() {
     private lateinit var partyViewModel: PartyViewModel
     private val dummyParty: Party = Party("name", "today", "now", "here", "info")
@@ -75,6 +78,25 @@ class PartyInfo() : AppCompatActivity() {
             Party("dId", "dName", "dtime", "dhere"),
             Party("eId", "eName", "etime", "ehere"),
         )
+
+        var usrId :String = "error"
+        partyViewModel.findParty( intent.getStringExtra("id")!!).observe(this,{
+            usrId = it.get(0).creatorId!!
+        })
+
+        val sp: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
+        val uidRestored = sp.getString("key", "")
+        if(usrId == uidRestored){
+            /*
+            val myitem: MenuItem = menu
+            myitem.isVisible = false
+            val inflater = menuInflater
+            inflater.inflate(R.menu.dot_menu_partylayout, menu)
+            */
+
+        }
+
+        var partyId = intent.getStringExtra("id")
         var liveList: List<User>
         partyViewModel.getParticipants(intent.getStringExtra("id")!!).observe(this, { list ->
             liveList = list
@@ -183,7 +205,7 @@ class PartyInfo() : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.leave -> {
+            R.id.menu_leave -> {
 
                 //NOT TESTED YEEEEEEEEEEEEEET
                 val sp: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
@@ -193,12 +215,13 @@ class PartyInfo() : AppCompatActivity() {
             }
 
 
-            R.id.edit -> {
+            R.id.menu_edit -> {
+                //var db = FirebaseFirestore.getInstance()
 
                 var partyId = intent.getStringExtra("id")
 
 
-                Toast.makeText(this, partyId, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "have a good time c:", Toast.LENGTH_SHORT).show()
 
 
                 var dialog = PartyInfoDialogFragment2(partyId, name, time, date, location, addInfo)
@@ -206,7 +229,7 @@ class PartyInfo() : AppCompatActivity() {
 
             }
 
-            R.id.delete -> {
+            R.id.menu_delete -> {
 
                 partyViewModel.findParty(intent.getStringExtra("id")!!)
                 var db = FirebaseFirestore.getInstance()
