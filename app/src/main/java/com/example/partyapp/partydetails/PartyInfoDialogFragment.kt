@@ -1,6 +1,7 @@
 package com.example.partyapp.partydetails
 
 import android.app.DatePickerDialog
+import android.app.Dialog
 import android.app.TimePickerDialog
 import android.os.Bundle
 import android.view.View
@@ -13,6 +14,7 @@ import kotlinx.android.synthetic.main.enter_partyinfo_fragment.view.*
 import androidx.lifecycle.ViewModelProvider
 import com.example.partyapp.livedata.PartyViewModel
 import com.example.partyapp.R
+import com.example.partyapp.login.MainActivity
 import com.example.partyapp.parties.Party
 import java.text.SimpleDateFormat
 import java.util.*
@@ -126,6 +128,7 @@ class PartyInfoDialogFragment: DialogFragment() {
         TimePickerDialog(activity, timeSetListener, cal.get(Calendar.HOUR_OF_DAY),
             cal.get(Calendar.MINUTE), true).show()
     }
+
 
 
 }
