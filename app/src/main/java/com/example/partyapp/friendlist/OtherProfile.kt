@@ -54,7 +54,7 @@ class OtherProfile: AppCompatActivity() {
         button_follower.setOnClickListener {
             if (userId != null) {
                 if (button_follower.text== "unfollow") {
-                    Toast.makeText(this, userId+ " "+Firebase.auth.uid!!,Toast.LENGTH_LONG).show()
+                    //Toast.makeText(this, userId+ " "+Firebase.auth.uid!!,Toast.LENGTH_LONG).show()
                     partyViewModel.removeFollowing(Firebase.auth.uid!!, userId)
                     button_follower.text = "follow"
                 } else {
