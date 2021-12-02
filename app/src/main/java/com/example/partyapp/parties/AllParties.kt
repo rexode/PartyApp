@@ -99,7 +99,6 @@ class AllParties : AppCompatActivity() {
                 args.putString("userName",actualUser.name)
                 args.putString("userEmail",actualUser.email)
                 args.putString("userId",actualUser.id)
-                Toast.makeText(this,actualUser.id,Toast.LENGTH_SHORT).show()
 
                 dialog.arguments=args
                 dialog.show(supportFragmentManager, "customDialog")

@@ -34,7 +34,6 @@ class PartyInfoDialogFragment: DialogFragment() {
         var name = arguments?.getString("userName")
         var email = arguments?.getString("userEmail")
         var id = arguments?.getString("userId")
-        Toast.makeText(activity,name,Toast.LENGTH_SHORT).show()
 
 
         // Date-picker
