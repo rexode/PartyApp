@@ -18,7 +18,6 @@ class ParticipantAdapter(val Parties :List<User>) :RecyclerView.Adapter<Particip
     }
 
     override fun onBindViewHolder(holder: ParticipantViewHolder, position: Int) {
-        //holder.itemView.textView_participant1.text = Parties[position].name
         holder.textName.text = Parties[position].name
         holder.textName.setOnClickListener{
             val intent = Intent(it.context, OtherProfile::class.java)
@@ -27,19 +26,6 @@ class ParticipantAdapter(val Parties :List<User>) :RecyclerView.Adapter<Particip
         }
     }
 
-
-        //maybe wrong "textname" should be itemview I thinkkk!!
-        //var partyModel= PartyViewModel()
-        //holder.partyBtn.text = Parties[position].name
-        //holder.partyLoc.text = Parties[position].location
-        //holder.partTime.text = Parties[position].time
-       // val partyId=Parties[position].uid
-        //holder.partyBtn.setOnClickListener{
-        //    partyModel.findParty(partyId,lf,(holder.partyBtn.getContext() as FragmentActivity).supportFragmentManager)
-        //}
-        //holder.itemView.text
-
-        //holder.textName.text=Party.title
 
     override fun getItemCount(): Int {
         return Parties.size

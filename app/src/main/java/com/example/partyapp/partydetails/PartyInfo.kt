@@ -22,14 +22,10 @@ import com.example.partyapp.livedata.PartyViewModel
 import com.example.partyapp.parties.Party
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.party_layout.*
 import java.io.IOException
 import java.util.*
 import com.example.partyapp.R
-import com.google.firebase.auth.ktx.auth
 import nl.dionsegijn.konfetti.models.Shape
 import nl.dionsegijn.konfetti.models.Size
 
@@ -38,7 +34,6 @@ class PartyInfo() : AppCompatActivity() {
 
 
     private lateinit var partyViewModel: PartyViewModel
-    private val dummyParty: Party = Party("name", "today", "now", "here", "info")
 
     lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
@@ -80,15 +75,6 @@ class PartyInfo() : AppCompatActivity() {
             date = list.get(0).date.toString()
 
         })
-        var partyList = mutableListOf(
-            Party("aId", "aName", "atime", "ahere", "creatorid"),
-            Party("bId", "bName", "btime", "bhere", "creatorid"),
-            Party("cId", "cName", "ctime", "chere", "creatorid"),
-            Party("dId", "dName", "dtime", "dhere", "creatorid"),
-            Party("eId", "eName", "etime", "ehere", "creatorid"),
-        )
-
-
 
 
         val sp: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
@@ -110,10 +96,7 @@ class PartyInfo() : AppCompatActivity() {
             val adapter = ParticipantAdapter(liveList)
             recyclerviewPartyInfo.adapter = adapter
         })
-        //val adapter = ParticipantAdapter(partyList)
         recyclerviewPartyInfo.layoutManager = LinearLayoutManager(this)
-        //recyclerviewPartyInfo.adapter = adapter
-        //recyclerviewPartyInfo.layoutManager = LinearLayoutManager(this)
 
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
@@ -148,20 +131,17 @@ class PartyInfo() : AppCompatActivity() {
             val nameRestored = sp2.getString("username", "")
             val sp3: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
             val emailRestored = sp3.getString("email", "")
-            // Toast.makeText(this, emailRestored, Toast.LENGTH_SHORT).show()
             partyViewModel.addParticipants(
                 emailRestored!!,
                 uidRestored!!,
                 nameRestored!!,
                 intent.getStringExtra("id")!!
             )
-            //partyViewModel.addParticipants()
         }
     }
 
 
     //open map-intent
-    // We should maybe first ask for permission to get the location
     @SuppressLint("MissingPermission")
     fun getLocation() {
         //gets the users location
@@ -217,14 +197,11 @@ class PartyInfo() : AppCompatActivity() {
         var inflator: MenuInflater = menuInflater
         inflator.inflate(com.example.partyapp.R.menu.dot_menu_partylayout, menu)
 
-        var item_delete = menu!!.findItem(com.example.partyapp.R.id.menu_edit)
-        // item_delete!!.isVisible = false //
-
         return true
     }
 
 
-// **********************************LOGOUT AND PROFILE MENU********************************************************************************
+// LOGOUT AND PROFILE MENU
 
 
     override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
@@ -247,18 +224,13 @@ class PartyInfo() : AppCompatActivity() {
         when (item.itemId) {
             com.example.partyapp.R.id.menu_leave -> {
 
-
-                //NOT TESTED YEEEEEEEEEEEEEET
                 val sp: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
                 val uidRestored = sp.getString("key", "")
-                //Toast.makeText(this, "jmGgeoscPYgjjqzW49sjLMx7HJv2",Toast.LENGTH_LONG).show()
                 partyViewModel.removeParticipant(uidRestored!!, intent.getStringExtra("id")!!)
             }
 
 
             com.example.partyapp.R.id.menu_edit -> {
-                //var db = FirebaseFirestore.getInstance()
-
                 var partyId = intent.getStringExtra("id")
 
 

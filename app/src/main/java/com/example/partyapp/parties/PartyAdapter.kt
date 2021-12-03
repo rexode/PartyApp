@@ -21,8 +21,6 @@ class PartyAdapter(val Parties :List<Party>, val lf: LifecycleOwner) :RecyclerVi
     }
 
     override fun onBindViewHolder(holder: PartyViewHolder, position: Int) {
-        //maybe wrong "textname" should be itemview I thinkkk!!
-        var partyModel= PartyViewModel()
         holder.partyBtn.text = Parties[position].name
         holder.partyLoc.text = Parties[position].location
         holder.partTime.text = Parties[position].time
@@ -33,29 +31,7 @@ class PartyAdapter(val Parties :List<Party>, val lf: LifecycleOwner) :RecyclerVi
             intent.putExtra("id",partyId)
             it.context.startActivity(intent)
             }
-        //holder.itemView.text
 
-        //holder.textName.text=Party.title
-        /*
-if(position%6 == 0){
-holder.partyBtn.setBackgroundColor(R.color.dark_red)
-}
-if(position%6 == 1){
-holder.partyBtn.setBackgroundColor(R.color.light_red)
-}
-if(position%6 == 2){
-holder.partyBtn.setBackgroundColor(R.color.dark_yellow)
-}
-if(position%6 == 3){
-holder.partyBtn.setBackgroundColor(R.color.light_yellow)
-}
-if(position%6 == 4){
-holder.partyBtn.setBackgroundColor(R.color.picture_blue)
-}
-else{
-holder.partyBtn.setBackgroundColor(R.color.light_picture_blue)
-}
-*/
     }
 
     override fun getItemCount(): Int {

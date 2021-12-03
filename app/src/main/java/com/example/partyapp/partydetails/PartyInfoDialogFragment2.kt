@@ -139,8 +139,6 @@ private var addInfo = addInfo
 
 
 
-    // *********************************************************************************************************************
-
 
     // Dateformatter
     private fun updateLable(myCalender: Calendar) {
@@ -173,7 +171,7 @@ private var addInfo = addInfo
         return Party(name, date, time, location, addInfo)
     }
 
-        fun getNewPartyMap(): Map<String, Any> { // from enter_partyinfo_fragment
+        fun getNewPartyMap(): Map<String, Any> {
             val name = textedit_party_name.text.toString()
             val date = textview_party_date.text.toString()
             val time = textview_party_time.text.toString()

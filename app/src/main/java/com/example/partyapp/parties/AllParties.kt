@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -45,30 +44,23 @@ class AllParties : AppCompatActivity() {
         val sp: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
         val uidRestored = sp.getString("key", "")
 
-       // Toast.makeText(this, uidRestored, Toast.LENGTH_SHORT).show()
 
         actionBar?.setTitle("All partys")
         supportActionBar?.setTitle("All Partys")
 
         reference = FirebaseDatabase.getInstance().getReference("Parties")
         viewModel= ViewModelProvider(this).get(PartyViewModel::class.java)
-        //reference = FirebaseDatabase.getInstance().getReference("Users")
         val id=intent.getStringExtra("id")
         if (id != null) {
             idG = id
         }
         var name: String? =id
-        /*reference.child(id!!).get().addOnSuccessListener {
-            if(it.exists()){
-                name= it.child("name").value as String?
-            }}*/
+
         viewModel.getUser(id!!).observe(this,{user->
-           // Toast.makeText(this,user.name,Toast.LENGTH_SHORT).show()
 
             name=user.name
 
 
-            // *********************************************************
 
             val sp: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
             val edit : SharedPreferences.Editor = sp.edit()
@@ -78,7 +70,6 @@ class AllParties : AppCompatActivity() {
 
 
             nameG = name.toString()
-            //Toast.makeText(this,id,Toast.LENGTH_SHORT).show()
             actualUser=user
             actualUser.id=id
             name=actualUser.name
@@ -118,12 +109,11 @@ class AllParties : AppCompatActivity() {
     }
 
 
-    // **********************************LOGOUT AND PROFILE MENU********************************************************************************
+    //LOGOUT AND PROFILE MENU
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.menu_profile -> {
-                //Toast.makeText(this, "Open Profile", Toast.LENGTH_SHORT).show()
 
                 var intent = Intent(this, MyProfile::class.java)
                 startActivity(intent)
@@ -132,7 +122,6 @@ class AllParties : AppCompatActivity() {
 
             R.id.menu_logout ->
                 {
-                    // Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show()
                     var preferences: SharedPreferences = getSharedPreferences("checkbox", MODE_PRIVATE)
                     var editor: SharedPreferences.Editor = preferences.edit()
                     editor.putString("remember", "false")
