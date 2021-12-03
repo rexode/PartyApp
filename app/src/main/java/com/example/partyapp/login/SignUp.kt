@@ -25,33 +25,34 @@ class SignUp : AppCompatActivity() {
 
 
         button_createAcc.setOnClickListener {
-            when{
-                TextUtils.isEmpty(textview_email.text.toString().trim{it<=' '})->{
+            when {
+                TextUtils.isEmpty(textview_email.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
                         this,
                         "Please enter email",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-                TextUtils.isEmpty(textview_password.text.toString().trim{it<=' '})->{
+                TextUtils.isEmpty(textview_password.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
                         this,
                         "Please enter Password",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-                !textview_password.text.toString().equals(textview_confirm_password.text.toString())->{
+                !textview_password.text.toString()
+                    .equals(textview_confirm_password.text.toString()) -> {
                     Toast.makeText(
                         this,
                         "Confirm Password in incorrect",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-                else->{
-                    val email=textview_email.text.toString().trim{it<= ' '}
-                    val password=textview_password.text.toString().trim{it<= ' '}
+                else -> {
+                    val email = textview_email.text.toString().trim { it <= ' ' }
+                    val password = textview_password.text.toString().trim { it <= ' ' }
 
-                    FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,password)
+                    FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful) {
                                 val firebaseUser: FirebaseUser = task.result!!.user!!
@@ -62,20 +63,21 @@ class SignUp : AppCompatActivity() {
                                     Toast.LENGTH_SHORT
                                 ).show()
 
-                                val sp: SharedPreferences = getSharedPreferences("FILE_NAME", MODE_PRIVATE)
-                                val edit : SharedPreferences.Editor = sp.edit()
+                                val sp: SharedPreferences =
+                                    getSharedPreferences("FILE_NAME", MODE_PRIVATE)
+                                val edit: SharedPreferences.Editor = sp.edit()
                                 edit.putString("key", firebaseUser.uid)
                                 edit.apply()
 
                                 val intent = Intent(this, NameCreating::class.java)
-                                intent.putExtra("id",firebaseUser.uid)
-                                intent.putExtra("email",email)
+                                intent.putExtra("id", firebaseUser.uid)
+                                intent.putExtra("email", email)
                                 startActivity(intent)
                                 finish()
-                            }else{
+                            } else {
                                 Toast.makeText(
                                     this,
-                                    task.exception!!.message.toString() ,
+                                    task.exception!!.message.toString(),
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
@@ -86,6 +88,7 @@ class SignUp : AppCompatActivity() {
 
         }
     }
+
     //also for go back button
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()

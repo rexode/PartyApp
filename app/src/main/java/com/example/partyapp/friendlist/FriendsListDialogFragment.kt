@@ -23,7 +23,7 @@ track of that yet for now this will be a simple list
 class FriendsListDialogFragment(var Activity: AllParties) : DialogFragment() {
 
     private lateinit var referance: DatabaseReference
-    private lateinit var viewmodel : FriendListViewModel
+    private lateinit var viewmodel: FriendListViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,7 +31,7 @@ class FriendsListDialogFragment(var Activity: AllParties) : DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        var lview : View = inflater.inflate(R.layout.friends_list_layout,container,false)
+        var lview: View = inflater.inflate(R.layout.friends_list_layout, container, false)
         referance = FirebaseDatabase.getInstance().getReference("FriendsLists")
         viewmodel = ViewModelProvider(this).get(FriendListViewModel::class.java)
 
@@ -39,11 +39,8 @@ class FriendsListDialogFragment(var Activity: AllParties) : DialogFragment() {
 
         lview.textView_user_name_fl.text = Activity.getName()
         lview.recyclerView_friends_list.layoutManager = LinearLayoutManager(Activity)
-        //lview.recyclerView_friends_list.adapter = FriendsListAdapter(viewmodel.getList(Activity.getId()))
 
-
-        button_add_friend.setOnClickListener{
-            //viewmodel.addFriendToList(Activity.getId(),flist_enter_email.text.toString())
+        button_add_friend.setOnClickListener {
             flist_enter_email.text.clear()
         }
 
